@@ -1,0 +1,17 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><strong>SelectVerdict</strong><p>Independent software research, comparisons, and recommendations built around evidence and clear editorial judgment.</p></div>
+    <nav aria-label="Company"><strong>Company</strong><a href="/about/">About</a><a href="/how-we-review/">How we review</a><a href="/affiliate-disclosure/">Affiliate disclosure</a></nav>
+    <nav aria-label="Legal"><strong>Legal</strong><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></nav>
+  </div>
+  <div class="container fine-print"><span>&copy; {new Date().getFullYear()} SelectVerdict.</span><span>Editorial independence comes first.</span></div>
+</footer>
+<style>
+  .site-footer { padding-block: 3rem 1.5rem; border-top: 1px solid var(--line); background: var(--surface-muted); }
+  .footer-grid { display: grid; grid-template-columns: minmax(0, 2fr) repeat(2, minmax(8rem, 1fr)); gap: 2rem; }
+  .footer-grid p { max-width: 34rem; color: var(--ink-soft); }
+  nav { display: flex; flex-direction: column; gap: 0.5rem; }
+  nav a { color: var(--ink-soft); }
+  .fine-print { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 0.82rem; }
+  @media (max-width: 40rem) { .footer-grid { grid-template-columns: 1fr; } .fine-print { flex-direction: column; } }
+</style>

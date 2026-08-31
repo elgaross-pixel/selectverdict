@@ -1,0 +1,9 @@
+---
+interface Props { hasRelationship?: boolean }
+const { hasRelationship = false } = Astro.props;
+---
+<aside class="disclosure" aria-label="Affiliate disclosure">
+  <strong>Affiliate disclosure</strong>
+  <p>{hasRelationship ? 'This page may contain affiliate links. SelectVerdict may earn a commission if you buy through them, at no added cost to you. Affiliate relationships do not determine our editorial conclusions.' : 'No affiliate relationship is identified for this page. If that changes, we will disclose it clearly and it will not determine our editorial conclusions.'} <a href="/affiliate-disclosure/">Read our policy</a>.</p>
+</aside>
+<style>.disclosure { padding: 1rem 1.25rem; border-left: 4px solid var(--accent); background: var(--warning); } p { margin: 0.25rem 0 0; }</style>

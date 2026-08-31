@@ -1,0 +1,7 @@
+---
+import type { Product } from '../lib/content';
+interface Props { product: Product }
+const { product } = Astro.props;
+---
+<article class="card product-card"><p class="eyebrow">{product.data.categories.join(' · ')}</p><h2><a href={`/reviews/${product.data.slug}/`}>{product.data.name}</a></h2><p>{product.data.summary.text}</p><a href={`/reviews/${product.data.slug}/`} aria-label={`Read our ${product.data.name} research`}>Read research <span aria-hidden="true">→</span></a></article>
+<style>.product-card h2 { font-size: 1.45rem; } .product-card h2 a { color: var(--ink); text-decoration: none; }</style>
