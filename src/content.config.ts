@@ -39,8 +39,17 @@ const products = defineCollection({
     if (product.status === 'published' && (!product.lastVerified || product.sources.length === 0)) {
       context.addIssue({ code: 'custom', message: 'Published products require a lastVerified date and at least one source.' });
     }
+    if (product.status === 'published' && product.summary.status === 'unverified') {
+      context.addIssue({ code: 'custom', message: 'Published products cannot use an unverified public summary.' });
+    }
     if (product.hasAffiliateRelationship && !product.affiliateUrl) {
       context.addIssue({ code: 'custom', message: 'Affiliate relationships require an affiliateUrl.' });
+    }
+    if (product.affiliateUrl && !product.hasAffiliateRelationship) {
+      context.addIssue({ code: 'custom', message: 'An affiliateUrl requires an explicitly declared affiliate relationship.' });
+    }
+    if (product.affiliateUrl && product.officialWebsite === product.affiliateUrl) {
+      context.addIssue({ code: 'custom', message: 'officialWebsite and affiliateUrl must remain distinct destinations.' });
     }
   }),
 });
@@ -55,12 +64,58 @@ const comparisons = defineCollection({
     products: z.array(z.string()).min(2),
     lastVerified: z.coerce.date().optional(),
     sources: z.array(sourceSchema).default([]),
+    methodology: z.string().min(1).optional(),
     conclusion: z.object({ summary: z.string(), basis: z.string() }).optional(),
   }).superRefine((comparison, context) => {
-    if (comparison.status === 'published' && (!comparison.lastVerified || comparison.sources.length === 0 || !comparison.conclusion)) {
-      context.addIssue({ code: 'custom', message: 'Published comparisons require verification, sources, and a conclusion.' });
+    if (comparison.status === 'published' && (!comparison.lastVerified || comparison.sources.length === 0 || !comparison.methodology || !comparison.conclusion)) {
+      context.addIssue({ code: 'custom', message: 'Published comparisons require verification, sources, methodology, and a conclusion.' });
     }
   }),
 });
 
-export const collections = { products, comparisons };
+const editorialSchema = z.object({
+  slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+  title: z.string().min(1),
+  description: z.string().min(1),
+  status: z.enum(['draft', 'published']).default('draft'),
+  lastVerified: z.coerce.date().optional(),
+  sources: z.array(sourceSchema).default([]),
+  methodology: z.string().min(1).optional(),
+  conclusion: z.object({ summary: z.string().min(1), basis: z.string().min(1) }).optional(),
+});
+
+function requirePublishedEditorialFields(
+  entry: z.infer<typeof editorialSchema>,
+  context: z.RefinementCtx,
+) {
+  if (entry.status === 'published' &&
+      (!entry.lastVerified || entry.sources.length === 0 || !entry.methodology || !entry.conclusion)) {
+    context.addIssue({
+      code: 'custom',
+      message: 'Published editorial records require verification, sources, methodology, and a conclusion.',
+    });
+  }
+}
+
+const reviews = defineCollection({
+  loader: glob({ pattern: '**/*.{json,yaml,yml}', base: './src/data/reviews' }),
+  schema: editorialSchema.extend({ product: z.string() }).superRefine(requirePublishedEditorialFields),
+});
+
+const alternatives = defineCollection({
+  loader: glob({ pattern: '**/*.{json,yaml,yml}', base: './src/data/alternatives' }),
+  schema: editorialSchema.extend({
+    product: z.string(),
+    alternatives: z.array(z.string()).min(1),
+  }).superRefine(requirePublishedEditorialFields),
+});
+
+const recommendations = defineCollection({
+  loader: glob({ pattern: '**/*.{json,yaml,yml}', base: './src/data/recommendations' }),
+  schema: editorialSchema.extend({
+    category: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+    products: z.array(z.string()).min(1),
+  }).superRefine(requirePublishedEditorialFields),
+});
+
+export const collections = { products, reviews, comparisons, alternatives, recommendations };

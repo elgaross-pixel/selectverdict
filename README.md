@@ -39,12 +39,16 @@ The build writes static files to `dist/`. The configured production origin is `h
 
 ## Content architecture
 
-Product and comparison records use Astro content collections configured in `src/content.config.ts`:
+Factual product records and separate editorial artifacts use Astro content collections configured in `src/content.config.ts`:
 
 - `src/data/products/` contains one JSON or YAML record per product.
 - `src/data/comparisons/` contains one JSON or YAML record per comparison.
+- `src/data/reviews/` contains independently publishable review records.
+- `src/data/alternatives/` contains independently publishable alternatives guides.
+- `src/data/recommendations/` contains the only records permitted to generate `/best/` pages.
 - Records default to `draft`; only `published` records generate public commercial routes.
-- Published records must include sources and a verification date. Product claims explicitly distinguish `verified`, `editorial`, and `unverified` content.
+- Published editorial records must include sources, a verification date, methodology, and a supported conclusion. Their product references are validated against published factual records during static route generation.
+- Product claims explicitly distinguish `verified`, `editorial`, and `unverified` content. A product record alone does not publish a review, alternatives guide, comparison, or best-of page.
 
 See the README in each data directory for publication rules. Do not publish invented product facts or imply hands-on testing that did not occur.
 
