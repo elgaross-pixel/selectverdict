@@ -1,0 +1,18 @@
+{
+  "name": "Unpublished product template",
+  "slug": "unpublished-product-template",
+  "status": "draft",
+  "hasAffiliateRelationship": false,
+  "categories": ["replace-with-category"],
+  "summary": {
+    "text": "Placeholder only. Replace this record with researched information before publication.",
+    "status": "unverified"
+  },
+  "keyFeatures": [],
+  "pros": [],
+  "cons": [],
+  "bestFor": [],
+  "notFor": [],
+  "alternatives": [],
+  "sources": []
+}

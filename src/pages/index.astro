@@ -1,17 +1,20 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTA from '../components/CTA.astro';
+const schema = { '@context': 'https://schema.org', '@type': 'WebSite', name: 'SelectVerdict', url: 'https://selectverdict.com/', description: 'Independent software research, comparisons, and recommendations.' };
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="SelectVerdict" description="Independent software research, comparisons, and recommendations with transparent methods and evidence." schema={schema}>
+  <section class="hero"><div class="container hero-grid"><div><p class="eyebrow">Independent software research</p><h1>Better software decisions start with better evidence.</h1><p class="lede">SelectVerdict publishes careful reviews, direct comparisons, and practical recommendations—showing what is verified, what is editorial judgment, and when the facts were last checked.</p><div class="actions"><a class="button" href="/software/">Explore software</a><a class="button button-secondary" href="/how-we-review/">See how we review</a></div></div><aside class="principles" aria-label="Our editorial principles"><p class="eyebrow">The standard</p><ul><li><strong>Evidence attached</strong><span>Material factual claims trace back to named sources.</span></li><li><strong>Judgment labeled</strong><span>Analysis is distinct from vendor-provided facts.</span></li><li><strong>Currency visible</strong><span>Commercial pages show when information was verified.</span></li></ul></aside></div></section>
+  <section class="section"><div class="container"><p class="eyebrow">Ways to research</p><h2>Start from the decision you need to make.</h2><div class="grid grid-3"><article class="card"><h3>Reviews</h3><p>Understand a product's fit, limitations, evidence, and editorial verdict in one place.</p><a href="/software/#reviews">Browse reviews</a></article><article class="card"><h3>Comparisons</h3><p>Evaluate meaningful differences between products without invented scores or false precision.</p><a href="/software/#comparisons">Browse comparisons</a></article><article class="card"><h3>Recommendations</h3><p>Find category guidance organized around use cases, constraints, and tradeoffs.</p><a href="/software/#categories">Browse categories</a></article></div></div></section>
+  <section class="section approach"><div class="container split"><div><p class="eyebrow">Transparent by design</p><h2>Research you can inspect, not just conclusions you can read.</h2></div><div><p>Our publishing system separates sourced facts from editorial assessment. We display verification dates, disclose affiliate relationships, and explain the basis of each verdict.</p><p>We never claim hands-on testing unless it actually happened and the method is described.</p><a href="/how-we-review/">Read the full methodology →</a></div></div></section>
+  <section class="section"><div class="container"><CTA title="Research library in progress" text="We are building the catalog carefully. Until evidence is ready, we publish honest structure—not filler recommendations." href="/software/" label="View the library" /></div></section>
+</BaseLayout>
+<style>
+  .hero { padding-block: clamp(4rem, 10vw, 8rem); background: radial-gradient(circle at 85% 15%, #dbe9df, transparent 34%); }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(17rem, 0.8fr); align-items: center; gap: clamp(2rem, 6vw, 6rem); }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+  .principles { padding: 1.5rem; border: 1px solid var(--line); border-top: 4px solid var(--brand); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
+  .principles ul { margin: 0; padding: 0; list-style: none; } .principles li + li { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--line); } .principles strong, .principles span { display: block; } .principles span { color: var(--ink-soft); font-size: 0.92rem; }
+  .approach { background: var(--surface-muted); } .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 7vw, 7rem); }
+  @media (max-width: 46rem) { .hero-grid, .split { grid-template-columns: 1fr; } }
+</style>

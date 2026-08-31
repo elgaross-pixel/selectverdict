@@ -1,0 +1,15 @@
+---
+interface Props {
+  href: string;
+  hasRelationship: boolean;
+  label: string;
+  class?: string;
+}
+
+const { href, hasRelationship, label, class: className } = Astro.props;
+if (!hasRelationship) {
+  throw new Error('Affiliate links may only render for an explicitly declared affiliate relationship.');
+}
+---
+
+<a href={href} rel="sponsored noopener" class={className}>{label}</a>

@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonical?: URL | string;
+  image?: URL | string;
+  noindex?: boolean;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const { title, description, canonical = Astro.url, image, noindex = false, schema } = Astro.props;
+const siteName = 'SelectVerdict';
+const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
+const canonicalUrl = new URL(canonical, Astro.site);
+const imageUrl = image ? new URL(image, Astro.site) : undefined;
+---
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+<link rel="sitemap" href="/sitemap-index.xml" />
+{noindex && <meta name="robots" content="noindex, follow" />}
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+{imageUrl && <meta property="og:image" content={imageUrl} />}
+<meta name="twitter:card" content={imageUrl ? 'summary_large_image' : 'summary'} />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+{schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}

@@ -1,0 +1,6 @@
+---
+interface Props { summary: string; basis: string }
+const { summary, basis } = Astro.props;
+---
+<section class="verdict" aria-labelledby="verdict-title"><p class="eyebrow">Editorial verdict</p><h2 id="verdict-title">Our conclusion</h2><p class="summary">{summary}</p><p><strong>Basis:</strong> {basis}</p></section>
+<style>.verdict { padding: clamp(1.5rem, 4vw, 2.5rem); border: 1px solid var(--brand); border-radius: var(--radius); background: var(--info); } .summary { font-size: 1.15rem; }</style>
