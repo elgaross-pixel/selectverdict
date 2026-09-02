@@ -1,0 +1,70 @@
+name: systeme.io
+slug: systeme-io
+status: published
+officialWebsite: https://systeme.io/
+affiliateUrl: https://systeme.io/ru?sa=sa0279351357ea4e5af663df944162ce92d26d43e5
+hasAffiliateRelationship: true
+categories:
+  - marketing-automation
+  - sales-funnels
+  - online-course-platforms
+summary:
+  text: "systeme.io is an all-in-one platform combining sales funnels, email marketing, automation, online courses, communities, affiliate management, and related tools in one account."
+  status: verified
+pricingSummary:
+  text: "At our August 31, 2026 verification, the official pricing page listed Free at $0/month, Startup at $17/month, Webinar at $47/month, and Unlimited at $97/month. Annual billing was listed at $170, $470, and $970 for the paid tiers."
+  status: verified
+keyFeatures:
+  - text: "Sales funnel builder with landing pages, forms, upsells, order bumps, and A/B testing."
+    status: verified
+  - text: "Email campaigns, newsletters, tags, automation rules, and multi-step workflows."
+    status: verified
+  - text: "Online courses, communities, booking calendars, affiliate management, and a public API."
+    status: verified
+  - text: "All plans list unlimited email sends and file storage, with 0% systeme.io transaction fees."
+    status: verified
+pros:
+  - text: "A usable free tier lets a small business build and publish a lead funnel before paying."
+    status: editorial
+  - text: "Our free-plan test completed a real funnel-to-contact flow: we published a lead-generation funnel, submitted its form, and confirmed the lead appeared in the contact database."
+    status: verified
+  - text: "The product combines several functions that would otherwise often require separate funnel, email, course, and automation tools."
+    status: editorial
+cons:
+  - text: "Official pricing materials contained some inconsistent plan-limit wording when we verified them, so buyers should confirm limits for any feature that matters to their workflow."
+    status: verified
+  - text: "We did not complete a live email send during our hands-on test, so this review does not independently verify outbound email delivery or deliverability."
+    status: verified
+  - text: "We did not independently test checkout/payment execution, course delivery, webinar execution, API/webhook execution, migration, export, support quality, or production-scale reliability."
+    status: verified
+bestFor:
+  - text: "Solo operators and small businesses that want funnels, basic CRM/contact capture, email automation, and digital-product tools in one platform."
+    status: editorial
+  - text: "Users who want to validate a funnel and automation workflow on a free plan before committing to a paid subscription."
+    status: editorial
+notFor:
+  - text: "Teams whose purchase depends on advanced reporting, deep customization, or a specific third-party integration should validate those requirements before switching."
+    status: editorial
+  - text: "Buyers who need independently verified enterprise-scale performance or email deliverability evidence should not treat this review as proof of those capabilities."
+    status: editorial
+alternatives: []
+lastVerified: 2026-08-31
+sources:
+  - title: "systeme.io pricing"
+    url: https://systeme.io/pricing
+    publisher: systeme.io
+    accessedAt: 2026-08-31
+    supports: "Current plan names, headline pricing, contact limits, core plan positioning, unlimited email sends/file storage, and zero platform transaction fees."
+  - title: "systeme.io Terms and Conditions"
+    url: https://systeme.io/terms-and-conditions
+    publisher: systeme.io
+    accessedAt: 2026-08-31
+    supports: "Subscription and company terms used in the research record."
+  - title: "systeme.io Help Center"
+    url: https://help.systeme.io/
+    publisher: systeme.io
+    accessedAt: 2026-08-31
+    supports: "Feature-operation and account documentation used to cross-check funnels, automation, email, courses, payments, API/webhooks, and related features."
+verdict:
+  summary: "A credible low-cost all-in-one option for entrepreneurs who value consolidation and a genuinely usable free entry point, but not a substitute for specialized tools when advanced requirements matter."
+  basis: "Official documentation plus our hands-on free-plan funnel, form, CRM-contact, and workflow-builder checks; untested capabilities are explicitly excluded from the conclusion."

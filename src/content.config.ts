@@ -99,7 +99,19 @@ function requirePublishedEditorialFields(
 
 const reviews = defineCollection({
   loader: glob({ pattern: '**/*.{json,yaml,yml}', base: './src/data/reviews' }),
-  schema: editorialSchema.extend({ product: z.string() }).superRefine(requirePublishedEditorialFields),
+  schema: editorialSchema.extend({
+    product: z.string(),
+    showProductAssessment: z.boolean().default(true),
+    sections: z.array(z.object({
+      heading: z.string().min(1),
+      paragraphs: z.array(z.string().min(1)).min(1),
+    })).default([]),
+  }).superRefine((review, context) => {
+    requirePublishedEditorialFields(review, context);
+    if (review.status === 'published' && review.sections.length === 0) {
+      context.addIssue({ code: 'custom', message: 'Published reviews require article sections.' });
+    }
+  }),
 });
 
 const alternatives = defineCollection({
