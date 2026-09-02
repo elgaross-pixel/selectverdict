@@ -3,6 +3,7 @@ title: "systeme.io Review (2026): What We Verified on the Free Plan"
 description: "An evidence-based systeme.io review covering pricing, funnels, CRM contact capture, automation, limitations, and the parts we did not test."
 status: published
 product: systeme-io
+showProductAssessment: false
 lastVerified: 2026-08-31
 methodology: "We separated first-party product facts from our own hands-on observations and editorial judgments. We reviewed systeme.io's official pricing, terms, and help documentation, then used a free account to create and publish a lead-generation funnel, submit its public form, verify that the submitted lead appeared in Contacts, inspect automation Rules, create a paused Workflow, and inspect available workflow steps including Action, Decision, and Delay. We also inspected the campaign/newsletter creation interfaces. We did not complete a live email send and did not independently test checkout/payment execution, course or webinar delivery, API/webhook execution, migrations, exports, support quality, deliverability, or production-scale reliability."
 conclusion:
