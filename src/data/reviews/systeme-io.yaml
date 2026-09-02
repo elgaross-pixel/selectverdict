@@ -8,6 +8,39 @@ methodology: "We separated first-party product facts from our own hands-on obser
 conclusion:
   summary: "systeme.io is one of the more convincing low-cost all-in-one options we have examined for a solo operator or small business that wants to launch funnels and basic automation without assembling several separate products. Its free plan was functional enough for us to complete a real lead-capture flow."
   basis: "The conclusion is based on official product documentation and a hands-on free-plan test in which we published a funnel, submitted its form, confirmed the new contact in the CRM/contact database, and created a workflow with conditional-branching options. Claims about capabilities we did not execute are not treated as hands-on proof."
+sections:
+  - heading: "What is systeme.io?"
+    paragraphs:
+      - "systeme.io is an all-in-one business platform built around sales funnels, email marketing, automation, online courses, communities, affiliate management, booking, and related tools. The practical appeal is consolidation: instead of connecting a landing-page builder, email platform, course host, and automation service, a small operator can run several of those functions inside one account."
+      - "That breadth is also the main question a buyer should examine. An all-in-one platform is valuable only if the functions you actually need are good enough. For this review, we therefore separated features listed in official documentation from the smaller set we directly exercised ourselves."
+  - heading: "What we actually tested"
+    paragraphs:
+      - "We created a lead-generation funnel on the Free plan, published it on a systeme.io subdomain, opened the public landing page, and submitted its form using an accessible test email address. The submission completed successfully. We then opened Contacts and confirmed that the new lead had been added to the contact database. That gives us direct evidence that the basic funnel-to-form-to-contact flow worked in our test account."
+      - "We also inspected the automation area. Rules exposed trigger-and-action automation, while Workflows provided a multi-step builder. We created a paused test workflow without encountering a paywall and confirmed that the builder offered Action, Decision, and Delay as next-step types. This is enough to verify that conditional workflow construction is available in the interface we tested; it is not evidence that we tested every trigger, action, or complex production automation."
+  - heading: "Email marketing: available, but our test stopped short of sending"
+    paragraphs:
+      - "Campaign and newsletter creation interfaces were accessible in our Free account. We could reach subject, sender-name, editor, and template controls. However, the sender-email selector in our test account was empty, and we did not complete a live outbound send."
+      - "For that reason, we treat email campaigns and newsletters as documented product capabilities, but we do not claim that our hands-on work independently proved sending, inbox placement, or deliverability. Deliverability in particular depends on domain authentication, list quality, consent, sender behavior, and other factors outside a simple interface test."
+  - heading: "Pricing and the Free plan"
+    paragraphs:
+      - "At our August 31, 2026 verification, systeme.io's official pricing listed four tiers: Free at $0 per month, Startup at $17 per month, Webinar at $47 per month, and Unlimited at $97 per month. Annual prices were listed at $170, $470, and $970 for the three paid plans. The Free tier listed 2,000 contacts; Startup 5,000; Webinar 10,000; and Unlimited unlimited contacts."
+      - "The official materials also listed unlimited email sends and file storage across plans and a 0% systeme.io transaction fee. Payment processors can still charge their own fees. We found some inconsistent wording between official pricing materials for individual plan limits, so anyone buying for a specific limit should verify that limit on the current pricing page rather than relying on a secondary summary, including ours."
+  - heading: "Funnels and automation are the strongest part of our evidence"
+    paragraphs:
+      - "The strongest hands-on evidence from our review concerns lead capture and workflow construction. We did not merely see a funnel-builder menu: we created a funnel, published it, submitted the live form, and observed the resulting contact in the database. That end-to-end result matters more than a feature checkbox."
+      - "Likewise, the workflow builder exposed conditional decisions and delays rather than only a single trigger/action pair. For a solo operator or small business, that makes the Free plan useful for validating a real acquisition workflow before deciding whether the broader platform deserves a paid subscription."
+  - heading: "Where we would be cautious"
+    paragraphs:
+      - "We did not execute a checkout or payment, deliver a course, run an evergreen webinar, exercise the API or webhooks, perform a migration or export, test support response quality, or load-test the service. Those capabilities may be documented and available, but they are outside the scope of our hands-on evidence."
+      - "We would also validate requirements carefully if your business depends on advanced analytics, highly customized reporting, a particular third-party integration, or enterprise-scale operational guarantees. The value proposition here is breadth and a low barrier to entry, not proof that every module replaces a specialized best-of-breed product."
+  - heading: "Who systeme.io makes sense for"
+    paragraphs:
+      - "Our evidence points most strongly toward solo entrepreneurs, creators, consultants, and small online businesses that need a funnel, contact capture, email automation, and digital-product infrastructure without wanting to assemble a large software stack. The Free plan makes the initial evaluation unusually low-risk because a useful lead-capture workflow can be built before paying."
+      - "For a larger team or a business with narrow technical requirements, the decision should be requirement-led: identify the integrations, reporting depth, permissions, scale, and operational controls you need, then verify those exact items before migrating."
+  - heading: "SelectVerdict conclusion"
+    paragraphs:
+      - "systeme.io passed the part of our evaluation that we could test directly without paying: we built and published a lead funnel, captured a real form submission into Contacts, and created a workflow with branching options. Combined with its official pricing, that makes it a credible low-cost all-in-one candidate rather than merely an attractive feature list."
+      - "We are deliberately not extending that conclusion to areas we did not execute. If funnels and basic automation are central to your use case, systeme.io deserves a hands-on trial. If advanced reporting, specialized integrations, deliverability evidence, or enterprise-scale guarantees are decisive, verify those requirements separately before committing."
 sources:
   - title: "systeme.io pricing"
     url: https://systeme.io/pricing
