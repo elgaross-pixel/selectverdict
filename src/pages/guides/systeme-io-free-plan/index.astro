@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AffiliateDisclosure from '../../../components/AffiliateDisclosure.astro';
+import CTA from '../../../components/CTA.astro';
+import SystemePlanLimits from '../../../components/SystemePlanLimits.astro';
+import { getEntry } from 'astro:content';
+
+const product = await getEntry('products', 'systeme-io');
+if (!product?.data.affiliateUrl || !product.data.hasAffiliateRelationship) throw new Error('Missing verified Systeme.io affiliate configuration.');
+
+const title = 'Systeme.io Free Plan (2026): Limits We Actually Tested';
+const description = 'We tested Systeme.io’s Free plan and verified its September 2026 limits, including 2,000 contacts, 3 funnels, 1 automation rule and the $10,000 sales-revenue meter.';
+const canonical = '/guides/systeme-io-free-plan/';
+const disclosure = 'SelectVerdict may earn a commission from qualifying signups through links on this page, at no additional cost to you. Affiliate relationships do not determine our conclusions.';
+const faqs = [
+  { q: 'Is Systeme.io Free actually free?', a: 'Yes. It is currently a continuing Free tier rather than only a time-limited trial.' },
+  { q: 'How many contacts can I have?', a: 'Our September account audit shows 2,000.' },
+  { q: 'How many funnels?', a: 'Three funnels and 15 funnel steps are displayed.' },
+  { q: 'Can I use my own domain?', a: 'The current matrix includes one custom domain.' },
+  { q: 'Can I create a course?', a: 'Free currently displays one course and 500 students.' },
+  { q: 'Is there a $10,000 sales limit?', a: 'A $10,000 revenue-from-sales meter is displayed in our Free account. We haven’t reached the threshold, so we don’t claim to know precisely how it is enforced.' },
+];
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'Article', headline: 'Systeme.io Free Plan: What Can You Actually Do for $0?', description, mainEntityOfPage: new URL(canonical, Astro.site).href, author: { '@type': 'Organization', name: 'SelectVerdict' }, publisher: { '@type': 'Organization', name: 'SelectVerdict' } },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+];
+---
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema}>
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Software', href: '/software/' }, { label: 'Systeme.io Free Plan' }]} />
+  <article>
+    <header class="section"><div class="container"><p class="eyebrow">Free plan guide</p><h1>Systeme.io Free Plan: What Can You Actually Do for $0?</h1><p class="lede">We tested a real Free account and audited the limits that shape what one simple business system can do before an upgrade.</p><p class="meta">Account limits verified September 6, 2026</p></div></header>
+    <div class="narrow prose article-body">
+      <AffiliateDisclosure hasRelationship text={disclosure} />
+      <p>Systeme.io offers a permanent Free plan rather than only a short trial.</p><p>You can build funnels, collect contacts, use basic automation, create a course, connect a custom domain and access selling tools without paying Systeme.io a monthly subscription.</p><p>But 2,000 contacts aren't necessarily the limit you'll hit first.</p><p>We tested a real Free account and audited the plan limits displayed inside it on September 6, 2026.</p><p>Our main finding:</p><p><strong>Systeme.io Free is capable of running one relatively simple business system. Its tightest restrictions are complexity limits — particularly one automation rule, one workflow, one tag and one email campaign.</strong></p>
+
+      <h2>Complete Systeme.io Free Plan Limits</h2>
+      <SystemePlanLimits />
+      <p class="source-note"><strong>Source:</strong> SelectVerdict account audit, September 6, 2026. Limits can change.</p>
+
+      <h2>What We Actually Tested</h2><p>We didn't rely solely on a feature table.</p><p>Using a real Free account, we:</p><ul><li>published a live funnel;</li><li>submitted its opt-in form;</li><li>verified that the lead appeared in Systeme.io's contact database;</li><li>created a workflow;</li><li>inspected conditional branching options;</li><li>accessed campaign and newsletter creation.</li></ul><p>We did not complete a live outbound email delivery test because sender-email setup prevented completion. We therefore don't treat deliverability as independently tested.</p><p>When we performed the later plan audit, the same account displayed actual usage including 2/2,000 contacts, 1/3 funnels and 2/15 funnel steps.</p>
+
+      <h2>The Limits That Matter Most</h2><p>The headline allowance is 2,000 contacts.</p><p>But Free also provides only:</p><div class="table-scroll" tabindex="0" role="region" aria-label="Free plan marketing resource limits"><table><thead><tr><th>Marketing resource</th><th>Free</th></tr></thead><tbody><tr><td>Automation rules</td><td>1</td></tr><tr><td>Workflows</td><td>1</td></tr><tr><td>Tags</td><td>1</td></tr><tr><td>Email campaigns</td><td>1</td></tr></tbody></table></div><p>That changes the practical question.</p><p>Don't ask only:</p><p>“Are 2,000 contacts enough?”</p><p>Ask:</p><p>“Are one automation, one workflow, one tag and one campaign enough?”</p><p>A business with 500 contacts but several products and customer journeys may need Startup sooner than a simple business with 1,500 contacts.</p>
+
+      <h2>What Can You Build for $0?</h2><p>Our interpretation of the current limits:</p><div class="table-scroll" tabindex="0" role="region" aria-label="Examples of what the Free plan can support"><table><thead><tr><th>Setup</th><th>Free likely enough?</th><th>Likely first constraint</th></tr></thead><tbody><tr><td>One lead magnet + one sequence</td><td>Yes</td><td>Additional campaigns/automation</td></tr><tr><td>One simple sales funnel</td><td>Yes</td><td>Additional funnels/workflows</td></tr><tr><td>One small course</td><td>Yes</td><td>Second course/automation</td></tr><tr><td>One small creator store</td><td>Yes</td><td>Product/automation growth</td></tr><tr><td>Several lead magnets</td><td>Maybe</td><td>Tags/campaigns/automation</td></tr><tr><td>Multiple segmented products</td><td>Probably not</td><td>Workflows/tags/campaigns</td></tr><tr><td>Evergreen webinar business</td><td>No</td><td>0 webinars</td></tr><tr><td>Multiple brands/websites</td><td>No</td><td>1 website/custom domain</td></tr></tbody></table></div><p>These are practical judgments, not additional technical limits.</p>
+
+      <CTA title="Build a complete system before paying" text="The Free tier lets you validate a focused funnel and customer journey at $0." href={product.data.affiliateUrl} label="Start With Systeme.io Free" affiliate />
+
+      <h2>Funnels and Lead Capture</h2><p>Free currently provides 3 funnels and 15 funnel steps.</p><p>We successfully published a funnel, submitted an opt-in and verified the resulting contact inside the CRM.</p><p>So this isn't merely advertised capacity: basic funnel → lead capture worked in our test.</p>
+      <h2>Email and Automation</h2><p>Systeme.io offers broad email functionality, but Free restricts the structure around it.</p><p>One campaign, automation rule, workflow and tag can support a simple customer journey.</p><p>They don't provide much room for multiple products, audiences or lifecycle sequences.</p><p>We tested workflow creation but not completed outbound email delivery, so we make no independent deliverability claims here.</p>
+      <h2>Courses, Website and Selling</h2><p>The account matrix currently includes:</p><ul><li>1 course / 500 students;</li><li>1 website;</li><li>1 blog;</li><li>1 custom domain;</li><li>2 languages per website;</li><li>1 creator store;</li><li>3 store products;</li><li>50 product variants;</li><li>1 one-click upsell;</li><li>1 order bump;</li><li>1 coupon;</li><li>1 A/B test.</li></ul><p>This is why we consider Free a genuine operating tier rather than simply a demo.</p><p>However, we haven't completed every possible course or commerce transaction end-to-end. The table verifies availability and capacity, not untested behavior.</p>
+      <h2>The $10,000 Revenue-from-Sales Limit</h2><p>Our Free account displays:</p><p><strong>$0 / $10,000 USD</strong></p><p>under the revenue-from-sales limit.</p><p>Paid tiers display Unlimited.</p><p>We can therefore verify that the $10,000 meter exists.</p><p>We cannot verify what happens when the threshold is reached because our test account hasn't generated $10,000 in sales.</p><p>We won't turn the meter into an unsupported claim that sales automatically stop at exactly $10,000.</p>
+
+      <h2>Free vs Startup</h2><p>Startup doesn't merely add contacts.</p><div class="table-scroll" tabindex="0" role="region" aria-label="Free and Startup plan comparison"><table><thead><tr><th>Resource</th><th>Free</th><th>Startup</th></tr></thead><tbody><tr><td>Contacts</td><td>2,000</td><td>5,000</td></tr><tr><td>Funnels</td><td>3</td><td>10</td></tr><tr><td>Automation rules</td><td>1</td><td>10</td></tr><tr><td>Workflows</td><td>1</td><td>5</td></tr><tr><td>Tags</td><td>1</td><td>10</td></tr><tr><td>Campaigns</td><td>1</td><td>10</td></tr><tr><td>Courses</td><td>1</td><td>5</td></tr><tr><td>Websites</td><td>1</td><td>5</td></tr><tr><td>Custom domains</td><td>1</td><td>3</td></tr><tr><td>Students</td><td>500</td><td>Unlimited</td></tr><tr><td>Revenue limit</td><td>$10,000</td><td>Unlimited</td></tr></tbody></table></div><p>Free lets you operate one relatively simple system.</p><p>Startup provides room to operate several.</p><p>That's the more useful distinction than contact count alone.</p><p>See our <a href="/pricing/systeme-io/">complete plan and pricing comparison</a> for the higher tiers and annual-cost arithmetic.</p>
+
+      <h2>When Should You Upgrade?</h2><p>Upgrade when you can identify the specific Free limitation preventing the next useful business action.</p><p>“I need another automation” is a reason.</p><p>“I need several campaigns” is a reason.</p><p>“I need another course” is a reason.</p><p>“I need webinars” is a reason to look beyond both Free and Startup.</p><p>Simply having access to a paid plan isn't a reason to pay for it.</p>
+      <h2>Verdict</h2><p>Systeme.io Free is a legitimate operating tier.</p><p>Its combination of funnels, website, custom domain, email, automation, course, store and sales tools gives a new project considerable room at $0.</p><p>The catch is capacity.</p><p>For us, the most important numbers aren't 2,000 contacts or three funnels. They're:</p><p><strong>1 automation rule + 1 workflow + 1 tag + 1 campaign.</strong></p><p>For a simple project, that's workable.</p><p>For a business with several products, segments and customer journeys, it becomes restrictive quickly.</p><p>Our preferred strategy:</p><p>Start free, build the smallest complete system that can validate your idea, and upgrade only when you can name the exact limit preventing your next useful step.</p><p>Our <a href="/reviews/systeme-io/">evidence-based Systeme.io review</a> covers the broader platform, what worked in our test, and what remains untested.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      {faqs.map(({ q, a }) => <section><h3>{q}</h3><p>{a}</p></section>)}
+    </div>
+  </article>
+</BaseLayout>
+<style>
+  .article-body { padding-block: 3rem 5rem; }
+  .article-body > :global(*) + :global(*) { margin-top: 1rem; }
+  .article-body > :global(.disclosure) { margin-bottom: 2rem; }
+  .article-body > :global(.cta) { margin-block: 3rem; }
+  .source-note { color: var(--ink-soft); font-size: 0.9rem; }
+  .table-scroll { overflow-x: auto; max-width: 100%; border: 1px solid var(--line); border-radius: var(--radius); }
+  table { width: 100%; min-width: 34rem; border-collapse: collapse; background: var(--surface); font-size: 0.92rem; }
+  th, td { padding: 0.7rem 0.8rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  thead th { background: var(--surface-muted); white-space: nowrap; }
+  tbody tr:last-child > * { border-bottom: 0; }
+</style>
