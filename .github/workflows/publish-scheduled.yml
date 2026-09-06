@@ -72,10 +72,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add scheduled-content/manifest.json \
-            src/pages/guides/what-is-systeme-io/index.astro \
-            src/pages/guides/is-systeme-io-legit/index.astro \
-            src/pages/guides/systeme-io-tutorial/index.astro \
-            src/pages/alternatives/systeme-io/index.astro
+          git add scheduled-content/manifest.json
+          git add --all -- src/pages/
           git commit -m "Scheduled publish: Systeme.io content bundle ${BUNDLES}"
           git push origin HEAD:main

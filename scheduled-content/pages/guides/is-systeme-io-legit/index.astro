@@ -15,6 +15,8 @@ const schema = { '@context': 'https://schema.org', '@type': 'Article', headline:
 const sources = [
   { title: 'systeme.io Terms and Conditions', url: 'https://systeme.io/terms-and-conditions', publisher: 'systeme.io', accessedAt: new Date('2026-09-06'), supports: 'Legal operator, payment processor, subscriptions, refunds, and commercial conditions.' },
   { title: 'systeme.io Help Center', url: 'https://help.systeme.io/', publisher: 'systeme.io', accessedAt: new Date('2026-09-06'), supports: 'Account restriction, sending-control, plan-limit, and product-operation documentation.' },
+  { title: 'Systeme.io Reviews', url: 'https://www.trustpilot.com/review/systeme.io', publisher: 'Trustpilot', accessedAt: new Date('2026-09-06'), supports: 'Dated supporting snapshot of approximately 4.9/5 from 8,445 reviews; not a SelectVerdict rating or proof of product quality.' },
+  { title: 'Systeme.io Reviews', url: 'https://www.softwareadvice.com/email-marketing/systeme-io-profile/reviews/', publisher: 'Software Advice', accessedAt: new Date('2026-09-06'), supports: 'Dated supporting snapshot of approximately 4.8/5 from 2,129 reviews; not a SelectVerdict rating or proof of product quality.' },
 ];
 ---
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema}>
@@ -76,7 +78,7 @@ const sources = [
       <h2>Bottom line</h2>
       <p>Our conclusion is yes: Systeme.io is a legitimate operating SaaS platform. The strongest evidence is not a trust badge or marketing testimonial. It is the combination of an identifiable operator, published commercial terms, functioning software, direct support interaction, a substantial independent user-review footprint, and a basic customer-acquisition workflow that we reproduced ourselves.</p>
       <p>The remaining question is whether it is the right platform for the reader's business, not whether the product exists.</p>
-      <p class="source-note"><strong>Additional evidence:</strong> Direct Systeme.io Support response received September 6, 2026; SelectVerdict account, live funnel, form, contact, and workflow test; Trustpilot and Software Advice rating snapshots checked September 6, 2026. Exact review-platform URLs were not part of the retained repository evidence, so none are invented here.</p>
+      <p class="source-note"><strong>Additional evidence:</strong> Direct Systeme.io Support response received September 6, 2026; SelectVerdict account, live funnel, form, contact, and workflow test.</p>
       <SourceBlock sources={sources} />
     </div>
   </article>

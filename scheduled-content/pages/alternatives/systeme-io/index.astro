@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import AffiliateDisclosure from '../../../components/AffiliateDisclosure.astro';
+import SourceBlock from '../../../components/SourceBlock.astro';
 
 const title = '7 Best Systeme.io Alternatives (2026): When You Should Switch';
 const description = 'Compare Systeme.io alternatives by the specific reason to switch: funnels, agencies, courses, email, creator commerce and more.';
@@ -15,6 +16,15 @@ const alternatives = [
   { name: 'GetResponse', reason: 'Email marketing and automation depth', type: 'Broad partial', price: '$19/mo' },
   { name: 'Podia', reason: 'Simpler creator commerce', type: 'Partial', price: '$49/mo' },
   { name: 'Kit', reason: 'Email/newsletter-first creator business', type: 'Specialist', price: 'Free' },
+];
+const sources = [
+  { title: 'Pricing', url: 'https://www.clickfunnels.com/pricing', publisher: 'ClickFunnels', accessedAt: new Date('2026-09-06'), supports: 'Launch plan pricing, limits, and funnel-focused features.' },
+  { title: 'Pricing', url: 'https://www.gohighlevel.com/pricing', publisher: 'HighLevel', accessedAt: new Date('2026-09-06'), supports: 'Starter pricing, sub-accounts, users, contacts, and agency-oriented features.' },
+  { title: 'Pricing', url: 'https://www.kajabi.com/pricing', publisher: 'Kajabi', accessedAt: new Date('2026-09-06'), supports: 'Basic plan pricing, products, contacts, website, community, and admin-user limits.' },
+  { title: 'Kartra trial and plan information', url: 'https://kartra.com/kartra-trial/', publisher: 'Kartra', accessedAt: new Date('2026-09-06'), supports: 'Essentials pricing, included capacity, and transaction-fee information used in this comparison.' },
+  { title: 'Pricing', url: 'https://www.getresponse.com/pricing', publisher: 'GetResponse', accessedAt: new Date('2026-09-06'), supports: 'Starter and Marketer pricing plus email, automation, and segmentation features.' },
+  { title: 'Pricing', url: 'https://www.podia.com/pricing', publisher: 'Podia', accessedAt: new Date('2026-09-06'), supports: 'Mover and Shaker pricing, transaction fees, and creator-commerce features.' },
+  { title: 'Pricing', url: 'https://kit.com/pricing', publisher: 'Kit', accessedAt: new Date('2026-09-06'), supports: 'Free and Creator pricing, subscriber allowances, broadcasts, forms, and automation features.' },
 ];
 ---
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema}>
@@ -106,7 +116,8 @@ const alternatives = [
       <p>Systeme.io's low entry price means competitors must justify both their subscription and migration risk. Switch when a missing capability becomes a real constraint. Otherwise, the best alternative may simply be Systeme.io for a little longer.</p>
       <p>For context before migrating, read our <a href="/reviews/systeme-io/">hands-on Systeme.io review</a> and <a href="/pricing/systeme-io/">current pricing and plan analysis</a>.</p>
 
-      <section class="sources" aria-labelledby="sources-title"><h2 id="sources-title">Sources and verification</h2><p>Official vendor pricing and help materials checked September 6, 2026:</p><ul><li>ClickFunnels — “Pricing” and Launch plan materials.</li><li>HighLevel — “Pricing” and Starter plan materials.</li><li>Kajabi — “Pricing” and Basic plan materials.</li><li>Kartra — “Pricing” and Essentials plan materials.</li><li>GetResponse — “Pricing” and plan comparison materials.</li><li>Podia — “Pricing” and plan materials.</li><li>Kit — “Pricing” and plan comparison materials.</li></ul><p>Exact source URLs were not part of the retained repository evidence supplied for this article, so we do not invent them. No competitor was hands-on tested by SelectVerdict for this comparison.</p></section>
+      <p class="source-note"><strong>Testing boundary:</strong> These records support first-party pricing and feature research. SelectVerdict did not hands-on test the seven competitors for this comparison.</p>
+      <SourceBlock sources={sources} />
     </div>
   </article>
 </BaseLayout>
@@ -120,5 +131,4 @@ const alternatives = [
   thead th { background: var(--surface-muted); white-space: nowrap; }
   tbody tr:last-child > * { border-bottom: 0; }
   .source-note { color: var(--ink-soft); font-size: 0.9rem; }
-  .sources { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); }
 </style>
