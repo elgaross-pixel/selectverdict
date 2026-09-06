@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "what-is-systeme-io",
+      "title": "What Is Systeme.io? How It Works & What It's Used For",
+      "source": "scheduled-content/pages/guides/what-is-systeme-io/index.astro",
+      "destination": "src/pages/guides/what-is-systeme-io/index.astro",
+      "publishAt": "2026-09-07T04:00:00Z",
+      "bundleId": "systeme-io-2026-09-07",
+      "status": "queued",
+      "dependencies": []
+    },
+    {
+      "id": "is-systeme-io-legit",
+      "title": "Is Systeme.io Legit? Evidence, Risks & What We Verified",
+      "source": "scheduled-content/pages/guides/is-systeme-io-legit/index.astro",
+      "destination": "src/pages/guides/is-systeme-io-legit/index.astro",
+      "publishAt": "2026-09-07T04:00:00Z",
+      "bundleId": "systeme-io-2026-09-07",
+      "status": "queued",
+      "dependencies": []
+    },
+    {
+      "id": "systeme-io-tutorial",
+      "title": "Systeme.io Tutorial: Build Your First Working Funnel",
+      "source": "scheduled-content/pages/guides/systeme-io-tutorial/index.astro",
+      "destination": "src/pages/guides/systeme-io-tutorial/index.astro",
+      "publishAt": "2026-09-08T04:00:00Z",
+      "bundleId": "systeme-io-2026-09-08",
+      "status": "queued",
+      "dependencies": ["what-is-systeme-io", "is-systeme-io-legit"]
+    },
+    {
+      "id": "systeme-io-alternatives",
+      "title": "7 Best Systeme.io Alternatives (2026): When You Should Switch",
+      "source": "scheduled-content/pages/alternatives/systeme-io/index.astro",
+      "destination": "src/pages/alternatives/systeme-io/index.astro",
+      "publishAt": "2026-09-08T04:00:00Z",
+      "bundleId": "systeme-io-2026-09-08",
+      "status": "queued",
+      "dependencies": ["what-is-systeme-io", "is-systeme-io-legit"]
+    }
+  ]
+}
