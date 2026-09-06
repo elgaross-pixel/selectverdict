@@ -10,11 +10,11 @@ const product = await getEntry('products', 'systeme-io');
 if (!product?.data.affiliateUrl || !product.data.hasAffiliateRelationship) throw new Error('Missing verified Systeme.io affiliate configuration.');
 
 const title = 'Systeme.io Pricing (2026): Plans, Costs & Which Plan to Choose';
-const description = 'Systeme.io plans start at $0. We verified current plan limits and compare Free, Startup, Webinar and Unlimited to help you choose the right tier.';
+const description = 'Systeme.io plans start at $0. We compare public pricing with a September 2026 account snapshot of Free, Startup, Webinar and Unlimited plan limits.';
 const canonical = '/pricing/systeme-io/';
 const disclosure = 'SelectVerdict may earn a commission from qualifying signups through links on this page, at no additional cost to you. Affiliate relationships do not determine our conclusions.';
 const faqs = [
-  { q: 'How much does Systeme.io cost?', a: 'The main public pricing page currently lists Free at $0, Startup at $17/month, Webinar at $47/month and Unlimited at $97/month. We found other official pages displaying $27 for Startup, so verify the checkout price.' },
+  { q: 'How much does Systeme.io cost?', a: 'Systeme.io’s main pricing page currently lists Free at $0, Startup at $17/month, Webinar at $47/month and Unlimited at $97/month. Some other Systeme.io-hosted pricing pages display $27/month for Startup, so check the price shown at checkout before purchasing.' },
   { q: 'Is Systeme.io free?', a: 'Yes. Systeme.io currently offers a continuing Free plan subject to plan limits.' },
   { q: 'Which paid Systeme.io plan is cheapest?', a: 'Startup is the lowest paid tier.' },
   { q: 'Does Startup include webinars?', a: 'Our September 2026 account matrix displays zero webinars for Startup and 10 for Webinar.' },
@@ -33,9 +33,9 @@ const schema = [
       <AffiliateDisclosure hasRelationship text={disclosure} />
       <p>Systeme.io has four main plan levels, starting with a permanent Free tier and progressing through Startup, Webinar and Unlimited.</p>
       <p>But choosing a plan isn't as simple as comparing contact limits.</p>
-      <p>Our September 2026 account audit found that funnels, automation rules, workflows, campaigns, courses, domains and webinars can determine when you need to upgrade — sometimes long before you reach your contact limit.</p>
-      <p>There is also an important pricing inconsistency worth knowing about: Systeme.io's current main public pricing page lists Startup at $17/month, while other official Systeme.io pages still display $27/month.</p>
-      <p>Until Systeme.io clarifies the discrepancy, we recommend verifying the final checkout price before paying.</p>
+      <p>Our interpretation of the plan matrix visible in our September 6, 2026 account snapshot is that funnels, automation rules, workflows, campaigns, courses, domains and webinars can determine when you need to upgrade — sometimes long before you reach the displayed contact limit.</p>
+      <p>Systeme.io's main pricing page currently lists Startup at $17/month. Some other Systeme.io-hosted pricing pages still display $27/month, so we recommend checking the price shown at checkout before purchasing.</p>
+      <p>Those public pages establish what prices they displayed when checked; our inspected account supplied the plan-limit matrix discussed below, not an independently verified final checkout price. We don't know which Startup price every reader will be offered at checkout.</p>
 
       <h2>Systeme.io Pricing at a Glance</h2>
       <p>At the time of our September 2026 check, the main public pricing page listed:</p>
@@ -45,19 +45,20 @@ const schema = [
       <div class="table-scroll" tabindex="0" role="region" aria-label="Systeme.io annual pricing"><table><thead><tr><th>Plan</th><th>12 months paid monthly</th><th>Annual price</th><th>Calculated saving</th></tr></thead><tbody><tr><th>Startup</th><td>$204</td><td>$170</td><td>$34</td></tr><tr><th>Webinar</th><td>$564</td><td>$470</td><td>$94</td></tr><tr><th>Unlimited</th><td>$1,164</td><td>$970</td><td>$194</td></tr></tbody></table></div>
       <p>These savings are our arithmetic based on the prices displayed on the main pricing page.</p>
 
-      <h2>The Plan Limits We Verified</h2>
-      <p>Price isn't the whole decision.</p><p>On September 6, 2026, we inspected the plan matrix displayed inside our Systeme.io account.</p>
+      <h2>Dated Account Snapshot: The Plan Limits We Inspected</h2>
+      <p>Price isn't the whole decision.</p><p>On September 6, 2026, we inspected the 25-row plan matrix displayed inside our Systeme.io account. The table below reproduces that dated account snapshot; it should not be read as a timeless promise that every account will always display the same limits.</p>
       <SystemePlanLimits />
       <p class="source-note"><strong>Source:</strong> SelectVerdict account audit, September 6, 2026. Plan limits can change.</p>
+      <p><strong>Student-capacity note:</strong> Our account displayed a 500-student limit on Free and Unlimited for the three paid tiers. Some Systeme.io public pages describe student capacity differently, so we treat the in-account matrix as a dated account snapshot rather than a universal promise.</p>
 
       <h2>Free: Best for Validation</h2>
-      <p>Free isn't merely a short trial.</p><p>It gives you enough infrastructure to operate a simple system: up to 2,000 contacts, three funnels, a website, custom domain, course, creator store and basic marketing automation.</p><p>Its most important restrictions aren't necessarily contacts.</p><p>Free gives you only:</p><p><strong>1 automation rule, 1 workflow, 1 tag and 1 email campaign.</strong></p><p>A simple business can fit comfortably. A more segmented marketing operation can outgrow Free with far fewer than 2,000 contacts.</p><p>Our <a href="/guides/systeme-io-free-plan/">hands-on guide to the Free plan</a> explains what those limits mean in practice.</p>
+      <p>Free isn't merely a short trial.</p><p>In our September 6, 2026 account snapshot, it displayed enough infrastructure to operate a simple system: up to 2,000 contacts, three funnels, a website, custom domain, course, creator store and basic marketing automation.</p><p>Our editorial interpretation is that its most important restrictions aren't necessarily contacts.</p><p>The inspected matrix displayed only:</p><p><strong>1 automation rule, 1 workflow, 1 tag and 1 email campaign.</strong></p><p>In our assessment, a simple business can fit comfortably, while a more segmented marketing operation can outgrow those limits with far fewer than 2,000 contacts.</p><p>Our <a href="/guides/systeme-io-free-plan/">hands-on guide to the Free plan</a> explains what those limits mean in practice.</p>
 
       <CTA title="Start with the $0 tier" text="Build and test a real system before deciding whether a paid plan is necessary." href={product.data.affiliateUrl} label="Try Systeme.io Free" affiliate />
 
       <h2>Startup: More Operating Room</h2>
-      <p>Startup is where the architecture becomes substantially less restrictive.</p><p>Our account currently displays:</p><ul><li>5,000 contacts;</li><li>10 funnels;</li><li>50 funnel steps;</li><li>10 automation rules;</li><li>5 workflows;</li><li>10 campaigns;</li><li>5 courses;</li><li>3 custom domains.</li></ul><p>For many small businesses, the main reason to choose Startup isn't simply the extra 3,000 contacts.</p><p>It's the ability to operate several campaigns, automations and assets instead of one basic setup.</p>
-      <h2>Webinar: A Genuine Feature Boundary</h2><p>Webinar increases capacity substantially:</p><ul><li>10,000 contacts;</li><li>50 funnels;</li><li>300 funnel steps;</li><li>100 automation rules;</li><li>20 workflows;</li><li>100 campaigns.</li></ul><p>More importantly, our account displays 10 webinars on this tier while Free and Startup display zero.</p><p>If webinars are central to your business, this creates a clear plan boundary rather than just a capacity upgrade.</p>
+      <p>Startup is where the architecture became substantially less restrictive in the matrix we inspected.</p><p>Our September 6, 2026 account snapshot displayed:</p><ul><li>5,000 contacts;</li><li>10 funnels;</li><li>50 funnel steps;</li><li>10 automation rules;</li><li>5 workflows;</li><li>10 campaigns;</li><li>5 courses;</li><li>3 custom domains.</li></ul><p>For many small businesses, the main reason to choose Startup may not be simply the extra 3,000 displayed contacts.</p><p>Our interpretation is that the higher displayed limits provide room to operate several campaigns, automations and assets instead of one basic setup.</p>
+      <h2>Webinar: A Genuine Feature Boundary</h2><p>In the account matrix we inspected, Webinar displayed substantially higher capacity:</p><ul><li>10,000 contacts;</li><li>50 funnels;</li><li>300 funnel steps;</li><li>100 automation rules;</li><li>20 workflows;</li><li>100 campaigns.</li></ul><p>More importantly, our September 6, 2026 account snapshot displayed 10 webinars on this tier while Free and Startup displayed zero.</p><p>In our assessment, that makes Webinar a clear plan boundary for a business that needs this feature, rather than just a capacity upgrade.</p>
       <h2>Unlimited: Remove the Capacity Problem</h2><p>The highest tier removes the displayed numerical limits across the matrix we inspected.</p><p>At $97/month on the current main pricing page, it makes the most sense when managing multiple limits has itself become a recurring problem.</p><p>A small business shouldn't choose Unlimited simply because it sounds safer.</p><p>If Startup comfortably accommodates your operation, paying for unused unlimited capacity doesn't improve the economics.</p>
 
       <h2>Which Systeme.io Plan Should You Choose?</h2><p>A better approach than choosing by plan name is to identify the first resource your actual business will exceed.</p>
