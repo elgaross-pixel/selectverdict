@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AffiliateDisclosure from '../../../components/AffiliateDisclosure.astro';
+import CTA from '../../../components/CTA.astro';
+import SourceBlock from '../../../components/SourceBlock.astro';
+import { getEntry } from 'astro:content';
+
+const product = await getEntry('products', 'systeme-io');
+if (!product?.data.affiliateUrl || !product.data.hasAffiliateRelationship) throw new Error('Missing verified Systeme.io affiliate configuration.');
+const title = "What Is Systeme.io? How It Works & What It's Used For";
+const description = 'Systeme.io combines funnels, email, automation, courses, checkout and more. See how the platform fits together and what we actually tested.';
+const canonical = '/guides/what-is-systeme-io/';
+const disclosure = 'SelectVerdict may earn a commission from qualifying signups through links on this page, at no additional cost to you. Affiliate relationships do not determine our conclusions.';
+const schema = { '@context': 'https://schema.org', '@type': 'Article', headline: title, description, mainEntityOfPage: new URL(canonical, Astro.site).href, datePublished: '2026-09-07', dateModified: '2026-09-06', author: { '@type': 'Organization', name: 'SelectVerdict' }, publisher: { '@type': 'Organization', name: 'SelectVerdict' } };
+const sources = [
+  { title: 'systeme.io', url: 'https://systeme.io/', publisher: 'systeme.io', accessedAt: new Date('2026-09-06'), supports: 'Product positioning, founder history, and the connected online-business toolkit.' },
+  { title: 'systeme.io pricing', url: 'https://systeme.io/pricing', publisher: 'systeme.io', accessedAt: new Date('2026-09-06'), supports: 'Current public pricing and plan information.' },
+  { title: 'systeme.io Help Center', url: 'https://help.systeme.io/', publisher: 'systeme.io', accessedAt: new Date('2026-09-06'), supports: 'Documentation for funnels, forms, contacts, email, automation, courses, and related features.' },
+];
+---
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema}>
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Software', href: '/software/' }, { label: 'What Is Systeme.io?' }]} />
+  <article>
+    <header class="section"><div class="container"><p class="eyebrow">Product explainer</p><h1>{title}</h1><p class="lede">Systeme.io connects funnels, contacts, email, automation, selling, and product delivery inside one online-business platform.</p><p class="meta">Published September 7, 2026 · Evidence last verified September 6, 2026</p></div></header>
+    <div class="narrow prose article-body">
+      <AffiliateDisclosure hasRelationship text={disclosure} />
+      <p>Systeme.io is an all-in-one platform for building and running an online business. It combines sales funnels, email marketing, automation, websites, online courses, communities, affiliate management, and other business tools inside one account.</p>
+      <p>The important part is not simply that Systeme.io has a long feature list. It is that those tools can work around the same contacts and customer journey.</p>
+      <p>Instead of connecting a landing-page builder to an email service, then connecting that to an automation tool and a course platform, Systeme.io is designed to keep much of that workflow inside one system.</p>
+      <p>Systeme.io says the platform was built by Aurelien Amacker in 2018. Its current Free plan supports up to 2,000 contacts, while paid plans currently start at $17 per month for a new US customer.</p>
+
+      <h2>Systeme.io in one sentence</h2>
+      <p><strong>Systeme.io is a low-cost online-business platform that lets you attract a lead, capture the contact, automate follow-up, sell an offer, and deliver digital products without assembling a large collection of separate software tools.</strong></p>
+      <p>That is the mental model that makes the product easier to understand.</p>
+
+      <h2>How Systeme.io works</h2>
+      <p>A simple Systeme.io customer journey can look like this:</p>
+      <p><strong>Visitor → landing page → form submission → contact record → tag or workflow → email follow-up → offer → checkout → course or other product</strong></p>
+      <p>Not every business will use every step. A consultant might use a landing page, email automation, and booking calendar. A course creator might use funnels, email campaigns, checkout, courses, and affiliate management. A small digital-product business may use funnels, order forms, email automation, upsells, and customer management.</p>
+      <p>The value of an all-in-one platform is that these pieces do not necessarily need separate accounts and integrations to communicate.</p>
+
+      <h2>The main parts of Systeme.io</h2>
+      <h3>Sales funnels</h3><p>Funnels organize pages into a sequence designed around a particular goal. Systeme.io supports funnel structures for building an audience, selling products, creating custom funnels, and running evergreen webinars on eligible plans. A simple lead-generation funnel can contain an opt-in page followed by a thank-you page.</p>
+      <h3>Landing pages and websites</h3><p>The visual editor can be used to build funnel pages and other web content without writing the underlying page code manually. For a lead-generation page, form fields can collect information such as an email address and send it into the contact database.</p>
+      <h3>Contacts</h3><p>Contacts are the people collected through forms, imports, sales, and other interactions. This layer connects several other parts of the platform. A person who enters through a funnel can become a contact that automation, tagging, campaigns, and sales processes can act on.</p>
+      <h3>Email marketing</h3><p>Systeme.io includes newsletters, email campaigns, and related contact-management tools. The company currently states that all plans include unlimited email sending, although its systems perform sending and deliverability checks in some circumstances. Newer accounts may have initial sends checked in stages, and suspicious content or unusually large sends can be temporarily reviewed.</p>
+      <h3>Automation and workflows</h3><p>Automation lets an event trigger another action. A simple conceptual example is: <strong>lead submits form → contact receives a tag → workflow starts.</strong> More elaborate workflows can connect multiple triggers, actions, and decisions. Exact limits depend on the plan.</p>
+      <h3>Checkout and selling</h3><p>Systeme.io can be used to sell products through funnel order forms. The broader sales toolkit includes order forms, coupons, upsells, payment integrations, and automation connected to customer actions.</p>
+      <h3>Courses and communities</h3><p>Course creators can host educational content and give students access through the same broader platform used for acquisition and sales. Systeme.io also includes community functionality. A creator can potentially run acquisition, email, purchase, and product delivery without moving customers across several independent platforms.</p>
+      <h3>Affiliate management</h3><p>Systeme.io includes tools for businesses to run affiliate programs for their own offers. This is separate from Systeme.io's own affiliate program.</p>
+      <h3>Pipelines and booking</h3><p>The platform also includes pipelines for managing prospects through sales stages and a booking calendar for appointment-based businesses.</p>
+
+      <h2>A workflow we actually tested</h2>
+      <p>We do not treat a feature appearing on a marketing page as equivalent to having tested it.</p>
+      <p>In our Systeme.io test account, SelectVerdict:</p>
+      <ol><li>created and published a funnel;</li><li>opened the live page;</li><li>submitted a test lead through the form;</li><li>verified that the lead appeared in Contacts;</li><li>inspected the automation interface;</li><li>created a workflow.</li></ol>
+      <p>That gave us direct evidence for an important part of the architecture: <strong>live page → lead submission → contact database → automation layer.</strong></p>
+      <p>We also inspected campaign and newsletter interfaces. We did not complete a full outbound email-delivery test, so we do not use our test as evidence about deliverability. Our <a href="/reviews/systeme-io/">complete Systeme.io review</a> contains the full test record and product verdict.</p>
+
+      <h2>What can Systeme.io replace?</h2>
+      <p>Depending on how it is used, Systeme.io can potentially reduce the need for separate tools for:</p>
+      <ul><li>landing pages and basic websites;</li><li>sales funnels;</li><li>email campaigns and marketing automation;</li><li>online courses and communities;</li><li>checkout flows;</li><li>affiliate management;</li><li>booking;</li><li>basic sales-pipeline management.</li></ul>
+      <p>Which modules can fully replace a specialist tool depends on the user's requirements; feature availability is not the same as feature parity. A dedicated email platform may offer capabilities that matter to a sophisticated email operation. A premium course platform may make sense when the entire product experience revolves around education and community. An agency CRM may better suit many client accounts.</p>
+      <p>The reason to use Systeme.io is usually consolidation and simplicity, not the assumption that every module is the deepest tool in its category.</p>
+
+      <h2>Who is Systeme.io for?</h2>
+      <p>Systeme.io makes the most sense when several of these statements are true:</p>
+      <ul><li>you are building an online business;</li><li>you want funnels and lead capture;</li><li>you need email follow-up or basic automation;</li><li>you sell digital products, courses, services, or memberships;</li><li>you prefer fewer integrations;</li><li>software cost matters;</li><li>you do not want a complex marketing stack before validating the business.</li></ul>
+      <p>It can therefore be particularly interesting for solo founders, creators, consultants, course sellers, and small online businesses.</p>
+
+      <h2>Who may need something else?</h2>
+      <p>Compare alternatives if your central requirement is more specialized: advanced agency and multi-client operations, sophisticated email segmentation, premium course/community experiences, highly specialized funnel optimization, or enterprise-specific controls and integrations.</p>
+
+      <h2>How much does Systeme.io cost?</h2>
+      <p>Systeme.io currently has a Free plan and three paid tiers. The current standard Startup price for a new US customer is $17 per month. Existing customers can sometimes see legacy pricing associated with an earlier plan structure.</p>
+      <p>See our <a href="/pricing/systeme-io/">Systeme.io pricing and plan comparison</a> for the complete current pricing evidence, or examine <a href="/guides/systeme-io-free-plan/">what the Systeme.io Free plan can support</a>.</p>
+
+      <CTA title="See whether the connected workflow fits" text="Start with one focused funnel and verify the customer journey before paying for more capacity." href={product.data.affiliateUrl} label="Try Systeme.io Free" affiliate />
+
+      <h2>Bottom line</h2>
+      <p>Systeme.io is easiest to understand as a connected online-business toolkit rather than simply a funnel builder. A visitor can enter through a page, become a contact, trigger automation, receive marketing, buy an offer, and potentially consume the product without the business owner stitching together a large software stack.</p>
+      <p>That consolidation is the central proposition. Whether it is good enough for a particular business is a different question, which our <a href="/reviews/systeme-io/">evidence-based Systeme.io review</a> addresses directly.</p>
+      <p class="source-note"><strong>Additional evidence:</strong> Direct Systeme.io Support response received September 6, 2026, supporting current US pricing and plan-limit clarifications.</p>
+      <SourceBlock sources={sources} />
+    </div>
+  </article>
+</BaseLayout>
+<style>
+  .article-body { padding-block: 3rem 5rem; }
+  .article-body > :global(*) + :global(*) { margin-top: 1rem; }
+  .article-body > :global(.disclosure) { margin-bottom: 2rem; }
+  .article-body > :global(.cta) { margin-block: 3rem; }
+  .source-note { color: var(--ink-soft); font-size: 0.9rem; }
+</style>

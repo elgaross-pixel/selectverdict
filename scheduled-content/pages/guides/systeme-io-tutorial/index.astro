@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AffiliateDisclosure from '../../../components/AffiliateDisclosure.astro';
+import CTA from '../../../components/CTA.astro';
+import SourceBlock from '../../../components/SourceBlock.astro';
+import { getEntry } from 'astro:content';
+
+const product = await getEntry('products', 'systeme-io');
+if (!product?.data.affiliateUrl || !product.data.hasAffiliateRelationship) throw new Error('Missing verified Systeme.io affiliate configuration.');
+const title = 'Systeme.io Tutorial: Build Your First Working Funnel';
+const description = 'A focused Systeme.io tutorial: create a lead funnel, publish it, submit a test contact, verify the lead in Contacts and add automation.';
+const canonical = '/guides/systeme-io-tutorial/';
+const disclosure = 'SelectVerdict may earn a commission from qualifying signups through links on this page, at no additional cost to you. Affiliate relationships do not determine our conclusions.';
+const schema = { '@context': 'https://schema.org', '@type': 'Article', headline: 'Systeme.io Tutorial: From Account to Your First Working Funnel', description, mainEntityOfPage: new URL(canonical, Astro.site).href, datePublished: '2026-09-08', dateModified: '2026-09-06', author: { '@type': 'Organization', name: 'SelectVerdict' }, publisher: { '@type': 'Organization', name: 'SelectVerdict' } };
+const sources = [{ title: 'systeme.io Help Center', url: 'https://help.systeme.io/', publisher: 'systeme.io', accessedAt: new Date('2026-09-06'), supports: 'Funnel creation, form fields, submit actions, contacts, automation, and sending-control documentation.' }];
+---
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema}>
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Software', href: '/software/' }, { label: 'Systeme.io Tutorial' }]} />
+  <article>
+    <header class="section"><div class="container"><p class="eyebrow">Beginner tutorial</p><h1>Systeme.io Tutorial: From Account to Your First Working Funnel</h1><p class="lede">Publish one lead-generation page, submit a real test lead, and verify that the contact reaches your account.</p><p class="meta">Published September 8, 2026 · Steps last verified September 6, 2026</p></div></header>
+    <div class="narrow prose article-body">
+      <AffiliateDisclosure hasRelationship text={disclosure} />
+      <p>This Systeme.io tutorial has one goal: <strong>build a live lead-generation funnel, submit a real test lead, and verify that the contact reaches your Systeme.io account.</strong></p>
+      <p>We are deliberately not trying to teach every Systeme.io feature in one article. Systeme.io's training materials cover contacts, funnels, email, automation, courses, communities, affiliates, pipelines, calendars, and other tools.</p>
+      <p>For a beginner, there is a more useful first milestone: Can I publish a page, capture a lead, and see that person inside the system? We tested that workflow ourselves.</p>
+
+      <h2>What you will build</h2>
+      <p>By the end of this tutorial, you should have:</p>
+      <ul><li>a Systeme.io account;</li><li>a lead-generation funnel and opt-in page;</li><li>an email field and live public page;</li><li>one test submission visible in Contacts;</li><li>the foundation for an automation workflow.</li></ul>
+      <h3>Definition of done</h3><p>Do not judge success by whether the page looks beautiful. For this exercise, you are finished when: <strong>public page opens → form submits → test lead appears in Contacts.</strong> Everything else can improve later.</p>
+
+      <h2>Step 1: Create or open your Systeme.io account</h2>
+      <p>You can perform this exercise using the Free plan. Once inside the dashboard, familiarize yourself with the main navigation before changing anything. You will work primarily with Sales funnels, Contacts, and Automations.</p>
+      <p>Do not start by configuring every available feature. The objective is one working path through the system.</p>
+
+      <h2>Step 2: Create a funnel</h2>
+      <p>Open the Sales funnels area and choose <strong>Create</strong>. In the interface we tested, this area was under <strong>Sites → Sales funnels</strong>.</p>
+      <p>Choose the audience-building or lead-generation option rather than a product-sales funnel. A simple structure should give you an opt-in page and a follow-up or thank-you step. Give the funnel a recognizable test name such as <strong>First Lead Funnel</strong>.</p>
+
+      <h2>Step 3: Choose and edit the opt-in page</h2>
+      <p>Open the first funnel step and choose a template if one has not already been selected. For the test, you need only a clear page with a headline, a short reason to submit, an email field, and a submit button.</p>
+      <p>Once the funnel works, design can improve without changing the underlying test.</p>
+
+      <h2>Step 4: Verify the email field</h2>
+      <p>This is important. Systeme.io documentation states that a form needs an Email field to capture a lead successfully. In the page editor, locate the form input and make sure its input type is configured appropriately.</p>
+      <p>You can collect other information, but an email address is enough for this test.</p>
+
+      <h2>Step 5: Configure the button to submit the form</h2>
+      <p>The button must do more than look clickable. Systeme.io documentation specifies <strong>Submit form</strong> as the action required for the button to capture the contact.</p>
+      <p>You can then send the visitor to the next funnel step, redirect elsewhere, or remain on the page. A thank-you step is easy to verify for a basic lead funnel.</p>
+
+      <h2>Step 6: Save and publish</h2>
+      <p>Save the page, then open the public funnel URL as a visitor would. Do not rely only on the editor preview.</p>
+      <p>Your first checkpoint is simple: Does the actual public page open? If not, fix that before adding automation or other complexity.</p>
+
+      <h2>Step 7: Submit a test lead</h2>
+      <p>Use an email address you can identify easily. Complete the form and submit it. Check that the expected next action occurs, such as the thank-you page opening.</p>
+      <p>You now know the front-end form accepted the submission, but the more important test happens inside Systeme.io.</p>
+
+      <h2>Step 8: Verify the contact</h2>
+      <p>Return to the account and open Contacts. Look for the email address you submitted.</p>
+      <p>If it is there, you have verified the core path: <strong>public funnel → form → Systeme.io contact database.</strong> This is the workflow we reproduced during our SelectVerdict hands-on test.</p>
+      <p>If the contact does not appear, do not build automation yet. Verify that you tested the intended live page, an Email input exists, the button action is Submit form, and the form saved correctly. Fix acquisition first.</p>
+
+      <h2>Step 9: Add a basic automation layer</h2>
+      <p>Once lead capture works, connect the contact event to automation. Systeme.io provides automation rules and workflows. A simple learning exercise is to create a workflow and inspect its <strong>Trigger → Action</strong> structure.</p>
+      <p>The eventual logic might be based on a contact entering through a particular funnel or receiving a tag. The exact workflow depends on the business. The key concept is that the captured contact can become an input into an automated process rather than remaining an isolated record.</p>
+
+      <CTA title="Build the smallest working loop" text="Use the Free plan to verify page → form → contact before adding more complexity." href={product.data.affiliateUrl} label="Try Systeme.io Free" affiliate />
+
+      <h2>What we verified ourselves</h2>
+      <p>During our hands-on testing, SelectVerdict successfully:</p>
+      <ul><li>published a funnel;</li><li>opened the live page;</li><li>submitted an opt-in;</li><li>verified the new lead in Contacts;</li><li>inspected automation;</li><li>created a workflow.</li></ul>
+      <p>That is why this tutorial stops around the point where our direct evidence is strongest.</p>
+
+      <h2>What we did not verify in this test</h2>
+      <p>We did not complete an end-to-end outbound email-delivery test. We therefore do not claim this exercise independently proves email deliverability.</p>
+      <p>We also did not use this test to verify payment processing, a live product sale, course delivery, webinar delivery, custom-domain configuration, or affiliate payouts. Those are separate workflows and should be tested rather than assumed from a successful lead funnel.</p>
+
+      <h2>A note about email sending</h2>
+      <p>Systeme.io states that all plans allow unlimited email sending, but its documentation also describes deliverability controls. New accounts can have initial sends reviewed in stages, and sending may be paused for prohibited lists, suspicious content, or high volume.</p>
+      <p>When extending this tutorial into an email sequence, distinguish two tests:</p>
+      <ol><li>Did the automation create or trigger the intended email action?</li><li>Did the message actually arrive where expected?</li></ol>
+      <p>Do not treat those as the same thing.</p>
+
+      <h2>Common beginner mistakes</h2>
+      <h3>Building too much before testing anything</h3><p>Do not build a 12-step funnel before confirming that one form can create one contact.</p>
+      <h3>Designing before verifying the workflow</h3><p>A beautiful opt-in page that does not capture a lead is not a working funnel.</p>
+      <h3>Forgetting the email field</h3><p>Systeme.io requires an email input for this lead-capture workflow.</p>
+      <h3>Using the wrong button action</h3><p>The submit button needs to submit the form.</p>
+      <h3>Assuming the contact exists because the thank-you page opened</h3><p>Check Contacts. The back-end record is the important verification point.</p>
+      <h3>Adding automation before the input works</h3><p>If the lead never enters the system, troubleshooting the workflow adds unnecessary variables.</p>
+
+      <h2>What to do next</h2>
+      <p>Learn <a href="/guides/what-is-systeme-io/">how Systeme.io fits together</a>, read our <a href="/reviews/systeme-io/">complete hands-on review</a>, compare <a href="/pricing/systeme-io/">current pricing and limits</a>, or decide whether the <a href="/guides/systeme-io-free-plan/">Free plan has enough capacity</a>.</p>
+
+      <h2>Bottom line</h2>
+      <p>Your first Systeme.io project does not need to be an entire online business. Build one working acquisition loop: <strong>page → form → contact.</strong></p><p>Verify it. Then add automation.</p>
+      <p>That gives you something more useful than an elaborate dashboard configuration: a small piece of the platform that you know actually works.</p>
+      <SourceBlock sources={sources} />
+    </div>
+  </article>
+</BaseLayout>
+<style>
+  .article-body { padding-block: 3rem 5rem; }
+  .article-body > :global(*) + :global(*) { margin-top: 1rem; }
+  .article-body > :global(.disclosure) { margin-bottom: 2rem; }
+  .article-body > :global(.cta) { margin-block: 3rem; }
+</style>

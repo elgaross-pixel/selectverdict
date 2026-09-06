@@ -1,0 +1,78 @@
+name: Publish scheduled content
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+    inputs:
+      now:
+        description: Optional ISO-8601 UTC time override
+        required: false
+        type: string
+      dry_run:
+        description: Report due bundles without publishing
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scheduled-content-publisher
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Publish due bundles
+        id: publish
+        env:
+          NOW_OVERRIDE: ${{ inputs.now }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          args=()
+          if [[ -n "$NOW_OVERRIDE" ]]; then args+=(--now "$NOW_OVERRIDE"); fi
+          if [[ "$DRY_RUN" == "true" ]]; then args+=(--dry-run); fi
+          output="$(node scripts/publish-scheduled.mjs "${args[@]}")"
+          echo "$output"
+          summary="$(echo "$output" | tail -n 1)"
+          echo "bundles=$(node -e 'const value=JSON.parse(process.argv[1]); console.log(value.bundles.map((bundle) => bundle.bundleId).join("+"))' "$summary")" >> "$GITHUB_OUTPUT"
+
+      - name: Check for release changes
+        id: changes
+        run: |
+          if git diff --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; else echo "changed=true" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Validate released content
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git diff --check
+          npm run build
+
+      - name: Commit scheduled release
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          BUNDLES: ${{ steps.publish.outputs.bundles }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scheduled-content/manifest.json
+          git add --all -- src/pages/
+          git commit -m "Scheduled publish: Systeme.io content bundle ${BUNDLES}"
+          git push origin HEAD:main

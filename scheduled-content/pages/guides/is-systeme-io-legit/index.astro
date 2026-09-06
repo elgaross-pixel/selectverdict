@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AffiliateDisclosure from '../../../components/AffiliateDisclosure.astro';
+import SourceBlock from '../../../components/SourceBlock.astro';
+import { getEntry } from 'astro:content';
+
+const product = await getEntry('products', 'systeme-io');
+if (!product?.data.affiliateUrl || !product.data.hasAffiliateRelationship) throw new Error('Missing verified Systeme.io affiliate configuration.');
+const title = 'Is Systeme.io Legit? Evidence, Risks & What We Verified';
+const description = "We checked Systeme.io's operator, terms, support, product functionality and account rules to assess whether it is a legitimate SaaS platform.";
+const canonical = '/guides/is-systeme-io-legit/';
+const disclosure = 'SelectVerdict has a Systeme.io affiliate relationship, although this page contains no prominent signup CTA. Affiliate relationships do not determine our conclusions.';
+const schema = { '@context': 'https://schema.org', '@type': 'Article', headline: title, description, mainEntityOfPage: new URL(canonical, Astro.site).href, datePublished: '2026-09-07', dateModified: '2026-09-06', author: { '@type': 'Organization', name: 'SelectVerdict' }, publisher: { '@type': 'Organization', name: 'SelectVerdict' } };
+const sources = [
+  { title: 'systeme.io Terms and Conditions', url: 'https://systeme.io/terms-and-conditions', publisher: 'systeme.io', accessedAt: new Date('2026-09-06'), supports: 'Legal operator, payment processor, subscriptions, refunds, and commercial conditions.' },
+  { title: 'systeme.io Help Center', url: 'https://help.systeme.io/', publisher: 'systeme.io', accessedAt: new Date('2026-09-06'), supports: 'Account restriction, sending-control, plan-limit, and product-operation documentation.' },
+  { title: 'Systeme.io Reviews', url: 'https://www.trustpilot.com/review/systeme.io', publisher: 'Trustpilot', accessedAt: new Date('2026-09-06'), supports: 'Dated supporting snapshot of approximately 4.9/5 from 8,445 reviews; not a SelectVerdict rating or proof of product quality.' },
+  { title: 'Systeme.io Reviews', url: 'https://www.softwareadvice.com/email-marketing/systeme-io-profile/reviews/', publisher: 'Software Advice', accessedAt: new Date('2026-09-06'), supports: 'Dated supporting snapshot of approximately 4.8/5 from 2,129 reviews; not a SelectVerdict rating or proof of product quality.' },
+];
+---
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema}>
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Software', href: '/software/' }, { label: 'Is Systeme.io Legit?' }]} />
+  <article>
+    <header class="section"><div class="container"><p class="eyebrow">Trust investigation</p><h1>{title}</h1><p class="lede">We examined the operator, terms, functioning product, support, account rules, and independent review footprint.</p><p class="meta">Published September 7, 2026 · Evidence last verified September 6, 2026</p></div></header>
+    <div class="narrow prose article-body">
+      <AffiliateDisclosure hasRelationship text={disclosure} />
+      <p><strong>Yes. Based on the evidence we reviewed, Systeme.io is a real operating SaaS business, and we found no evidence that it is a fraudulent service.</strong></p>
+      <p>That conclusion is based on more than marketing claims. We found an identifiable legal operator, published commercial terms, functioning software, documented payment processing, an active support operation, independent long-running user-review activity, and a product workflow that we reproduced ourselves.</p>
+      <p>But “legit” does not mean “risk-free,” and it does not mean “the best platform for everyone.” Here is the evidence and its limitations.</p>
+
+      <h2>1. There is an identifiable legal operator</h2>
+      <p>Systeme.io's published Terms and Conditions identify ITACWT Limited as the business behind transactions covered by those terms. The terms describe pricing, orders, payments, subscription usage limits, and other commercial conditions.</p>
+      <p>That matters because a basic legitimacy check should establish who operates the service, not merely whether its website looks professional.</p>
+
+      <h2>2. Payments are documented</h2>
+      <p>Systeme.io's Terms state that online card payments are processed through Stripe, Inc. This alone does not prove product quality, but it adds another verifiable layer to the commercial operation behind the service.</p>
+
+      <h2>3. The product worked in the workflow we tested</h2>
+      <p>We created a Systeme.io account and tested a basic acquisition workflow ourselves:</p>
+      <p><strong>create funnel → publish live page → submit form → verify lead in Contacts → inspect automation → create workflow</strong></p>
+      <p>The test lead appeared inside the account after we submitted the live form. That is stronger evidence than simply confirming that a dashboard exists: at least the tested lead-generation path worked as an interconnected product.</p>
+      <p>We also inspected campaign and newsletter interfaces. We did not complete a full outbound email-delivery test, so this is not independent proof of Systeme.io email deliverability.</p>
+
+      <h2>4. We received a direct response from Systeme.io Support</h2>
+      <p>During our research, conflicting pricing and account-limit information appeared across different Systeme.io surfaces. Rather than guessing, we contacted Systeme.io Support directly.</p>
+      <p>Support clarified that the current standard Startup price for a new US customer is $17 per month, while $27 is previous or legacy pricing that may still appear for some existing accounts. Support also clarified current plan limits where our inspected account display differed from current published information.</p>
+      <p>A functioning support channel that answered detailed product questions is another useful operational signal. It does not prove every future support interaction will be equally good.</p>
+
+      <h2>5. Independent review platforms show a substantial user footprint</h2>
+      <p>As of our September 6, 2026 check:</p>
+      <ul><li>Trustpilot displayed approximately 4.9/5 from 8,445 reviews.</li><li>Software Advice displayed approximately 4.8/5 from 2,129 reviews.</li></ul>
+      <p>These figures are dated snapshots and can change. We treat them as supporting evidence that a substantial population of users has interacted with the product over time—not as a SelectVerdict rating, proof that every review is representative, or a promise that every customer will have the same experience.</p>
+      <p>The stronger legitimacy evidence is the combination of an identifiable operator, functioning software, documented terms, direct support interaction, and our reproduced product workflow.</p>
+
+      <h2>6. Systeme.io publishes operating rules—including rules users may not like</h2>
+      <p>A legitimacy assessment should not list only reassuring facts. The terms and support documentation contain conditions worth understanding before building a business on the platform.</p>
+      <h3>Paid subscriptions are described as non-refundable</h3><p>Systeme.io's Terms state that subscription plans are not refundable. Do not assume a paid plan creates a general right to a refund simply because you change your mind.</p>
+      <h3>Accounts can be restricted when limits are exceeded</h3><p>Systeme.io documents an account-restriction process. Exceeding contact limits or feature limits after a downgrade can trigger a pre-restriction process, with warnings before restrictions are applied.</p>
+      <p>On a restricted Free account, documented consequences can include:</p>
+      <ul><li>opt-ins and payments stopping;</li><li>inability to add or import contacts and students;</li><li>inability to process new sales;</li><li>paused campaigns and unsent scheduled newsletters;</li><li>new automation or workflow triggers not activating.</li></ul>
+      <p>For paid accounts, the documented process can include automatic upgrading to the next available tier when limits are exceeded. That is not evidence of illegitimacy; it is evidence that limits can have operational consequences.</p>
+      <h3>Unlimited email does not mean completely unrestricted sending</h3><p>Systeme.io states that all plans can send unlimited emails, while its Help Center also describes deliverability and anti-abuse controls. New-account sending can be evaluated in batches, and suspicious content, prohibited lists, or unusually high volume can trigger review or temporary pauses.</p>
+      <p><strong>Unlimited plan allowance ≠ a guarantee that every attempted message will be sent instantly without platform controls.</strong></p>
+
+      <h2>7. Systeme.io has existed for years</h2>
+      <p>Systeme.io says founder Aurelien Amacker built the platform in 2018 after years of operating online businesses and using multiple separate marketing tools. A multi-year operating history is a useful legitimacy signal, although longevity alone does not establish quality.</p>
+
+      <h2>So, is Systeme.io a scam?</h2>
+      <p>Based on the evidence we reviewed, Systeme.io is a real operating SaaS business, and we found no evidence that it is a fraudulent service. There is an identifiable business operation, functioning software, published terms, payment infrastructure, documentation, support, and a product that completed our basic hands-on test.</p>
+      <p>This means Systeme.io appears to deliver an actual software product. It does not mean:</p>
+      <ul><li>every marketing claim is independently verified;</li><li>every feature is best-in-class;</li><li>email deliverability will be perfect;</li><li>every account will have the same experience;</li><li>a user will make money using it;</li><li>pricing or limits cannot change;</li><li>a buyer will qualify for a refund;</li><li>it is automatically the best platform for a particular business.</li></ul>
+
+      <h2>Legit does not mean right for you</h2>
+      <p>Once legitimacy is established, the useful questions are whether the product does what you need, whether its limits are acceptable, whether the low price compensates for shallower specialist features, when you might outgrow it, and how difficult migration would be.</p>
+      <p>Those are product-selection questions. Read our <a href="/reviews/systeme-io/">hands-on Systeme.io review</a>, compare <a href="/pricing/systeme-io/">current Systeme.io pricing and limits</a>, or examine the <a href="/guides/systeme-io-free-plan/">Free-plan constraints</a>.</p>
+
+      <h2>Bottom line</h2>
+      <p>Our conclusion is yes: Systeme.io is a legitimate operating SaaS platform. The strongest evidence is not a trust badge or marketing testimonial. It is the combination of an identifiable operator, published commercial terms, functioning software, direct support interaction, a substantial independent user-review footprint, and a basic customer-acquisition workflow that we reproduced ourselves.</p>
+      <p>The remaining question is whether it is the right platform for the reader's business, not whether the product exists.</p>
+      <p class="source-note"><strong>Additional evidence:</strong> Direct Systeme.io Support response received September 6, 2026; SelectVerdict account, live funnel, form, contact, and workflow test.</p>
+      <SourceBlock sources={sources} />
+    </div>
+  </article>
+</BaseLayout>
+<style>
+  .article-body { padding-block: 3rem 5rem; }
+  .article-body > :global(*) + :global(*) { margin-top: 1rem; }
+  .article-body > :global(.disclosure) { margin-bottom: 2rem; }
+  .source-note { color: var(--ink-soft); font-size: 0.9rem; }
+</style>
