@@ -1,0 +1,7 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import editorialLibrary from '../../data/editorial-library.json';
+const items=editorialLibrary.filter((item)=>item.type==='Best');
+---
+<BaseLayout title="Best software by use case" description="Browse SelectVerdict best-software research organized by use case, operating model and verified product facts."><Breadcrumbs items={[{label:'Home',href:'/'},{label:'Software',href:'/software/'},{label:'Best'}]}/><section class="section"><div class="container narrow"><h1>Best software by use case</h1><p class="lede">Shortlists organized around the job you need the software to do—not one universal score.</p>{items.length?<ul>{items.map((item)=><li><a href={item.href}>{item.title}</a>{item.description&&<p>{item.description}</p>}</li>)}</ul>:<p>No best-of guides are published yet.</p>}</div></section></BaseLayout>
