@@ -26,20 +26,13 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out main
-        uses: actions/checkout@v5
-        with:
-          ref: main
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
+      - uses: actions/checkout@v5
+        with: { ref: main }
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: Pre-publish queue QA
+        run: node scripts/qa-scheduled-content.mjs
       - name: Publish due bundles
         id: publish
         env:
@@ -53,26 +46,22 @@ jobs:
           echo "$output"
           summary="$(echo "$output" | tail -n 1)"
           echo "bundles=$(node -e 'const value=JSON.parse(process.argv[1]); console.log(value.bundles.map((bundle) => bundle.bundleId).join("+"))' "$summary")" >> "$GITHUB_OUTPUT"
-
       - name: Check for release changes
         id: changes
-        run: |
-          if git diff --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; else echo "changed=true" >> "$GITHUB_OUTPUT"; fi
-
-      - name: Validate released content
+        run: if git diff --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; else echo "changed=true" >> "$GITHUB_OUTPUT"; fi
+      - name: Publication acceptance gate
         if: steps.changes.outputs.changed == 'true'
         run: |
           git diff --check
           npm run build
-
-      - name: Commit scheduled release
+          npm run test:scheduler
+      - name: Commit accepted release
         if: steps.changes.outputs.changed == 'true'
-        env:
-          BUNDLES: ${{ steps.publish.outputs.bundles }}
+        env: { BUNDLES: "${{ steps.publish.outputs.bundles }}" }
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add scheduled-content/manifest.json
+          git add scheduled-content/manifest.json src/data/editorial-library.json
           git add --all -- src/pages/
-          git commit -m "Scheduled publish: Systeme.io content bundle ${BUNDLES}"
+          git commit -m "Scheduled publish: accepted content bundle ${BUNDLES}"
           git push origin HEAD:main
