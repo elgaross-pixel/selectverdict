@@ -1,0 +1,7 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import editorialLibrary from '../../data/editorial-library.json';
+const items=editorialLibrary.filter((item)=>item.type==='Comparisons');
+---
+<BaseLayout title="Software comparisons" description="Browse SelectVerdict software comparisons built from verified product facts and explicit decision criteria."><Breadcrumbs items={[{label:'Home',href:'/'},{label:'Software',href:'/software/'},{label:'Comparisons'}]}/><section class="section"><div class="container narrow"><h1>Software comparisons</h1><p class="lede">Head-to-head research for decisions where product fit matters more than a generic winner.</p>{items.length?<ul>{items.map((item)=><li><a href={item.href}>{item.title}</a>{item.description&&<p>{item.description}</p>}</li>)}</ul>:<p>No comparisons are published yet.</p>}</div></section></BaseLayout>
