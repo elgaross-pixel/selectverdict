@@ -1,0 +1,20 @@
+name: Editorial QA
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run test:scheduler
+      - run: npm run qa
+      - name: Ensure generated registry is committed/current
+        run: git diff --exit-code -- src/data/editorial-library.json
