@@ -1,0 +1,24 @@
+name: Production Editorial QA
+on:
+  schedule:
+    - cron: '47 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  production-qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main }
+      - uses: actions/setup-node@v5
+        with: { node-version: 22 }
+      - name: Verify deployed published editorial
+        shell: bash
+        run: |
+          for attempt in {1..10}; do
+            if node scripts/qa-production.mjs; then exit 0; fi
+            if [ "$attempt" -lt 10 ]; then sleep 30; fi
+          done
+          echo 'PUBLISHED — QA FAIL: production did not satisfy acceptance gate after retries.' >&2
+          exit 1
