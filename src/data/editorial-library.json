@@ -1,9 +1,50 @@
 [
-  {"type":"Alternatives","href":"/alternatives/clickfunnels/","title":"6 Best ClickFunnels Alternatives (2026): Compare the Stack You Need","description":"Compare ClickFunnels alternatives by the stack you actually need to replace: funnels, email, courses, CRM, websites and automation, with verified 2026 pricing."},
-  {"type":"Alternatives","href":"/alternatives/systeme-io/","title":"7 Best Systeme.io Alternatives (2026): When You Should Switch","description":"Alternatives organized around the specific reasons a business may outgrow or reject Systeme.io."},
-  {"type":"Guides","href":"/guides/is-systeme-io-legit/","title":"Is Systeme.io Legit? Evidence, Risks & What We Verified","description":"Evidence, operating risks, and the claims we could and could not verify."},
-  {"type":"Guides","href":"/guides/systeme-io-free-plan/","title":"Systeme.io Free Plan (2026): Limits We Inspected","description":"What the Free tier can support before an upgrade becomes necessary."},
-  {"type":"Guides","href":"/guides/systeme-io-tutorial/","title":"Systeme.io Tutorial: Build Your First Working Funnel","description":"A practical path through creating a basic funnel and working setup."},
-  {"type":"Guides","href":"/guides/what-is-systeme-io/","title":"What Is Systeme.io? How It Works & What It's Used For","description":"A practical explanation of the platform, its modules, and the jobs it is designed to combine."},
-  {"type":"Pricing","href":"/pricing/systeme-io/","title":"Systeme.io Pricing (2026): Plans, Costs & Which Plan to Choose","description":"Verified pricing, plan limits, and the upgrade boundaries that matter."}
+  {
+    "type": "Alternatives",
+    "href": "/alternatives/clickfunnels/",
+    "title": "6 Best ClickFunnels Alternatives (2026): Compare the Stack You Need",
+    "description": "Compare ClickFunnels alternatives by the stack you actually need to replace: funnels, email, courses, CRM, websites and automation, with verified 2026 pricing."
+  },
+  {
+    "type": "Alternatives",
+    "href": "/alternatives/kajabi/",
+    "title": "6 Best Kajabi Alternatives (2026): Replace What You Actually Use",
+    "description": "Compare Kajabi alternatives for courses, checkout, community and creator marketing. We separate full-stack replacements from specialist tools and verify current pricing."
+  },
+  {
+    "type": "Alternatives",
+    "href": "/alternatives/systeme-io/",
+    "title": "7 Best Systeme.io Alternatives (2026): When You Should Switch",
+    "description": "Compare Systeme.io alternatives by the specific reason to switch: funnels, agencies, courses, email, creator commerce and more."
+  },
+  {
+    "type": "Guides",
+    "href": "/guides/is-systeme-io-legit/",
+    "title": "Is Systeme.io Legit? Evidence, Risks & What We Verified",
+    "description": "We checked Systeme.io's operator, terms, support, product functionality and account rules to assess whether it is a legitimate SaaS platform."
+  },
+  {
+    "type": "Guides",
+    "href": "/guides/systeme-io-free-plan/",
+    "title": "Systeme.io Free Plan (2026): Limits We Inspected",
+    "description": "We tested Systeme.io’s Free plan and compare support-confirmed current limits with our account snapshot, including 2,000 contacts, 3 funnels and 1 automation rule."
+  },
+  {
+    "type": "Guides",
+    "href": "/guides/systeme-io-tutorial/",
+    "title": "Systeme.io Tutorial: Build Your First Working Funnel",
+    "description": "A focused Systeme.io tutorial: create a lead funnel, publish it, submit a test contact, verify the lead in Contacts and add automation."
+  },
+  {
+    "type": "Guides",
+    "href": "/guides/what-is-systeme-io/",
+    "title": "What Is Systeme.io? How It Works & What It's Used For",
+    "description": "Systeme.io combines funnels, email, automation, courses, checkout and more. See how the platform fits together and what we actually tested."
+  },
+  {
+    "type": "Pricing",
+    "href": "/pricing/systeme-io/",
+    "title": "Systeme.io Pricing (2026): Plans, Costs & Which Plan to Choose",
+    "description": "Systeme.io plans start at $0. Compare support-confirmed US pricing and current Free, Startup, Webinar and Unlimited plan limits."
+  }
 ]
