@@ -15,6 +15,16 @@ jobs:
         with: { node-version: 22, cache: npm }
       - run: npm ci
       - run: npm run test:scheduler
-      - run: npm run qa
+      - name: Run editorial acceptance QA
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run qa 2>&1 | tee qa.log
+      - name: Upload QA diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: editorial-qa-${{ github.sha }}
+          path: qa.log
       - name: Ensure generated registry is committed/current
         run: git diff --exit-code -- src/data/editorial-library.json
