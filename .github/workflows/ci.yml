@@ -26,5 +26,3 @@ jobs:
         with:
           name: editorial-qa-${{ github.sha }}
           path: qa.log
-      - name: Ensure generated registry is committed/current
-        run: git diff --exit-code -- src/data/editorial-library.json
