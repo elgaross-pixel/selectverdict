@@ -2,7 +2,7 @@
 import { readdir, readFile } from 'node:fs/promises';import path from 'node:path';import { fileURLToPath } from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),dist=path.join(root,'dist'),origin='https://selectverdict.com';
 async function walk(dir){const out=[];for(const e of await readdir(dir,{withFileTypes:true})){const f=path.join(dir,e.name);if(e.isDirectory())out.push(...await walk(f));else out.push(f)}return out}
-function routeFor(file){const rel=path.relative(dist,file).replaceAll(path.sep,'/');if(rel==='index.html')return '/';if(rel.endsWith('/index.html'))return `/${rel.slice(0,-10)}/`;return `/${rel.replace(/\.html$/,'')}`}
+function routeFor(file){const rel=path.relative(dist,file).replaceAll(path.sep,'/');if(rel==='index.html')return '/';if(rel.endsWith('/index.html'))return `/${rel.slice(0,-'/index.html'.length)}/`;return `/${rel.replace(/\.html$/,'')}`}
 function normalize(href,base){try{const u=new URL(href,new URL(base,origin));if(u.origin!==origin)return null;return u.pathname==='/'?'/':`${u.pathname.replace(/\/$/,'')}/`}catch{return null}}
 function canonical(html){return (html.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)/i)||html.match(/<link[^>]+href=["']([^"']+)["'][^>]+rel=["']canonical["']/i))?.[1]||null}
 const all=await walk(dist),pages=new Map();for(const file of all.filter(f=>f.endsWith('.html'))){const route=routeFor(file);pages.set(route,{file,html:await readFile(file,'utf8')})}
