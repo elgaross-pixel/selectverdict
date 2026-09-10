@@ -2,84 +2,23 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageIntro from '../../components/PageIntro.astro';
 import ProductCard from '../../components/ProductCard.astro';
+import editorialLibrary from '../../data/editorial-library.json';
 import { getCategories, getValidatedContent } from '../../lib/content';
 
-const { reviews, comparisons } = await getValidatedContent();
+const { reviews } = await getValidatedContent();
 const products = reviews.map(({ product }) => product);
 const categories = getCategories(products);
-
-const pricingGuides = [
-  { href: '/pricing/systeme-io/', title: 'Systeme.io Pricing (2026): Plans, Costs & Which Plan to Choose', description: 'Verified pricing, plan limits, and the upgrade boundaries that matter.' },
-];
-
-const guides = [
-  { href: '/guides/systeme-io-free-plan/', title: 'Systeme.io Free Plan (2026): Limits We Inspected', description: 'What the Free tier can support before an upgrade becomes necessary.' },
-  { href: '/guides/what-is-systeme-io/', title: 'What Is Systeme.io? How It Works & What It’s Used For', description: 'A practical explanation of the platform, its modules, and the jobs it is designed to combine.' },
-  { href: '/guides/is-systeme-io-legit/', title: 'Is Systeme.io Legit? Evidence, Risks & What We Verified', description: 'Evidence, operating risks, and the claims we could and could not verify.' },
-  { href: '/guides/systeme-io-tutorial/', title: 'Systeme.io Tutorial: Build Your First Working Funnel', description: 'A practical path through creating a basic funnel and working setup.' },
-];
-
-const alternatives = [
-  { href: '/alternatives/systeme-io/', title: '7 Best Systeme.io Alternatives (2026): When You Should Switch', description: 'Alternatives organized around the specific reasons a business may outgrow or reject Systeme.io.' },
-];
+const sections = ['Pricing','Guides','Alternatives','Comparisons','Best'];
+const byType = Object.fromEntries(sections.map((type) => [type, editorialLibrary.filter((item) => item.type === type)]));
 ---
 <BaseLayout title="Software research library" description="Browse SelectVerdict's independently researched software reviews, pricing guides, tutorials, alternatives, comparisons, and category recommendations.">
   <PageIntro eyebrow="Research library" title="Software decisions, organized around evidence." description="Browse published research by product, decision type, or category. Commercial pages appear here after their sources and verification details are ready." />
-
-  <section class="section">
-    <div class="container">
-      <section id="categories">
-        <h2>Categories</h2>
-        {categories.length ? (
-          <ul class="category-list">{categories.map((category) => <li><a href={`/categories/${category.slug}/`}>{category.name}</a></li>)}</ul>
-        ) : (
-          <div class="empty-state"><h3>Category research is being prepared</h3><p>No researched categories are published yet. We will add them as evidence-backed product records clear editorial review.</p></div>
-        )}
-      </section>
-
-      <section id="reviews" class="library-section">
-        <h2>Reviews</h2>
-        {products.length ? (
-          <div class="grid grid-3">{products.map((product) => <ProductCard product={product} href={`/reviews/${product.data.slug}/`} />)}</div>
-        ) : (
-          <div class="empty-state"><h3>No product reviews are published yet</h3><p>That is intentional: SelectVerdict will not fill the library with invented facts, ratings, or testing claims.</p></div>
-        )}
-      </section>
-
-      <section id="pricing" class="library-section">
-        <h2>Pricing</h2>
-        <div class="research-list">{pricingGuides.map((item) => <article><h3><a href={item.href}>{item.title}</a></h3><p>{item.description}</p></article>)}</div>
-      </section>
-
-      <section id="guides" class="library-section">
-        <h2>Guides</h2>
-        <div class="research-list">{guides.map((item) => <article><h3><a href={item.href}>{item.title}</a></h3><p>{item.description}</p></article>)}</div>
-      </section>
-
-      <section id="alternatives" class="library-section">
-        <h2>Alternatives</h2>
-        <div class="research-list">{alternatives.map((item) => <article><h3><a href={item.href}>{item.title}</a></h3><p>{item.description}</p></article>)}</div>
-      </section>
-
-      <section id="comparisons" class="library-section">
-        <h2>Comparisons</h2>
-        {comparisons.length ? (
-          <ul>{comparisons.map(({ comparison }) => <li><a href={`/compare/${comparison.data.slug}/`}>{comparison.data.title}</a></li>)}</ul>
-        ) : (
-          <div class="empty-state"><h3>Comparisons will follow completed product research</h3><p>Comparison pages require verified records for every included product. None are ready for publication yet.</p></div>
-        )}
-      </section>
-    </div>
-  </section>
+  <section class="section"><div class="container">
+    <section id="categories"><h2>Categories</h2>{categories.length ? <ul class="category-list">{categories.map((category) => <li><a href={`/categories/${category.slug}/`}>{category.name}</a></li>)}</ul> : <div class="empty-state"><h3>Category research is being prepared</h3><p>No researched categories are published yet.</p></div>}</section>
+    <section id="reviews" class="library-section"><h2>Reviews</h2>{products.length ? <div class="grid grid-3">{products.map((product) => <ProductCard product={product} href={`/reviews/${product.data.slug}/`} />)}</div> : <div class="empty-state"><h3>No product reviews are published yet</h3></div>}</section>
+    {sections.map((type) => <section id={type.toLowerCase()} class="library-section"><h2>{type}</h2>{byType[type].length ? <div class="research-list">{byType[type].map((item) => <article><h3><a href={item.href}>{item.title}</a></h3>{item.description && <p>{item.description}</p>}</article>)}</div> : <div class="empty-state"><h3>No {type.toLowerCase()} are published yet</h3></div>}</section>)}
+  </div></section>
 </BaseLayout>
-
 <style>
-  .library-section { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--line); }
-  .category-list { display: flex; flex-wrap: wrap; gap: 0.75rem; padding: 0; list-style: none; }
-  .category-list a { display: block; padding: 0.65rem 0.9rem; border: 1px solid var(--line); border-radius: 2rem; background: white; text-decoration: none; }
-  .research-list { display: grid; gap: 1rem; }
-  .research-list article { padding: 1.2rem 1.3rem; border: 1px solid var(--line); border-radius: 0.85rem; background: white; }
-  .research-list h3 { margin: 0; font-size: 1.08rem; }
-  .research-list h3 a { color: var(--ink); }
-  .research-list p { margin: 0.5rem 0 0; color: var(--ink-soft); }
+.library-section{margin-top:4rem;padding-top:3rem;border-top:1px solid var(--line)}.category-list{display:flex;flex-wrap:wrap;gap:.75rem;padding:0;list-style:none}.category-list a{display:block;padding:.65rem .9rem;border:1px solid var(--line);border-radius:2rem;background:white;text-decoration:none}.research-list{display:grid;gap:1rem}.research-list article{padding:1.2rem 1.3rem;border:1px solid var(--line);border-radius:.85rem;background:white}.research-list h3{margin:0;font-size:1.08rem}.research-list h3 a{color:var(--ink)}.research-list p{margin:.5rem 0 0;color:var(--ink-soft)}
 </style>
