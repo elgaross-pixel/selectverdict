@@ -15,11 +15,17 @@ jobs:
         with: { node-version: 22, cache: npm }
       - run: npm ci
       - run: npm run test:scheduler
-      - name: Run editorial acceptance QA
+      - name: Run current-production-source acceptance QA
         shell: bash
         run: |
           set -o pipefail
           npm run qa 2>&1 | tee qa.log
+      - name: Pre-publish build of the entire queued set
+        shell: bash
+        run: |
+          set -o pipefail
+          node scripts/publish-scheduled.mjs --now 2099-01-01T00:00:00Z
+          npm run build 2>&1 | tee -a qa.log
       - name: Upload QA diagnostics
         if: always()
         uses: actions/upload-artifact@v4
