@@ -69,8 +69,9 @@
       "destination": "src/pages/alternatives/gumroad/index.astro",
       "publishAt": "2026-09-11T04:00:00Z",
       "bundleId": "selectverdict-2026-09-11",
-      "status": "queued",
-      "dependencies": []
+      "status": "published",
+      "dependencies": [],
+      "publishedAt": "2026-09-11T06:02:52.158Z"
     },
     {
       "id": "stan-store-alternatives",
@@ -79,8 +80,9 @@
       "destination": "src/pages/alternatives/stan-store/index.astro",
       "publishAt": "2026-09-11T04:00:00Z",
       "bundleId": "selectverdict-2026-09-11",
-      "status": "queued",
-      "dependencies": []
+      "status": "published",
+      "dependencies": [],
+      "publishedAt": "2026-09-11T06:02:52.158Z"
     },
     {
       "id": "systeme-io-vs-kajabi",
