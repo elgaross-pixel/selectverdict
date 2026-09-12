@@ -91,8 +91,9 @@
       "destination": "src/pages/compare/systeme-io-vs-kajabi/index.astro",
       "publishAt": "2026-09-12T04:00:00Z",
       "bundleId": "selectverdict-2026-09-12",
-      "status": "queued",
-      "dependencies": []
+      "status": "published",
+      "dependencies": [],
+      "publishedAt": "2026-09-12T05:50:17.645Z"
     },
     {
       "id": "systeme-io-vs-gohighlevel",
@@ -101,8 +102,9 @@
       "destination": "src/pages/compare/systeme-io-vs-gohighlevel/index.astro",
       "publishAt": "2026-09-12T04:00:00Z",
       "bundleId": "selectverdict-2026-09-12",
-      "status": "queued",
-      "dependencies": []
+      "status": "published",
+      "dependencies": [],
+      "publishedAt": "2026-09-12T05:50:17.645Z"
     },
     {
       "id": "systeme-io-vs-clickfunnels",
