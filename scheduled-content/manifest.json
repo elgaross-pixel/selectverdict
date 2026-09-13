@@ -113,8 +113,9 @@
       "destination": "src/pages/compare/systeme-io-vs-clickfunnels/index.astro",
       "publishAt": "2026-09-13T04:00:00Z",
       "bundleId": "selectverdict-2026-09-13",
-      "status": "queued",
-      "dependencies": []
+      "status": "published",
+      "dependencies": [],
+      "publishedAt": "2026-09-13T06:13:53.441Z"
     },
     {
       "id": "best-funnel-builders",
@@ -123,8 +124,9 @@
       "destination": "src/pages/best/funnel-builders/index.astro",
       "publishAt": "2026-09-13T04:00:00Z",
       "bundleId": "selectverdict-2026-09-13",
-      "status": "queued",
-      "dependencies": []
+      "status": "published",
+      "dependencies": [],
+      "publishedAt": "2026-09-13T06:13:53.441Z"
     },
     {
       "id": "best-online-course-platforms",
