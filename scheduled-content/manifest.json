@@ -157,8 +157,9 @@
       "destination": "src/pages/best/platforms-to-sell-digital-products/index.astro",
       "publishAt": "2026-09-15T04:00:00Z",
       "bundleId": "selectverdict-2026-09-15",
-      "status": "queued",
-      "dependencies": []
+      "status": "published",
+      "dependencies": [],
+      "publishedAt": "2026-09-15T07:47:58.484Z"
     },
     {
       "id": "best-all-in-one-marketing-platforms",
@@ -167,8 +168,9 @@
       "destination": "src/pages/best/all-in-one-marketing-platforms/index.astro",
       "publishAt": "2026-09-15T04:00:00Z",
       "bundleId": "selectverdict-2026-09-15",
-      "status": "queued",
-      "dependencies": []
+      "status": "published",
+      "dependencies": [],
+      "publishedAt": "2026-09-15T07:47:58.484Z"
     }
   ]
 }
