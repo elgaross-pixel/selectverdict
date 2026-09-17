@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">SelectVerdict software research</title>
+  <desc id="desc">SelectVerdict editorial research graphic for software reviews and comparisons.</desc>
+  <rect width="1200" height="675" fill="#f6f8f7"/>
+  <rect x="72" y="72" width="1056" height="531" rx="44" fill="#185c47"/>
+  <circle cx="205" cy="222" r="78" fill="#ffffff"/>
+  <path d="M164 222 195 253 251 191" fill="none" stroke="#185c47" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="322" y="235" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" fill="#ffffff">SelectVerdict</text>
+  <text x="164" y="390" font-family="Arial, Helvetica, sans-serif" font-size="44" fill="#ffffff">Independent software research</text>
+  <text x="164" y="454" font-family="Arial, Helvetica, sans-serif" font-size="32" fill="#d9eee6">Comparisons · Pricing · Alternatives · Guides</text>
+</svg>
