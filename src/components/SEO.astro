@@ -31,9 +31,21 @@ const titleOverrides = new Map<string, string>([
   ['Systeme.io vs Kajabi (2026): Price, Courses & Marketing Compared', 'Systeme.io vs Kajabi (2026)'],
   ['systeme.io Review (2026): What We Verified on the Free Plan', 'Systeme.io Review (2026): Free Plan Tested'],
 ]);
+const descriptionOverrides = new Map<string, string>([
+  ['/guides/systeme-io-free-plan/', 'We tested Systeme.io’s Free plan and compared current limits with our account snapshot, including 2,000 contacts, 3 funnels and 1 automation rule.'],
+  ['/alternatives/gumroad/', 'Compare 5 Gumroad alternatives by fees, tax handling, storefront features and real selling cost to choose the right platform for your products.'],
+  ['/alternatives/kajabi/', 'Compare 6 Kajabi alternatives by courses, email, funnels, community and pricing to find the platform that fits how your business actually works.'],
+  ['/alternatives/stan-store/', 'Compare 5 Stan Store alternatives by storefront, digital products, courses, email and fees to choose the best fit for your creator workflow.'],
+  ['/guides/is-systeme-io-legit/', 'Is Systeme.io legit? We review what we verified, where evidence is limited, key platform risks and what buyers should check before signing up.'],
+]);
+const publicationDates = new Map<string, string>([
+  ['/guides/systeme-io-free-plan/', '2026-09-06'],
+  ['/pricing/systeme-io/', '2026-09-06'],
+]);
 const seoTitle = titleOverrides.get(title) ?? title;
 const fullTitle = seoTitle === siteName ? seoTitle : `${seoTitle} | ${siteName}`;
 const canonicalUrl = new URL(canonical, Astro.site);
+const seoDescription = descriptionOverrides.get(canonicalUrl.pathname) ?? description;
 const articleImageUrl = new URL('/images/article-default.svg', Astro.site).href;
 const organizationLogoUrl = new URL('/images/logo.svg', Astro.site).href;
 
@@ -49,13 +61,20 @@ function enrichSchema(value: unknown): unknown {
     Object.entries(value as Record<string, unknown>).map(([key, child]) => [key, enrichSchema(child)]),
   ) as Record<string, unknown>;
 
-  if (hasType(enriched['@type'], 'Article') && !enriched.image) {
-    enriched.image = {
-      '@type': 'ImageObject',
-      url: articleImageUrl,
-      width: 1200,
-      height: 675,
-    };
+  if (hasType(enriched['@type'], 'Article')) {
+    if (!enriched.image) {
+      enriched.image = {
+        '@type': 'ImageObject',
+        url: articleImageUrl,
+        width: 1200,
+        height: 675,
+      };
+    }
+
+    if (!enriched.datePublished) {
+      const datePublished = publicationDates.get(canonicalUrl.pathname);
+      if (datePublished) enriched.datePublished = datePublished;
+    }
   }
 
   if (hasType(enriched['@type'], 'Organization') && !enriched.logo) {
@@ -83,17 +102,17 @@ const imageUrl = image ? new URL(image, Astro.site) : isArticle ? new URL('/imag
 ---
 
 <title>{fullTitle}</title>
-<meta name="description" content={description} />
+<meta name="description" content={seoDescription} />
 <link rel="canonical" href={canonicalUrl} />
 <link rel="sitemap" href="/sitemap-index.xml" />
 {noindex && <meta name="robots" content="noindex, follow" />}
 <meta property="og:type" content={isArticle ? 'article' : 'website'} />
 <meta property="og:site_name" content={siteName} />
 <meta property="og:title" content={fullTitle} />
-<meta property="og:description" content={description} />
+<meta property="og:description" content={seoDescription} />
 <meta property="og:url" content={canonicalUrl} />
 {imageUrl && <meta property="og:image" content={imageUrl} />}
 <meta name="twitter:card" content={imageUrl ? 'summary_large_image' : 'summary'} />
 <meta name="twitter:title" content={fullTitle} />
-<meta name="twitter:description" content={description} />
+<meta name="twitter:description" content={seoDescription} />
 {enrichedSchema && <script type="application/ld+json" set:html={JSON.stringify(enrichedSchema)} />}
