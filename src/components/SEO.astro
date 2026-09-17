@@ -10,9 +10,76 @@ interface Props {
 
 const { title, description, canonical = Astro.url, image, noindex = false, schema } = Astro.props;
 const siteName = 'SelectVerdict';
-const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
+const titleOverrides = new Map<string, string>([
+  ['Systeme.io Free Plan (2026): Limits We Inspected', 'Systeme.io Free Plan 2026: Limits'],
+  ['Systeme.io Pricing (2026): Plans, Costs & Which Plan to Choose', 'Systeme.io Pricing 2026: Plans & Costs'],
+  ['5 Best Gumroad Alternatives (2026): Fees, Tax & Real Selling Cost', '5 Best Gumroad Alternatives (2026)'],
+  ['6 Best Kajabi Alternatives (2026): Replace What You Actually Use', '6 Best Kajabi Alternatives (2026)'],
+  ['5 Best Stan Store Alternatives (2026): Choose by Creator Workflow', '5 Best Stan Store Alternatives (2026)'],
+  ['Is Systeme.io Legit? Evidence, Risks & What We Verified', 'Is Systeme.io Legit? Evidence & Risks'],
+  ['6 Best ClickFunnels Alternatives (2026): Compare the Stack You Need', '6 Best ClickFunnels Alternatives (2026)'],
+  ["What Is Systeme.io? How It Works & What It's Used For", 'What Is Systeme.io? How It Works'],
+  ['7 Best Systeme.io Alternatives (2026): When You Should Switch', '7 Best Systeme.io Alternatives (2026)'],
+  ['Systeme.io Tutorial: Build Your First Working Funnel', 'Systeme.io Tutorial: Build Your First Funnel'],
+  ['Best All-in-One Marketing Platforms (2026): Compare Total Stack Cost', 'Best All-in-One Marketing Platforms (2026)'],
+  ['Best Funnel Builders (2026): 8 Picks by Funnel Type', 'Best Funnel Builders (2026)'],
+  ['Best Online Course Platforms (2026): Choose for Learning First', 'Best Online Course Platforms (2026)'],
+  ['Best Platforms to Sell Digital Products (2026): Fees by Product Type', 'Sell Digital Products: Best Platforms (2026)'],
+  ['Best Platforms to Sell Online Courses (2026): Commerce First', 'Sell Online Courses: Best Platforms (2026)'],
+  ['Systeme.io vs ClickFunnels (2026): Compare the Equivalent Stack', 'Systeme.io vs ClickFunnels (2026)'],
+  ['Systeme.io vs GoHighLevel (2026): Creator Stack vs Agency OS', 'Systeme.io vs GoHighLevel (2026)'],
+  ['Systeme.io vs Kajabi (2026): Price, Courses & Marketing Compared', 'Systeme.io vs Kajabi (2026)'],
+  ['systeme.io Review (2026): What We Verified on the Free Plan', 'Systeme.io Review (2026): Free Plan Tested'],
+]);
+const seoTitle = titleOverrides.get(title) ?? title;
+const fullTitle = seoTitle === siteName ? seoTitle : `${seoTitle} | ${siteName}`;
 const canonicalUrl = new URL(canonical, Astro.site);
-const imageUrl = image ? new URL(image, Astro.site) : undefined;
+const articleImageUrl = new URL('/images/article-default.svg', Astro.site).href;
+const organizationLogoUrl = new URL('/images/logo.svg', Astro.site).href;
+
+function hasType(value: unknown, expected: string) {
+  return value === expected || (Array.isArray(value) && value.includes(expected));
+}
+
+function enrichSchema(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(enrichSchema);
+  if (!value || typeof value !== 'object') return value;
+
+  const enriched = Object.fromEntries(
+    Object.entries(value as Record<string, unknown>).map(([key, child]) => [key, enrichSchema(child)]),
+  ) as Record<string, unknown>;
+
+  if (hasType(enriched['@type'], 'Article') && !enriched.image) {
+    enriched.image = {
+      '@type': 'ImageObject',
+      url: articleImageUrl,
+      width: 1200,
+      height: 675,
+    };
+  }
+
+  if (hasType(enriched['@type'], 'Organization') && !enriched.logo) {
+    enriched.logo = {
+      '@type': 'ImageObject',
+      url: organizationLogoUrl,
+      width: 512,
+      height: 512,
+    };
+  }
+
+  return enriched;
+}
+
+function containsType(value: unknown, expected: string): boolean {
+  if (Array.isArray(value)) return value.some((item) => containsType(item, expected));
+  if (!value || typeof value !== 'object') return false;
+  const object = value as Record<string, unknown>;
+  return hasType(object['@type'], expected) || Object.values(object).some((child) => containsType(child, expected));
+}
+
+const enrichedSchema = schema ? enrichSchema(schema) : undefined;
+const isArticle = containsType(enrichedSchema, 'Article');
+const imageUrl = image ? new URL(image, Astro.site) : isArticle ? new URL('/images/article-default.svg', Astro.site) : undefined;
 ---
 
 <title>{fullTitle}</title>
@@ -20,7 +87,7 @@ const imageUrl = image ? new URL(image, Astro.site) : undefined;
 <link rel="canonical" href={canonicalUrl} />
 <link rel="sitemap" href="/sitemap-index.xml" />
 {noindex && <meta name="robots" content="noindex, follow" />}
-<meta property="og:type" content="website" />
+<meta property="og:type" content={isArticle ? 'article' : 'website'} />
 <meta property="og:site_name" content={siteName} />
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
@@ -29,4 +96,4 @@ const imageUrl = image ? new URL(image, Astro.site) : undefined;
 <meta name="twitter:card" content={imageUrl ? 'summary_large_image' : 'summary'} />
 <meta name="twitter:title" content={fullTitle} />
 <meta name="twitter:description" content={description} />
-{schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+{enrichedSchema && <script type="application/ld+json" set:html={JSON.stringify(enrichedSchema)} />}
