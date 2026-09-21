@@ -1,0 +1,802 @@
+{
+  "account": {
+    "data_api_status": "active",
+    "expiration_date": null,
+    "final_units_observed": 98980,
+    "initial_units_observed": 100000,
+    "main_product_plan_name": "UNKNOWN_NOT_EXPOSED_IN_CAPTURE",
+    "net_units_delta": 1020,
+    "units_limit_observed": 100000
+  },
+  "backlink_rows": {
+    "ahrefs.com": {
+      "backlinks": 3755888,
+      "dofollow_backlinks": 2435590,
+      "domain_inlink_rank": 97,
+      "inlink_rank": 54,
+      "ips": 84187,
+      "nofollow_backlinks": 1320298,
+      "refdomains": 156915,
+      "subnets": 33232
+    },
+    "moz.com": {
+      "backlinks": 5590437,
+      "dofollow_backlinks": 4167551,
+      "domain_inlink_rank": 97,
+      "inlink_rank": 59,
+      "ips": 90124,
+      "nofollow_backlinks": 1422886,
+      "refdomains": 260201,
+      "subnets": 36683
+    },
+    "selectverdict.com": {
+      "backlinks": 0,
+      "dofollow_backlinks": 0,
+      "domain_inlink_rank": 0,
+      "inlink_rank": 0,
+      "ips": 0,
+      "nofollow_backlinks": 0,
+      "refdomains": 0,
+      "subnets": 0
+    },
+    "semrush.com": {
+      "backlinks": 18974138,
+      "dofollow_backlinks": 17295450,
+      "domain_inlink_rank": 96,
+      "inlink_rank": 50,
+      "ips": 120529,
+      "nofollow_backlinks": 1678688,
+      "refdomains": 220369,
+      "subnets": 49641
+    }
+  },
+  "domain_rows": {
+    "ahrefs.com": {
+      "http_status": 200,
+      "organic": {
+        "base_domain": "ahrefs.com",
+        "keywords_count": 255311,
+        "keywords_down_count": 12044,
+        "keywords_equal_count": 333727,
+        "keywords_lost_count": 11846,
+        "keywords_new_count": 13950,
+        "keywords_up_count": 9124,
+        "month": 9,
+        "price_sum": 537942.65,
+        "top11_20": 42329,
+        "top1_5": 42838,
+        "top21_50": 109825,
+        "top51_100": 146965,
+        "top6_10": 26619,
+        "traffic_sum": 271766,
+        "year": 2026
+      }
+    },
+    "moz.com": {
+      "http_status": 200,
+      "organic": {
+        "base_domain": "moz.com",
+        "keywords_count": 116273,
+        "keywords_down_count": 4070,
+        "keywords_equal_count": 180571,
+        "keywords_lost_count": 6218,
+        "keywords_new_count": 7669,
+        "keywords_up_count": 4923,
+        "month": 9,
+        "price_sum": 264217.05,
+        "top11_20": 24955,
+        "top1_5": 26199,
+        "top21_50": 56619,
+        "top51_100": 72996,
+        "top6_10": 16318,
+        "traffic_sum": 102774,
+        "year": 2026
+      }
+    },
+    "selectverdict.com": {
+      "http_status": 200,
+      "organic": []
+    },
+    "semrush.com": {
+      "http_status": 200,
+      "organic": {
+        "base_domain": "semrush.com",
+        "keywords_count": 502704,
+        "keywords_down_count": 18233,
+        "keywords_equal_count": 640060,
+        "keywords_lost_count": 25021,
+        "keywords_new_count": 33730,
+        "keywords_up_count": 23113,
+        "month": 9,
+        "price_sum": 2059771.45,
+        "top11_20": 103229,
+        "top1_5": 114539,
+        "top21_50": 213129,
+        "top51_100": 216520,
+        "top6_10": 67178,
+        "traffic_sum": 2428699,
+        "year": 2026
+      }
+    }
+  },
+  "keyword_rows": [
+    {
+      "competition": 0.53,
+      "cpc": 2.95,
+      "difficulty": 77,
+      "intents": [
+        "L",
+        "N"
+      ],
+      "is_data_found": true,
+      "keyword": "systeme io",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 4400
+    },
+    {
+      "competition": 0.4,
+      "cpc": 1.71,
+      "difficulty": 16,
+      "intents": [
+        "I"
+      ],
+      "is_data_found": true,
+      "keyword": "systeme io review",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 480
+    },
+    {
+      "competition": 0.55,
+      "cpc": 6.01,
+      "difficulty": 21,
+      "intents": [
+        "I"
+      ],
+      "is_data_found": true,
+      "keyword": "systeme io pricing",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 590
+    },
+    {
+      "is_data_found": false,
+      "keyword": "systeme io free plan",
+      "status": "NO_DATA"
+    },
+    {
+      "competition": 0.27,
+      "cpc": 1.74,
+      "difficulty": 36,
+      "intents": [
+        "I"
+      ],
+      "is_data_found": true,
+      "keyword": "what is systeme io",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 110
+    },
+    {
+      "competition": 0.79,
+      "cpc": 6,
+      "difficulty": 7,
+      "intents": [
+        "I"
+      ],
+      "is_data_found": true,
+      "keyword": "systeme io alternatives",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 20
+    },
+    {
+      "competition": 0.27,
+      "cpc": 5.77,
+      "difficulty": 10,
+      "intents": [
+        "I"
+      ],
+      "is_data_found": true,
+      "keyword": "clickfunnels alternatives",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 260
+    },
+    {
+      "competition": 0.46,
+      "cpc": 3.82,
+      "difficulty": 6,
+      "intents": [
+        "I"
+      ],
+      "is_data_found": true,
+      "keyword": "systeme io vs kajabi",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 40
+    },
+    {
+      "competition": 0.23,
+      "cpc": 8.89,
+      "difficulty": 6,
+      "intents": [
+        "I"
+      ],
+      "is_data_found": true,
+      "keyword": "systeme io vs clickfunnels",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 40
+    },
+    {
+      "competition": 0.56,
+      "cpc": 10.79,
+      "difficulty": 7,
+      "intents": [
+        "I"
+      ],
+      "is_data_found": true,
+      "keyword": "kajabi alternatives",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 320
+    },
+    {
+      "competition": 0.45,
+      "cpc": 0.55,
+      "difficulty": 77,
+      "intents": [
+        "I",
+        "N"
+      ],
+      "is_data_found": true,
+      "keyword": "se ranking",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 6600
+    },
+    {
+      "competition": 0.05,
+      "cpc": 4,
+      "difficulty": 31,
+      "intents": [
+        "I"
+      ],
+      "is_data_found": true,
+      "keyword": "se ranking review",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 10
+    },
+    {
+      "competition": 0.26,
+      "cpc": 4,
+      "difficulty": 20,
+      "intents": [
+        "I"
+      ],
+      "is_data_found": true,
+      "keyword": "se ranking pricing",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 590
+    },
+    {
+      "competition": 0.08,
+      "cpc": 11.09,
+      "difficulty": 16,
+      "intents": [
+        "I"
+      ],
+      "is_data_found": true,
+      "keyword": "se ranking alternatives",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 70
+    },
+    {
+      "competition": 0,
+      "cpc": 0,
+      "difficulty": 13,
+      "intents": [
+        "I"
+      ],
+      "is_data_found": true,
+      "keyword": "se ranking vs mangools",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 10
+    },
+    {
+      "competition": 0.57,
+      "cpc": 5.34,
+      "difficulty": 34,
+      "intents": [
+        "I",
+        "N"
+      ],
+      "is_data_found": true,
+      "keyword": "mangools",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 440
+    },
+    {
+      "competition": 0.05,
+      "cpc": 2.99,
+      "difficulty": 21,
+      "intents": [
+        "I"
+      ],
+      "is_data_found": true,
+      "keyword": "mangools review",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 140
+    },
+    {
+      "competition": 0.52,
+      "cpc": 5.08,
+      "difficulty": 23,
+      "intents": [
+        "I",
+        "N"
+      ],
+      "is_data_found": true,
+      "keyword": "mangools pricing",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 30
+    },
+    {
+      "competition": 0.04,
+      "cpc": 7.72,
+      "difficulty": 14,
+      "intents": [
+        "I"
+      ],
+      "is_data_found": true,
+      "keyword": "mangools alternatives",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2026-01-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 9,
+      "volume": 110
+    },
+    {
+      "is_data_found": false,
+      "keyword": "mangools vs se ranking",
+      "status": "NO_DATA"
+    },
+    {
+      "competition": 0.1,
+      "cpc": 7.93,
+      "difficulty": 33,
+      "intents": [
+        "I"
+      ],
+      "is_data_found": true,
+      "keyword": "best seo tools for small businesses",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 390
+    },
+    {
+      "competition": 0.43,
+      "cpc": 0,
+      "difficulty": 20,
+      "intents": [
+        "I"
+      ],
+      "is_data_found": true,
+      "keyword": "best affordable seo tools",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 20
+    },
+    {
+      "competition": 0.01,
+      "cpc": 0,
+      "difficulty": 45,
+      "intents": [
+        "I",
+        "N"
+      ],
+      "is_data_found": true,
+      "keyword": "best rank tracking tools",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 10
+    },
+    {
+      "competition": 0.15,
+      "cpc": 5.59,
+      "difficulty": 69,
+      "intents": [
+        "I"
+      ],
+      "is_data_found": true,
+      "keyword": "best keyword research tools",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 30
+    },
+    {
+      "competition": 0.01,
+      "cpc": 8.76,
+      "difficulty": 26,
+      "intents": [
+        "I"
+      ],
+      "is_data_found": true,
+      "keyword": "seo tools for small business",
+      "status": "VERIFIED_HANDS_ON",
+      "trend_first": "2025-10-01",
+      "trend_last": "2026-09-01",
+      "trend_points": 12,
+      "volume": 590
+    }
+  ],
+  "rank_rows": [
+    {
+      "keyword": "systeme io",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 99,
+      "serp_features": {
+        "bads": false,
+        "people_also_ask": false,
+        "reviews": false,
+        "sge": false,
+        "sitelinks": false,
+        "video": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "systeme io review",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 88,
+      "serp_features": {
+        "people_also_ask": false,
+        "reviews": false,
+        "sge": false,
+        "video": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "systeme io pricing",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 95,
+      "serp_features": {
+        "people_also_ask": false,
+        "reviews": false,
+        "sge": false,
+        "sitelinks": false,
+        "video": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "systeme io free plan",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 98,
+      "serp_features": {
+        "people_also_ask": false,
+        "sge": false,
+        "sitelinks": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "what is systeme io",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 85,
+      "serp_features": {
+        "people_also_ask": false,
+        "sge": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "systeme io alternatives",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 107,
+      "serp_features": {
+        "people_also_ask": false,
+        "reviews": false,
+        "sge": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "clickfunnels alternatives",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 110,
+      "serp_features": {
+        "images": false,
+        "people_also_ask": false,
+        "sge": false,
+        "video": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "systeme io vs kajabi",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 84,
+      "serp_features": {
+        "people_also_ask": false,
+        "sge": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "systeme io vs clickfunnels",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 86,
+      "serp_features": {
+        "people_also_ask": false,
+        "sge": false,
+        "video": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "kajabi alternatives",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 113,
+      "serp_features": {
+        "people_also_ask": false,
+        "reviews": false,
+        "sge": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "se ranking",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 132,
+      "serp_features": {
+        "people_also_ask": false,
+        "reviews": false,
+        "sge": false,
+        "sitelinks": false,
+        "video": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "se ranking review",
+      "position": null,
+      "ranking_url": null,
+      "status": "UNAVAILABLE_NOT_RETURNED"
+    },
+    {
+      "keyword": "se ranking pricing",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 90,
+      "serp_features": {
+        "people_also_ask": false,
+        "reviews": false,
+        "sge": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "se ranking alternatives",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 118,
+      "serp_features": {
+        "people_also_ask": false,
+        "sge": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "se ranking vs mangools",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 95,
+      "serp_features": {
+        "people_also_ask": false,
+        "reviews": false,
+        "sge": false,
+        "video": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "mangools",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 125,
+      "serp_features": {
+        "people_also_ask": false,
+        "reviews": false,
+        "sge": false,
+        "sitelinks": false,
+        "video": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "mangools review",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 99,
+      "serp_features": {
+        "people_also_ask": false,
+        "reviews": false,
+        "sge": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "mangools pricing",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 80,
+      "serp_features": {
+        "people_also_ask": false,
+        "sge": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "mangools alternatives",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 113,
+      "serp_features": {
+        "people_also_ask": false,
+        "reviews": false,
+        "sge": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "mangools vs se ranking",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 95,
+      "serp_features": {
+        "people_also_ask": false,
+        "reviews": false,
+        "sge": false,
+        "video": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "best seo tools for small businesses",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 113,
+      "serp_features": {
+        "people_also_ask": false,
+        "sge": false,
+        "video": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "best affordable seo tools",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 115,
+      "serp_features": {
+        "people_also_ask": false,
+        "sge": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "best rank tracking tools",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 122,
+      "serp_features": {
+        "people_also_ask": false,
+        "sge": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "best keyword research tools",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 98,
+      "serp_features": {
+        "people_also_ask": false,
+        "reviews": false,
+        "sge": false,
+        "video": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    },
+    {
+      "keyword": "seo tools for small business",
+      "position": 0,
+      "ranking_url": null,
+      "result_count": 113,
+      "serp_features": {
+        "people_also_ask": false,
+        "sge": false
+      },
+      "status": "VERIFIED_HANDS_ON"
+    }
+  ],
+  "serp_counts": {
+    "best affordable seo tools": 10,
+    "best rank tracking tools": 10,
+    "clickfunnels alternatives": 10,
+    "se ranking vs mangools": 10,
+    "systeme io pricing": 10,
+    "systeme io review": 10
+  },
+  "timing": {
+    "direct_monetary_cost_usd": 0,
+    "final_collection_seconds": 387.18,
+    "stage1_seconds": 6.869,
+    "stage2b_seconds": 130.685,
+    "successful_api_execution_seconds": 524.734
+  }
+}
