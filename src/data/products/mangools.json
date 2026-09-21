@@ -1,0 +1,84 @@
+{
+  "name": "Mangools",
+  "slug": "mangools",
+  "status": "published",
+  "officialWebsite": "https://mangools.com/",
+  "hasAffiliateRelationship": false,
+  "categories": [
+    "seo-tools"
+  ],
+  "summary": {
+    "text": "An SEO toolkit tested by SelectVerdict on the Free+ plan through KWFinder, SERPChecker, SERPWatcher, SiteProfiler, and LinkMiner.",
+    "status": "verified"
+  },
+  "keyFeatures": [
+    {
+      "text": "KWFinder imported and exported all 25 frozen keywords in one batch.",
+      "status": "verified"
+    },
+    {
+      "text": "SERPChecker produced one full top-10 export and two partial exports before the observed daily allowance was exhausted.",
+      "status": "verified"
+    },
+    {
+      "text": "SiteProfiler and LinkMiner returned results for all four frozen domains.",
+      "status": "verified"
+    }
+  ],
+  "pros": [
+    {
+      "text": "The full 25-keyword batch was accepted and exported to CSV.",
+      "status": "verified"
+    },
+    {
+      "text": "All four frozen domains were covered by SiteProfiler and LinkMiner.",
+      "status": "verified"
+    }
+  ],
+  "cons": [
+    {
+      "text": "The observed SERP allowance was exhausted before all six fixed queries could be completed.",
+      "status": "verified"
+    },
+    {
+      "text": "SERPWatcher returned no rank values during the final verification poll.",
+      "status": "verified"
+    }
+  ],
+  "bestFor": [
+    {
+      "text": "Users who value the observed batch keyword workflow and can work within plan-specific quotas and result timing.",
+      "status": "editorial"
+    }
+  ],
+  "notFor": [
+    {
+      "text": "A one-session benchmark requiring six deep SERPs and immediate rank output on the observed Free+ limits.",
+      "status": "editorial"
+    }
+  ],
+  "alternatives": [
+    "se-ranking"
+  ],
+  "lastVerified": "2026-09-21",
+  "sources": [
+    {
+      "title": "Mangools official website",
+      "url": "https://mangools.com/",
+      "publisher": "Mangools",
+      "accessedAt": "2026-09-21",
+      "supports": "Product identity and official destination."
+    },
+    {
+      "title": "SelectVerdict Phase 1A Mangools hands-on results",
+      "url": "https://github.com/elgaross-pixel/selectverdict/blob/main/evidence/phase-1a/mangools/2026-09-21/P1A-20260921-MANGOOLS-RESULTS-001.md",
+      "publisher": "SelectVerdict",
+      "accessedAt": "2026-09-21",
+      "supports": "Observed Free+ limits, frozen test outputs, missing data, workflow, cost, and verification gate."
+    }
+  ],
+  "verdict": {
+    "summary": "The observed Free+ run completed keyword, domain, and backlink coverage, but SERP quota and delayed ranks constrained same-session evidence.",
+    "basis": "A frozen 25-keyword, six-SERP, four-domain hands-on run completed on 2026-09-21."
+  }
+}

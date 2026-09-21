@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AffiliateDisclosure from '../../../components/AffiliateDisclosure.astro';
+import SourceBlock from '../../../components/SourceBlock.astro';
+const title = 'SelectVerdict SEO Tools Benchmark #1';
+const description = 'A reproducible SE Ranking and Mangools benchmark using 25 frozen keywords, six SERPs, rank tracking, domain research, and backlink evidence.';
+const canonical = '/guides/seo-tools-benchmark-1/';
+const schema = {'@context':'https://schema.org','@type':'Article',headline:title,description,datePublished:'2026-09-21',dateModified:'2026-09-21',author:{'@type':'Organization',name:'SelectVerdict'},publisher:{'@type':'Organization',name:'SelectVerdict'}};
+const sources = [
+ {title:'Frozen Phase 1A Test Protocol v1',url:'https://github.com/elgaross-pixel/selectverdict/blob/main/PHASE-1A-TEST-PROTOCOL-v1.md',publisher:'SelectVerdict',accessedAt:new Date('2026-09-21'),supports:'Predefined environment, keywords, domains, SERP sample, fields, evidence statuses, and comparison rules.'},
+ {title:'SE Ranking hands-on results',url:'https://github.com/elgaross-pixel/selectverdict/blob/main/evidence/phase-1a/seranking/2026-09-21/P1A-20260921-SERANKING-RESULTS-001.md',publisher:'SelectVerdict',accessedAt:new Date('2026-09-21'),supports:'Verified SE Ranking run.'},
+ {title:'Mangools hands-on results',url:'https://github.com/elgaross-pixel/selectverdict/blob/main/evidence/phase-1a/mangools/2026-09-21/P1A-20260921-MANGOOLS-RESULTS-001.md',publisher:'SelectVerdict',accessedAt:new Date('2026-09-21'),supports:'Verified Mangools run.'},
+ {title:'Observable comparison',url:'https://github.com/elgaross-pixel/selectverdict/blob/main/evidence/phase-1a/comparison/2026-09-21/P1A-20260921-SERANKING-VS-MANGOOLS-COMPARISON-001.md',publisher:'SelectVerdict',accessedAt:new Date('2026-09-21'),supports:'Consolidated comparison without metric conversion or an aggregate winner.'}
+];
+const coverage = [
+ ['Keyword research','25 submitted; 23 data + 2 no-data','25/25 imported and exported'],
+ ['SERP deep-dives','6/6 with 10 rows','1 full top-10, 2 partial, 3 unavailable'],
+ ['Rank tracking','25 configured; 24 rows','25 configured; 0 ranks at poll'],
+ ['Domain research','4/4','4/4 SiteProfiler'],
+ ['Backlink research','4/4','4/4 LinkMiner'],
+ ['Direct cost','$0','$0']
+];
+---
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema}>
+<Breadcrumbs items={[{label:'Home',href:'/'},{label:'Software',href:'/software/'},{label:'SEO Tools Benchmark #1'}]}/>
+<article><header class="section"><div class="container"><p class="eyebrow">Reproducible benchmark</p><h1>{title}</h1><p class="lede">We froze the inputs before testing and preserved missing data instead of manufacturing a winner.</p><p class="meta">Published September 21, 2026 · Evidence verified September 21, 2026</p></div></header>
+<div class="narrow prose article-body">
+<AffiliateDisclosure hasRelationship={false}/>
+<h2>Why this benchmark exists</h2>
+<p>SEO tools draw from different databases and expose different proprietary scores. Benchmark #1 documents what SE Ranking and Mangools returned on the same fixed inputs. It is not a permanent league table and it has no independent ground truth for volume, difficulty, estimated traffic, or backlink totals.</p>
+<h2>Frozen design</h2>
+<p>The dataset contained 25 keywords: ten controls related to existing SelectVerdict funnel-software content and fifteen SEO-tool commercial terms. The six deep-dive queries were “systeme io review,” “systeme io pricing,” “clickfunnels alternatives,” “se ranking vs mangools,” “best affordable seo tools,” and “best rank tracking tools.”</p>
+<p>We tracked selectverdict.com and researched selectverdict.com, semrush.com, ahrefs.com, and moz.com. The primary environment was Google, United States, Desktop, with English where exposed.</p>
+<h2>Coverage result</h2>
+<table><thead><tr><th>Module</th><th>SE Ranking</th><th>Mangools</th></tr></thead><tbody>{coverage.map(row=><tr>{row.map(cell=><td>{cell}</td>)}</tr>)}</tbody></table>
+<p>Coverage is not accuracy. It reports which outputs were available during the verification windows.</p>
+<h2>What disagreed</h2>
+<p>Search volume differed on most comparable rows, sometimes materially. Backlink counts also disagreed: SE Ranking returned zero backlinks and referring domains for selectverdict.com, while Mangools returned three active backlinks and three referring domains. We retained both results.</p>
+<p>KD, paid competition, InLink Rank, DA, PA, CF, TF, and WPR remain separately labeled. Similar-looking values are not declared equivalent.</p>
+<h2>What was missing or limited</h2>
+<ul>
+<li>SE Ranking returned two explicit keyword no-data responses and one rank row remained unavailable.</li>
+<li>Mangools reached the observed allowance after three SERP exports; two were partial and three fixed queries remained unavailable.</li>
+<li>Mangools returned no rank values during the final poll.</li>
+<li>The SE Ranking plan name and complete human labor for both asset cycles remained unknown.</li>
+</ul>
+<p>None of these states was silently converted to zero.</p>
+<h2>Workflow observations</h2>
+<p>SE Ranking's completed run used official APIs because the browser route hit human verification. It required throttling after HTTP 429 and correction of one implementation field name. Mangools used the authenticated browser interface; keyword CSV export was direct, while SERP expansion consumed the finite allowance.</p>
+<p>These are dated workflow observations, not objective usability scores.</p>
+<h2>Four conclusions from Benchmark #1</h2>
+<ol>
+<li>The same keyword can produce materially different database estimates.</li>
+<li>Plan quotas and processing time can determine whether an available feature yields same-session evidence.</li>
+<li>Proprietary difficulty and authority metrics should remain under their original labels.</li>
+<li>Module-level tradeoffs are more honest than a single aggregate winner.</li>
+</ol>
+<h2>Known limitations</h2>
+<p>This was one observation date. Live SERPs were not simultaneous. SE Ranking used APIs and Mangools used its Free+ browser UI. No paid subscription was purchased, no independent truth set was introduced, and affiliate economics did not influence the technical comparison.</p>
+<p>Continue with the <a href="/compare/se-ranking-vs-mangools/">full comparison</a>, <a href="/reviews/se-ranking/">SE Ranking review</a>, or <a href="/reviews/mangools/">Mangools review</a>.</p>
+<SourceBlock sources={sources}/>
+</div></article></BaseLayout>
+<style>.article-body{padding-block:3rem 5rem}.article-body>:global(*)+:global(*){margin-top:1rem}.article-body>:global(.disclosure){margin-bottom:2rem}table{width:100%;border-collapse:collapse;display:block;overflow-x:auto}th,td{padding:.7rem;border:1px solid var(--line);text-align:left;white-space:nowrap}</style>

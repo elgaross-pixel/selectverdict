@@ -1,0 +1,59 @@
+{
+  "slug": "se-ranking",
+  "product": "se-ranking",
+  "title": "SE Ranking Review (2026): What Our Frozen Test Returned",
+  "description": "A hands-on SE Ranking review based on 25 frozen keywords, six SERP checks, rank tracking, domain research, and backlink evidence.",
+  "status": "published",
+  "lastVerified": "2026-09-21",
+  "showProductAssessment": true,
+  "sources": [
+    {
+      "title": "SelectVerdict Phase 1A SE Ranking hands-on results",
+      "url": "https://github.com/elgaross-pixel/selectverdict/blob/main/evidence/phase-1a/seranking/2026-09-21/P1A-20260921-SERANKING-RESULTS-001.md",
+      "publisher": "SelectVerdict",
+      "accessedAt": "2026-09-21",
+      "supports": "Complete hands-on dataset, workflow record, limitations, cost, and verification gate."
+    }
+  ],
+  "methodology": "We froze 25 keywords, six SERP queries, one tracked domain, three reference domains, Google United States, English, and Desktop before testing. The completed run used SE Ranking's official Data API and Project API. Missing output was retained and no other service supplied replacement data.",
+  "conclusion": {
+    "summary": "In this run, SE Ranking returned the broadest immediately usable evidence across the fixed modules.",
+    "basis": "It completed all six SERP deep-dives, returned 24 of 25 rank rows, and covered all four domains. This is a dated run result, not a universal winner claim."
+  },
+  "sections": [
+    {
+      "heading": "What we tested",
+      "paragraphs": [
+        "The fixed run used 25 keywords in their original order, six predefined SERP queries, selectverdict.com for tracking, and selectverdict.com, semrush.com, ahrefs.com, and moz.com for domain and backlink research. No keyword or domain was replaced after results were seen."
+      ]
+    },
+    {
+      "heading": "Keyword research results",
+      "paragraphs": [
+        "SE Ranking received all 25 keywords. It returned data for 23 and explicit no-data responses for “systeme io free plan” and “mangools vs se ranking.” Missing results remain missing rather than becoming zeros.",
+        "Returned fields included volume, keyword difficulty, CPC, paid competition, intent, and trend data where supplied. These are SE Ranking database estimates, not independent ground truth."
+      ]
+    },
+    {
+      "heading": "SERP and rank-tracking results",
+      "paragraphs": [
+        "All six frozen SERP queries returned ten rows. The runs are dated live observations and their ordering should not be treated as permanent.",
+        "Rank Tracker configured all 25 keywords for selectverdict.com. Twenty-four returned position rows. “se ranking review” remained unavailable after polling and was not assigned rank zero. Returned position zero rows meant not found in the tracked top 100."
+      ]
+    },
+    {
+      "heading": "Domain and backlink evidence",
+      "paragraphs": [
+        "Competitive and backlink research completed for all four frozen domains. SE Ranking exposed estimated organic-keyword, traffic, backlink, referring-domain, follow/nofollow, and InLink Rank fields where available.",
+        "The saved output showed zero backlinks and zero referring domains for selectverdict.com. Mangools returned three of each. We preserve that disagreement rather than averaging it."
+      ]
+    },
+    {
+      "heading": "Workflow, limits, and cost",
+      "paragraphs": [
+        "The successful GitHub Actions API runtime was 524.734 seconds. The recorded unit balance moved from 100000 to 98980, an observed delta of 1020. Direct monetary cost was $0.",
+        "The browser route was blocked by human verification. Earlier API attempts encountered HTTP 429 and a corrected id versus site_engine_id implementation error. The main product plan name and uninstrumented labor time remain unknown."
+      ]
+    }
+  ]
+}

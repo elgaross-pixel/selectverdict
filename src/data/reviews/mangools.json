@@ -1,0 +1,60 @@
+{
+  "slug": "mangools",
+  "product": "mangools",
+  "title": "Mangools Review (2026): What Free+ Allowed in Our Test",
+  "description": "A hands-on Mangools review covering KWFinder, SERPChecker, SERPWatcher, SiteProfiler, and LinkMiner on a frozen dataset.",
+  "status": "published",
+  "lastVerified": "2026-09-21",
+  "showProductAssessment": true,
+  "sources": [
+    {
+      "title": "SelectVerdict Phase 1A Mangools hands-on results",
+      "url": "https://github.com/elgaross-pixel/selectverdict/blob/main/evidence/phase-1a/mangools/2026-09-21/P1A-20260921-MANGOOLS-RESULTS-001.md",
+      "publisher": "SelectVerdict",
+      "accessedAt": "2026-09-21",
+      "supports": "Observed plan limits, exports, missing results, workflow, cost, and verification gate."
+    }
+  ],
+  "methodology": "We ran the same frozen 25 keywords, six SERP queries, tracked domain, reference domains, Google United States, and Desktop settings used for SE Ranking wherever Mangools exposed the control. We stopped at observed account limits and did not substitute data from another service.",
+  "conclusion": {
+    "summary": "Mangools Free+ completed the keyword batch and four-domain research, while its SERP allowance and delayed ranks constrained this same-session benchmark.",
+    "basis": "KWFinder returned 25 of 25 imported rows, SiteProfiler and LinkMiner covered four of four domains, but only three SERP exports were produced and no rank values returned during the verification window."
+  },
+  "sections": [
+    {
+      "heading": "Observed Free+ limits",
+      "paragraphs": [
+        "The account showed 25 keywords per import, five SERP lookups per 24 hours, 50 tracked keywords, one tracked domain, 2000 backlink rows per 30 days, and five site lookups per 24 hours. The plan was active through September 30, 2026 and the direct test cost was $0.",
+        "Post-run request counters displayed an ambiguous 0 / 0 state for several tools. We preserve that display rather than calculating a remaining allowance."
+      ]
+    },
+    {
+      "heading": "KWFinder results",
+      "paragraphs": [
+        "KWFinder accepted and exported all 25 frozen keywords in their original order for the United States. The CSV included volume, KD, CPC, PPC, historical volume and trend fields, intent where supplied, content types, opportunities, and SERP features.",
+        "Blank values remain blank. Numeric results where SE Ranking returned no data are recorded as database disagreement, not proof of correctness."
+      ]
+    },
+    {
+      "heading": "SERPChecker results",
+      "paragraphs": [
+        "“systeme io review” exported 17 organic rows and the benchmark used its first ten. “systeme io pricing” exported seven rows and “clickfunnels alternatives” exported nine.",
+        "The remaining three frozen queries are unavailable due to the observed limit. Initial analysis and Load more results actions consumed the finite allowance. No replacement queries were used."
+      ]
+    },
+    {
+      "heading": "SERPWatcher results",
+      "paragraphs": [
+        "Tracking was created for selectverdict.com with United States, Desktop, and all 25 frozen keywords. Usage showed 25 of 50 tracked keywords.",
+        "After the stated processing period, the interface still showed insufficient history and no rank values. All ranks remain unavailable and none were converted to zero."
+      ]
+    },
+    {
+      "heading": "SiteProfiler, LinkMiner, and workflow",
+      "paragraphs": [
+        "All four frozen domains were checked in SiteProfiler and LinkMiner. Their authority and link metrics remain under Mangools labels and are not equated to SE Ranking metrics.",
+        "The authenticated browser workflow and CSV exports worked. End-to-end browser labor was not reliably instrumented. The main friction was SERP quota consumption, partial output, delayed ranks, and ambiguous post-run counters."
+      ]
+    }
+  ]
+}

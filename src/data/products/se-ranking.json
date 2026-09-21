@@ -1,0 +1,84 @@
+{
+  "name": "SE Ranking",
+  "slug": "se-ranking",
+  "status": "published",
+  "officialWebsite": "https://seranking.com/",
+  "hasAffiliateRelationship": false,
+  "categories": [
+    "seo-tools"
+  ],
+  "summary": {
+    "text": "An SEO platform tested by SelectVerdict through its official Data API and Project API for keyword research, live SERP analysis, rank tracking, domain research, and backlink research.",
+    "status": "verified"
+  },
+  "keyFeatures": [
+    {
+      "text": "Keyword research returned data for 23 of 25 frozen keywords and explicit no-data for two.",
+      "status": "verified"
+    },
+    {
+      "text": "All six frozen SERP deep-dives returned ten results.",
+      "status": "verified"
+    },
+    {
+      "text": "Rank Tracker returned position rows for 24 of 25 configured keywords during the verification window.",
+      "status": "verified"
+    }
+  ],
+  "pros": [
+    {
+      "text": "Completed all six fixed SERP deep-dives in the observed API run.",
+      "status": "verified"
+    },
+    {
+      "text": "Returned immediate rank rows for 24 of 25 frozen keywords.",
+      "status": "verified"
+    }
+  ],
+  "cons": [
+    {
+      "text": "The browser access path was blocked by human verification in this test environment.",
+      "status": "verified"
+    },
+    {
+      "text": "The API run encountered rate limiting and required throttling and retries.",
+      "status": "verified"
+    }
+  ],
+  "bestFor": [
+    {
+      "text": "Teams that need the broader set of modules observed in this test and can work within their plan or API limits.",
+      "status": "editorial"
+    }
+  ],
+  "notFor": [
+    {
+      "text": "Buyers who need this report to prove a specific plan price or browser workflow; those were not established by the captured evidence.",
+      "status": "editorial"
+    }
+  ],
+  "alternatives": [
+    "mangools"
+  ],
+  "lastVerified": "2026-09-21",
+  "sources": [
+    {
+      "title": "SE Ranking official website",
+      "url": "https://seranking.com/",
+      "publisher": "SE Ranking",
+      "accessedAt": "2026-09-21",
+      "supports": "Product identity and official destination."
+    },
+    {
+      "title": "SelectVerdict Phase 1A SE Ranking hands-on results",
+      "url": "https://github.com/elgaross-pixel/selectverdict/blob/main/evidence/phase-1a/seranking/2026-09-21/P1A-20260921-SERANKING-RESULTS-001.md",
+      "publisher": "SelectVerdict",
+      "accessedAt": "2026-09-21",
+      "supports": "Frozen test inputs, returned outputs, limitations, workflow, cost, and verification gate."
+    }
+  ],
+  "verdict": {
+    "summary": "The observed API run produced complete fixed-SERP coverage and near-complete immediate rank output.",
+    "basis": "A frozen 25-keyword, six-SERP, four-domain hands-on run completed on 2026-09-21."
+  }
+}
