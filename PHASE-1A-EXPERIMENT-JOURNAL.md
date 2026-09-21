@@ -267,3 +267,17 @@ Required to close Step 3:
 - record visible quotas/limits, workflow friction and timing;
 - save results without changing the frozen dataset;
 - re-read the saved raw evidence and verify it against Test Protocol v1 before changing this status to CLOSED.
+
+
+### Step 3 continuation attempt — 2026-09-21
+
+A Work-mode interactive cloud browser reached the SE Ranking login endpoint, where Cloudflare presented an explicit human-verification challenge. Control was handed to the user for manual verification; the user reported that the verification did not complete.
+
+Result:
+- authenticated product UI remained unavailable;
+- no protocol module was executed;
+- no frozen keyword, SERP sample, reference domain, market, language or device setting was changed;
+- no external data was substituted;
+- raw evidence was appended in `P1A-20260921-SERANKING-RUN-001.md`.
+
+**Status remains: BLOCKED / NOT CLOSED.**
