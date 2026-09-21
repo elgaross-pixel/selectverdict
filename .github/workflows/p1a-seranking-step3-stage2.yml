@@ -1,0 +1,352 @@
+name: P1A SE Ranking Step 3 Stage 2
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/p1a-seranking-step3-stage2.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SERANKING_API_KEY: ${{ secrets.SERANKING_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install HTTP client
+        run: python -m pip install --quiet requests
+
+      - name: Configure frozen Rank Tracker and collect SERP evidence
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os, time
+          from datetime import datetime, timezone
+          from pathlib import Path
+          from urllib.parse import urlparse
+          import requests
+
+          KEY = os.environ.get('SERANKING_API_KEY', '')
+          if not KEY:
+              raise SystemExit('SERANKING_API_KEY secret is missing')
+
+          BASE = 'https://api.seranking.com'
+          OUT = Path('evidence/phase-1a/seranking/2026-09-21')
+          OUT.mkdir(parents=True, exist_ok=True)
+          started = datetime.now(timezone.utc)
+          today = started.date().isoformat()
+
+          frozen_keywords = [
+              'systeme io',
+              'systeme io review',
+              'systeme io pricing',
+              'systeme io free plan',
+              'what is systeme io',
+              'systeme io alternatives',
+              'clickfunnels alternatives',
+              'systeme io vs kajabi',
+              'systeme io vs clickfunnels',
+              'kajabi alternatives',
+              'se ranking',
+              'se ranking review',
+              'se ranking pricing',
+              'se ranking alternatives',
+              'se ranking vs mangools',
+              'mangools',
+              'mangools review',
+              'mangools pricing',
+              'mangools alternatives',
+              'mangools vs se ranking',
+              'best seo tools for small businesses',
+              'best affordable seo tools',
+              'best rank tracking tools',
+              'best keyword research tools',
+              'seo tools for small business',
+          ]
+          deep_dive = [
+              'systeme io review',
+              'systeme io pricing',
+              'clickfunnels alternatives',
+              'se ranking vs mangools',
+              'best affordable seo tools',
+              'best rank tracking tools',
+          ]
+          frozen_domains = ['selectverdict.com', 'semrush.com', 'ahrefs.com', 'moz.com']
+
+          session = requests.Session()
+          session.headers.update({
+              'Authorization': f'Token {KEY}',
+              'Accept': 'application/json',
+              'User-Agent': 'SelectVerdict-Phase1A/1.0',
+          })
+
+          def clean_text(s):
+              return s.replace(KEY, '[REDACTED_API_KEY]') if isinstance(s, str) else s
+
+          def clean(obj):
+              if isinstance(obj, dict):
+                  return {k: clean(v) for k, v in obj.items() if k.lower() not in {'apikey','api_key','token','authorization','guest_link','email','first_name','last_name','picture'}}
+              if isinstance(obj, list):
+                  return [clean(x) for x in obj]
+              if isinstance(obj, str):
+                  return clean_text(obj)
+              return obj
+
+          def call(method, path, *, params=None, payload=None, timeout=90, retries=3):
+              last = None
+              for attempt in range(retries):
+                  try:
+                      r = session.request(method, BASE + path, params=params, json=payload, timeout=timeout)
+                      try:
+                          body = r.json()
+                      except Exception:
+                          body = {'text': clean_text(r.text[:10000])}
+                      last = {'http_status': r.status_code, 'data': clean(body)}
+                      if r.status_code != 429:
+                          return last
+                  except Exception as exc:
+                      last = {'http_status': None, 'error_type': type(exc).__name__, 'data': None}
+                  time.sleep(2 * (attempt + 1))
+              return last
+
+          def write_json(name, obj):
+              (OUT / name).write_text(json.dumps(clean(obj), ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+
+          def norm_domain(value):
+              value = str(value or '').strip()
+              if not value:
+                  return ''
+              if '://' not in value:
+                  value = 'https://' + value
+              host = urlparse(value).hostname or ''
+              host = host.lower()
+              return host[4:] if host.startswith('www.') else host
+
+          subscription_before = call('GET', '/v1/account/subscription', params={'output':'json'})
+
+          projects = call('GET', '/v1/project-management/sites')
+          pdata = projects.get('data') if projects.get('http_status') == 200 else []
+          if not isinstance(pdata, list):
+              pdata = []
+          project = next((p for p in pdata if norm_domain(p.get('name')) == 'selectverdict.com'), None)
+          if not project:
+              raise SystemExit('selectverdict.com project not found')
+          site_id = project['id']
+
+          engines = call('GET', '/v1/project-management/sites/search-engines', params={'site_id':site_id})
+          edata = engines.get('data') if engines.get('http_status') == 200 else []
+          if not isinstance(edata, list) or not edata:
+              raise SystemExit('No project search engine configuration found')
+
+          # Frozen environment requires Google / United States / English. Stage 1 observed exactly one matching engine.
+          candidates = [e for e in edata if (e.get('region_name') or '').lower() in {'united states of america','united states'} and (e.get('lang_code') or '').lower() == 'en']
+          engine = candidates[0] if candidates else edata[0]
+          site_engine_id = engine['id']
+
+          before_kw = call('GET', '/v1/project-management/keywords', params={'site_id':site_id, 'site_engine_id':site_engine_id})
+          existing = before_kw.get('data') if before_kw.get('http_status') == 200 else []
+          if not isinstance(existing, list):
+              existing = []
+          existing_names = {str(k.get('name','')) for k in existing}
+          missing = [kw for kw in frozen_keywords if kw not in existing_names]
+
+          add_result = {'http_status': 200, 'data': {'added': 0, 'ids': []}, 'note': 'all frozen keywords already present'}
+          if missing:
+              payload = [
+                  {
+                      'keyword': kw,
+                      'is_strict': 0,
+                      'comment': 'Phase 1A frozen protocol v1',
+                      'site_engine_ids': [site_engine_id],
+                  }
+                  for kw in missing
+              ]
+              add_result = call('POST', '/v1/project-management/keywords', params={'site_id':site_id}, payload=payload, timeout=120)
+          write_json('P1A-20260921-SERANKING-RANKTRACKER-ADD-001.json', {
+              'missing_before_add': missing,
+              'add_result': add_result,
+          })
+
+          after_kw = call('GET', '/v1/project-management/keywords', params={'site_id':site_id, 'site_engine_id':site_engine_id})
+          kwdata = after_kw.get('data') if after_kw.get('http_status') == 200 else []
+          if not isinstance(kwdata, list):
+              kwdata = []
+          by_name = {str(k.get('name','')): k for k in kwdata}
+          present = [kw for kw in frozen_keywords if kw in by_name]
+          missing_after = [kw for kw in frozen_keywords if kw not in by_name]
+
+          write_json('P1A-20260921-SERANKING-RANKTRACKER-CONFIG-001.json', {
+              'project': {
+                  'name': project.get('name'),
+                  'title': project.get('title'),
+                  'check_freq': project.get('check_freq'),
+                  'depth': project.get('depth'),
+              },
+              'engine': {
+                  'region_name': engine.get('region_name'),
+                  'lang_code': engine.get('lang_code'),
+                  'merge_map': engine.get('merge_map'),
+                  'paid_results': engine.get('paid_results'),
+                  'featured_snippet': engine.get('featured_snippet'),
+              },
+              'frozen_keyword_count': len(frozen_keywords),
+              'present_count': len(present),
+              'missing_after_add': missing_after,
+              'keywords': present,
+          })
+
+          # Trigger a real ranking check for the frozen set only.
+          check_payload = {'keywords': [
+              {'site_engine_id': site_engine_id, 'keyword_id': by_name[kw]['id']}
+              for kw in frozen_keywords if kw in by_name
+          ]}
+          recheck = call('POST', '/v1/project-management/sites/positions/recheck', params={'site_id':site_id}, payload=check_payload, timeout=120)
+          write_json('P1A-20260921-SERANKING-RANKTRACKER-RECHECK-001.json', recheck)
+
+          # Poll for ranking results. Preserve the actual check date returned by SE Ranking.
+          latest_date = None
+          positions = None
+          poll_log = []
+          for i in range(18):
+              dates = call('GET', '/v1/project-management/sites/check-dates', params={
+                  'site_id':site_id,
+                  'site_engine_id':site_engine_id,
+                  'date_from':today,
+                  'date_to':today,
+              })
+              ddata = dates.get('data')
+              if isinstance(ddata, dict) and isinstance(ddata.get('data'), list):
+                  check_dates = ddata['data']
+              elif isinstance(ddata, list):
+                  check_dates = ddata
+              else:
+                  check_dates = []
+              if check_dates:
+                  latest_date = check_dates[-1]
+                  positions = call('GET', '/v1/project-management/sites/positions', params={
+                      'site_id':site_id,
+                      'site_engine_id':site_engine_id,
+                      'date_from':latest_date,
+                      'date_to':latest_date,
+                      'with_landing_pages':1,
+                      'with_serp_features':1,
+                  }, timeout=120)
+                  # Any 200 positions response after the recheck is retained; break once it is non-empty.
+                  pdata2 = positions.get('data') if positions else None
+                  if positions.get('http_status') == 200 and pdata2:
+                      poll_log.append({'poll': i+1, 'date': latest_date, 'positions_ready': True})
+                      break
+              poll_log.append({'poll': i+1, 'date': latest_date, 'positions_ready': False})
+              time.sleep(20)
+
+          write_json('P1A-20260921-SERANKING-RANKTRACKER-POLL-001.json', poll_log)
+          write_json('P1A-20260921-SERANKING-RANKTRACKER-POSITIONS-001.json', positions or {'http_status':None,'data':None,'note':'no positions response available during polling window'})
+
+          # 6 frozen SERP deep-dives: top 10 organic results from the project SERP endpoint.
+          serp_results = {}
+          if latest_date:
+              for query in deep_dive:
+                  k = by_name.get(query)
+                  if not k:
+                      serp_results[query] = {'http_status':None,'data':None,'note':'frozen keyword missing from project'}
+                      continue
+                  serp_results[query] = call('GET', '/v1/project-management/competitors/serp100', params={
+                      'site_id':site_id,
+                      'date':latest_date,
+                      'site_engine_id':site_engine_id,
+                      'keyword_id':k['id'],
+                      'top':10,
+                  }, timeout=120)
+                  time.sleep(1)
+          else:
+              for query in deep_dive:
+                  serp_results[query] = {'http_status':None,'data':None,'note':'no completed rank check date available during polling window'}
+          write_json('P1A-20260921-SERANKING-SERP-001.json', {
+              'check_date': latest_date,
+              'device': 'Desktop',
+              'location': engine.get('region_name'),
+              'language': engine.get('lang_code'),
+              'queries': serp_results,
+          })
+
+          # Retry frozen-domain Competitive Research with conservative throttling.
+          domain_overviews = {}
+          for domain in frozen_domains:
+              domain_overviews[domain] = call('GET', '/v1/domain/overview/db', params={
+                  'source':'us', 'domain':domain, 'with_subdomains':1
+              }, timeout=90, retries=5)
+              time.sleep(3)
+          write_json('P1A-20260921-SERANKING-DOMAIN-002.json', domain_overviews)
+
+          # Backlink metrics one target at a time to avoid burst rate limits; keep each raw response.
+          backlink_metrics = {}
+          backlink_authority = {}
+          for domain in frozen_domains:
+              backlink_metrics[domain] = call('POST', '/v1/backlinks/metrics', payload={
+                  'target':[domain], 'mode':'domain'
+              }, timeout=120, retries=5)
+              time.sleep(3)
+              backlink_authority[domain] = call('POST', '/v1/backlinks/authority', payload={
+                  'target':[domain]
+              }, timeout=120, retries=5)
+              time.sleep(3)
+          write_json('P1A-20260921-SERANKING-BACKLINK-METRICS-002.json', backlink_metrics)
+          write_json('P1A-20260921-SERANKING-BACKLINK-AUTHORITY-002.json', backlink_authority)
+
+          subscription_after = call('GET', '/v1/account/subscription', params={'output':'json'}, retries=5)
+          write_json('P1A-20260921-SERANKING-API-SUBSCRIPTION-AFTER-STAGE2.json', subscription_after)
+
+          def units(resp):
+              try:
+                  return int(resp['data']['subscription_info']['units_left'])
+              except Exception:
+                  return None
+          before_units = units(subscription_before)
+          after_units = units(subscription_after)
+
+          ended = datetime.now(timezone.utc)
+          summary = {
+              'evidence_id':'P1A-20260921-SERANKING-API-STAGE2-001',
+              'started_utc':started.isoformat(),
+              'ended_utc':ended.isoformat(),
+              'elapsed_seconds':round((ended-started).total_seconds(),3),
+              'frozen_dataset_changed':False,
+              'rank_tracker_keywords_present':len(present),
+              'rank_tracker_keywords_missing':missing_after,
+              'recheck_http_status':recheck.get('http_status'),
+              'recheck_result':recheck.get('data'),
+              'check_date':latest_date,
+              'positions_http_status':positions.get('http_status') if positions else None,
+              'serp_http_statuses':{q:r.get('http_status') for q,r in serp_results.items()},
+              'domain_http_statuses':{d:r.get('http_status') for d,r in domain_overviews.items()},
+              'backlink_metrics_http_statuses':{d:r.get('http_status') for d,r in backlink_metrics.items()},
+              'backlink_authority_http_statuses':{d:r.get('http_status') for d,r in backlink_authority.items()},
+              'api_units_before':before_units,
+              'api_units_after':after_units,
+              'api_units_consumed':(before_units-after_units) if before_units is not None and after_units is not None else None,
+              'direct_monetary_cost_usd':0,
+          }
+          write_json('P1A-20260921-SERANKING-API-STAGE2-SUMMARY.json', summary)
+          PY
+
+      - name: Commit evidence outputs
+        shell: bash
+        run: |
+          git config user.name "SelectVerdict Evidence Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add evidence/phase-1a/seranking/2026-09-21/
+          if git diff --cached --quiet; then
+            echo "No evidence changes to commit"
+          else
+            git commit -m "Phase 1A Step 3: collect SE Ranking Rank Tracker and SERP evidence"
+            git push
+          fi
