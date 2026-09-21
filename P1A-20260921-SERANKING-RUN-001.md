@@ -179,3 +179,21 @@ Exact minute-level hands-on timing is not claimed because the required product w
 Reason: Test Protocol v1 requires the comparable-core hands-on run and saved observable results. Those results were not produced because authenticated SE Ranking product access was unavailable in this execution environment.
 
 Step 3 must not be marked complete until the same frozen dataset is run inside the existing authorized SE Ranking account, raw outputs are saved, and the saved results are checked against Test Protocol v1.
+
+
+## Continuation attempt — 2026-09-21
+
+A Work-mode interactive cloud browser reached `https://online.seranking.com/`, but Cloudflare displayed an explicit human-verification challenge (`Just a moment...` / “Подтвердите, что вы человек”). Manual handoff was provided for the user to complete the challenge. The user reported that verification did not complete.
+
+Observed result:
+- target: `online.seranking.com`;
+- blocker: Cloudflare human-verification challenge;
+- manual verification attempt: unsuccessful;
+- authenticated SE Ranking product UI: not reached;
+- frozen dataset changes: none;
+- keyword, SERP, Rank Tracker, competitor and backlink runs: not executed;
+- additional direct monetary cost: $0.
+
+Evidence status: **UNAVAILABLE / LIMIT — CAPTCHA / cloud-browser access blocker**.
+
+No bypass was attempted and no substitute dataset was used. Step 3 remains **BLOCKED / NOT CLOSED**.
