@@ -18,7 +18,7 @@
     "daily_lookup_limit": 5,
     "observed_lookup_behavior": "Initial analysis and loading more results consumed the finite daily lookup allowance.",
     "queries": [
-      {"keyword":"systeme io review","organic_rows_exported":10,"status":"VERIFIED HANDS-ON"},
+      {"keyword":"systeme io review","organic_rows_exported":17,"benchmark_rows_used":10,"status":"VERIFIED HANDS-ON"},
       {"keyword":"systeme io pricing","organic_rows_exported":7,"status":"VERIFIED HANDS-ON / PARTIAL OUTPUT"},
       {"keyword":"clickfunnels alternatives","organic_rows_exported":9,"status":"VERIFIED HANDS-ON / PARTIAL OUTPUT"},
       {"keyword":"se ranking vs mangools","organic_rows_exported":0,"status":"UNAVAILABLE / LIMIT"},
@@ -33,7 +33,8 @@
     "frozen_keywords_configured": 25,
     "initial_ui_message": "Ranks will be ready in about 15 minutes.",
     "initial_position_state": "Not enough history data",
-    "status": "CONFIGURED / INITIAL DATA PENDING"
+    "final_verification_poll": "After the UI's stated approximately 15-minute processing window, all 25 keywords remained visible but no rank rows were returned; the UI continued to show Not enough history data.",
+    "status": "UNAVAILABLE / NOT RETURNED AT VERIFICATION POLL"
   },
   "siteprofiler": [
     {"domain":"selectverdict.com","domain_authority":1,"page_authority":13,"citation_flow":3,"trust_flow":1,"website_popularity_rank":null,"referring_ips":3,"facebook_shares":null,"active_backlinks_last_4_months":3,"lost_backlinks_last_4_months":0,"total_backlinks_all_time":3,"referring_domains":3},
