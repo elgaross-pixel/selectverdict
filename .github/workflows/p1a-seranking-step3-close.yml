@@ -1,0 +1,135 @@
+name: P1A SE Ranking Step 3 Close
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/p1a-seranking-step3-close.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify saved evidence, correct derived expiry field, and close Step 3
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root=Path('evidence/phase-1a/seranking/2026-09-21')
+          required=[
+              'P1A-20260921-SERANKING-KW-001.json',
+              'P1A-20260921-SERANKING-RANKTRACKER-CONFIG-002.json',
+              'P1A-20260921-SERANKING-RANKTRACKER-FINAL.json',
+              'P1A-20260921-SERANKING-SERP-FINAL.json',
+              'P1A-20260921-SERANKING-DOMAIN-002.json',
+              'P1A-20260921-SERANKING-BACKLINK-METRICS-002.json',
+              'P1A-20260921-SERANKING-BACKLINK-AUTHORITY-002.json',
+              'P1A-20260921-SERANKING-API-SUBSCRIPTION-BEFORE.json',
+              'P1A-20260921-SERANKING-API-SUBSCRIPTION-FINAL.json',
+              'P1A-20260921-SERANKING-RESULTS-001.md',
+              'P1A-20260921-SERANKING-DERIVED-SUMMARY.json',
+          ]
+          missing=[x for x in required if not (root/x).exists()]
+          if missing: raise SystemExit('Missing required evidence: '+', '.join(missing))
+
+          frozen=['systeme io','systeme io review','systeme io pricing','systeme io free plan','what is systeme io','systeme io alternatives','clickfunnels alternatives','systeme io vs kajabi','systeme io vs clickfunnels','kajabi alternatives','se ranking','se ranking review','se ranking pricing','se ranking alternatives','se ranking vs mangools','mangools','mangools review','mangools pricing','mangools alternatives','mangools vs se ranking','best seo tools for small businesses','best affordable seo tools','best rank tracking tools','best keyword research tools','seo tools for small business']
+          deep=['systeme io review','systeme io pricing','clickfunnels alternatives','se ranking vs mangools','best affordable seo tools','best rank tracking tools']
+          domains=['selectverdict.com','semrush.com','ahrefs.com','moz.com']
+
+          kw=json.loads((root/'P1A-20260921-SERANKING-KW-001.json').read_text())
+          if kw.get('http_status')!=201: raise SystemExit('Keyword export HTTP is not 201')
+          kr={x.get('keyword'):x for x in kw.get('data',[]) if isinstance(x,dict)}
+          if set(kr)!=set(frozen) or len(kr)!=25: raise SystemExit('Keyword export does not exactly cover frozen 25')
+          found=sum(1 for q in frozen if kr[q].get('is_data_found'))
+          nodata=[q for q in frozen if not kr[q].get('is_data_found')]
+          if found!=23 or set(nodata)!={'systeme io free plan','mangools vs se ranking'}: raise SystemExit('Unexpected keyword data/no-data pattern')
+
+          cfg=json.loads((root/'P1A-20260921-SERANKING-RANKTRACKER-CONFIG-002.json').read_text())
+          if cfg.get('present_count')!=25 or cfg.get('missing_after_add')!=[]: raise SystemExit('Rank Tracker config is not 25/25')
+          if cfg.get('engine',{}).get('region_name')!='United States of America' or cfg.get('engine',{}).get('lang_code')!='en': raise SystemExit('Rank Tracker locale mismatch')
+
+          pos=json.loads((root/'P1A-20260921-SERANKING-RANKTRACKER-FINAL.json').read_text())
+          prows=[]
+          for block in pos.get('data',[]):
+              if isinstance(block,dict): prows.extend(block.get('keywords') or [])
+          names={x.get('name') for x in prows if isinstance(x,dict)}
+          returned=[q for q in frozen if q in names]
+          missing_pos=[q for q in frozen if q not in names]
+          if len(returned)!=24 or missing_pos!=['se ranking review']: raise SystemExit(f'Unexpected position coverage: {len(returned)} / missing={missing_pos}')
+
+          serp=json.loads((root/'P1A-20260921-SERANKING-SERP-FINAL.json').read_text())
+          sq=serp.get('queries') or {}
+          if set(sq)!=set(deep): raise SystemExit('SERP deep-dive query set mismatch')
+          for q in deep:
+              r=sq[q]
+              if r.get('http_status')!=200 or not isinstance(r.get('data'),list) or len(r['data'])!=10:
+                  raise SystemExit(f'SERP deep dive incomplete: {q}')
+
+          dom=json.loads((root/'P1A-20260921-SERANKING-DOMAIN-002.json').read_text())
+          bm=json.loads((root/'P1A-20260921-SERANKING-BACKLINK-METRICS-002.json').read_text())
+          ba=json.loads((root/'P1A-20260921-SERANKING-BACKLINK-AUTHORITY-002.json').read_text())
+          for d in domains:
+              if (dom.get(d) or {}).get('http_status')!=200: raise SystemExit('Domain research incomplete '+d)
+              if (bm.get(d) or {}).get('http_status')!=200: raise SystemExit('Backlink metrics incomplete '+d)
+              if (ba.get(d) or {}).get('http_status')!=200: raise SystemExit('Backlink authority incomplete '+d)
+
+          sub0=json.loads((root/'P1A-20260921-SERANKING-API-SUBSCRIPTION-BEFORE.json').read_text())
+          subf=json.loads((root/'P1A-20260921-SERANKING-API-SUBSCRIPTION-FINAL.json').read_text())
+          si0=sub0['data']['subscription_info']; sif=subf['data']['subscription_info']
+          expiry=si0.get('expiraton_date') or si0.get('expiration_date')
+          if si0.get('status')!='active' or si0.get('units_limit')!=100000 or si0.get('units_left')!=100000: raise SystemExit('Unexpected initial API subscription state')
+          if sif.get('units_left')!=98980: raise SystemExit('Unexpected final API units')
+          if not expiry: raise SystemExit('API expiry missing')
+
+          # Correct only derived summary/result representation of the API's misspelled expiry field.
+          dsum_path=root/'P1A-20260921-SERANKING-DERIVED-SUMMARY.json'
+          dsum=json.loads(dsum_path.read_text())
+          dsum['account']['expiration_date']=expiry
+          dsum_path.write_text(json.dumps(dsum,ensure_ascii=False,indent=2,sort_keys=True)+'\n',encoding='utf-8')
+
+          result_path=root/'P1A-20260921-SERANKING-RESULTS-001.md'
+          result=result_path.read_text(encoding='utf-8')
+          result=result.replace('- API credit expiration observed: `None`',f'- API credit expiration observed: `{expiry}`')
+          if '## 9. Verification gate' not in result:
+              result += f'''\n## 9. Verification gate\n\nSaved evidence was re-read programmatically before closure on 2026-09-21. Verification confirmed:\n- exact frozen keyword coverage in Keyword Research: 25/25;\n- Keyword Research result state: 23 with data, 2 explicit no-data responses;\n- Rank Tracker configuration: 25/25 frozen keywords;\n- Rank Tracker returned position rows: 24/25; `se ranking review` remained **UNAVAILABLE / NOT RETURNED** after the final polling window and is preserved as missing evidence;\n- frozen SERP deep-dives: 6/6, each with 10 returned rows;\n- frozen-domain Competitive Research: 4/4 HTTP 200;\n- frozen-domain backlink metrics: 4/4 HTTP 200;\n- frozen-domain backlink authority: 4/4 HTTP 200;\n- Data API: active, initial 100000/100000 units, expiry `{expiry}`, final 98980 units;\n- frozen dataset changed: **false**.\n\nThe single missing Rank Tracker position and unknown main product plan name are explicitly recorded as unavailable/unknown and were not imputed. Under Protocol v1 evidence rules, missing/unavailable output is retained rather than replaced.\n\n**PHASE 1A / STEP 3 — SE RANKING HANDS-ON RUN: CLOSED.**\n'''
+          result_path.write_text(result,encoding='utf-8')
+
+          run_path=Path('P1A-20260921-SERANKING-RUN-001.md')
+          run=run_path.read_text(encoding='utf-8')
+          run=run.replace('**Status:** BLOCKED / NOT CLOSED','**Status:** CLOSED AFTER API CONTINUATION',1)
+          if '## Final API continuation and closure' not in run:
+              run += f'''\n\n## Final API continuation and closure\n\nAfter the earlier UI/cloud-browser blockers, the existing account was accessed through an API key stored only as the GitHub Actions secret `SERANKING_API_KEY`. The key value was never committed to the repository or written to evidence files.\n\nFinal directly observed results:\n- Data API active; initial units 100000/100000; expiry `{expiry}`; final units 98980; net observed decrease 1020; direct monetary cost $0.\n- Frozen 25-keyword Keyword Research export completed: 23 data rows + 2 explicit no-data results.\n- Rank Tracker configured and rechecked for 25/25 frozen keywords on Google / United States / English / depth 100.\n- Position output returned 24/25 keywords; `se ranking review` remained unavailable/not returned and was not converted to zero.\n- All six frozen SERP deep-dives completed with top-10 rows.\n- Competitive/domain research completed for `selectverdict.com`, `semrush.com`, `ahrefs.com`, `moz.com`.\n- Backlink metrics and authority reads completed for all four frozen domains.\n- Successful Actions API execution time recorded across Stage 1 + Stage 2B + final collection: 524.734 seconds (~8.75 minutes).\n- Frozen dataset changed: no.\n\nConsolidated verified results: `evidence/phase-1a/seranking/2026-09-21/P1A-20260921-SERANKING-RESULTS-001.md`.\n\n**PHASE 1A / STEP 3 — SE RANKING HANDS-ON RUN: CLOSED.**\n'''
+          run_path.write_text(run,encoding='utf-8')
+
+          journal_path=Path('PHASE-1A-EXPERIMENT-JOURNAL.md')
+          journal=journal_path.read_text(encoding='utf-8')
+          anchor='## Step 3 — SE Ranking hands-on run'
+          idx=journal.find(anchor)
+          if idx<0: raise SystemExit('Step 3 journal anchor missing')
+          tail=journal[idx:]
+          old='**Status:** BLOCKED / NOT CLOSED'
+          p=tail.find(old)
+          if p>=0:
+              abspos=idx+p
+              journal=journal[:abspos]+'**Status:** CLOSED'+journal[abspos+len(old):]
+          if '### Step 3 final API continuation and verification' not in journal:
+              journal += f'''\n\n### Step 3 final API continuation and verification\n\n**Closed:** 2026-09-21  \n**Consolidated results:** `evidence/phase-1a/seranking/2026-09-21/P1A-20260921-SERANKING-RESULTS-001.md`  \n**Raw evidence directory:** `evidence/phase-1a/seranking/2026-09-21/`\n\nThe existing SE Ranking account was continued through the official API using an API key stored only as a GitHub Actions repository secret. No secret value was committed or printed into the evidence dataset.\n\nVerified completion state:\n- account/Data API state captured: active; 100000 initial units; expiry `{expiry}`;\n- frozen Keyword Research dataset: 25/25 submitted, 23 data rows + 2 explicit no-data responses;\n- raw JSON outputs saved;\n- Rank Tracker: 25/25 configured and rechecked for `selectverdict.com`, Google / United States / English, depth 100;\n- final Rank Tracker output: 24/25 returned; `se ranking review` remained **UNAVAILABLE / NOT RETURNED** after polling;\n- six frozen SERP deep-dives: 6/6 completed with 10 results each;\n- frozen-domain Competitive Research: 4/4 completed;\n- frozen-domain backlinks/authority: 4/4 completed;\n- workflow friction, rate limits, implementation error correction, API-unit delta and successful runtime recorded;\n- frozen inputs changed: **no**;\n- direct monetary cost: **$0**.\n\nThe missing Rank Tracker row and unknown main product plan name remain explicit limitations. They were not inferred or replaced. Protocol v1 explicitly requires missing/unavailable evidence to be recorded rather than silently substituted.\n\n## Step 3 verdict\n\n**PHASE 1A / STEP 3 — SE RANKING HANDS-ON RUN: CLOSED**\n\nThe experiment may proceed to the Mangools hands-on run under the same frozen Test Protocol v1.\n'''
+          journal_path.write_text(journal,encoding='utf-8')
+          PY
+      - name: Commit verified closure
+        shell: bash
+        run: |
+          git config user.name "SelectVerdict Evidence Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add evidence/phase-1a/seranking/2026-09-21/P1A-20260921-SERANKING-DERIVED-SUMMARY.json evidence/phase-1a/seranking/2026-09-21/P1A-20260921-SERANKING-RESULTS-001.md P1A-20260921-SERANKING-RUN-001.md PHASE-1A-EXPERIMENT-JOURNAL.md
+          git commit -m "Phase 1A Step 3: verify and close SE Ranking hands-on run"
+          git push
