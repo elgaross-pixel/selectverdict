@@ -1,0 +1,52 @@
+{
+  "evidence_id": "P1A-20260921-MANGOOLS-MODULE-SUMMARY-001",
+  "observed_date": "2026-09-21",
+  "environment": {
+    "search_engine": "Google",
+    "country": "United States",
+    "language": "English where exposed; SERPChecker did not expose a language control",
+    "device": "Desktop",
+    "domain": "selectverdict.com"
+  },
+  "kwfinder": {
+    "frozen_keywords_submitted": 25,
+    "rows_returned": 25,
+    "export_file": "P1A-20260921-MANGOOLS-KW-001.csv",
+    "status": "VERIFIED HANDS-ON"
+  },
+  "serpchecker": {
+    "daily_lookup_limit": 5,
+    "observed_lookup_behavior": "Initial analysis and loading more results consumed the finite daily lookup allowance.",
+    "queries": [
+      {"keyword":"systeme io review","organic_rows_exported":10,"status":"VERIFIED HANDS-ON"},
+      {"keyword":"systeme io pricing","organic_rows_exported":7,"status":"VERIFIED HANDS-ON / PARTIAL OUTPUT"},
+      {"keyword":"clickfunnels alternatives","organic_rows_exported":9,"status":"VERIFIED HANDS-ON / PARTIAL OUTPUT"},
+      {"keyword":"se ranking vs mangools","organic_rows_exported":0,"status":"UNAVAILABLE / LIMIT"},
+      {"keyword":"best affordable seo tools","organic_rows_exported":0,"status":"UNAVAILABLE / LIMIT"},
+      {"keyword":"best rank tracking tools","organic_rows_exported":0,"status":"UNAVAILABLE / LIMIT"}
+    ]
+  },
+  "serpwatcher": {
+    "domain": "selectverdict.com",
+    "location": "United States",
+    "device": "Desktop",
+    "frozen_keywords_configured": 25,
+    "initial_ui_message": "Ranks will be ready in about 15 minutes.",
+    "initial_position_state": "Not enough history data",
+    "status": "CONFIGURED / INITIAL DATA PENDING"
+  },
+  "siteprofiler": [
+    {"domain":"selectverdict.com","domain_authority":1,"page_authority":13,"citation_flow":3,"trust_flow":1,"website_popularity_rank":null,"referring_ips":3,"facebook_shares":null,"active_backlinks_last_4_months":3,"lost_backlinks_last_4_months":0,"total_backlinks_all_time":3,"referring_domains":3},
+    {"domain":"semrush.com","domain_authority":86,"page_authority":71,"citation_flow":73,"trust_flow":76,"website_popularity_rank":2158,"referring_ips":52261,"facebook_shares":90720},
+    {"domain":"ahrefs.com","domain_authority":83,"page_authority":76,"citation_flow":67,"trust_flow":48,"website_popularity_rank":2069,"referring_ips":42945,"facebook_shares":28072},
+    {"domain":"moz.com","domain_authority":91,"page_authority":75,"citation_flow":71,"trust_flow":67,"website_popularity_rank":3008,"referring_ips":41641,"facebook_shares":15704}
+  ],
+  "linkminer": [
+    {"domain":"selectverdict.com","citation_flow":3,"trust_flow":1,"referring_ips":3,"referring_domains":3,"active_backlinks":3},
+    {"domain":"semrush.com","citation_flow":73,"trust_flow":76,"referring_ips_display":"52.3k","referring_domains_display":"101.8k","active_backlinks_display":"13m"},
+    {"domain":"ahrefs.com","citation_flow":67,"trust_flow":48,"referring_ips_display":"42.9k","referring_domains_display":"79.8k","active_backlinks_display":"4m"},
+    {"domain":"moz.com","citation_flow":71,"trust_flow":67,"referring_ips_display":"41.6k","referring_domains_display":"72.2k","active_backlinks_display":"7m"}
+  ],
+  "direct_monetary_cost_usd": 0,
+  "frozen_dataset_changed": false
+}
