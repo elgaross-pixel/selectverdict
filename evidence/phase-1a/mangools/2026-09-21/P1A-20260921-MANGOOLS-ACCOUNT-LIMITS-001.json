@@ -21,4 +21,12 @@
     "ai_prompts": 5
   },
   "direct_monetary_cost_usd": 0
+  ,"post_run_dashboard_observation": {
+    "kwfinder": "0 / 0 req.",
+    "serpchecker": "0 / 0 req.",
+    "serpwatcher": "25 / 50 kws.",
+    "linkminer": "0 / 0 req.",
+    "siteprofiler": "0 / 0 req.",
+    "interpretation": "The dashboard displayed zero request counters after the run. Because the denominator also changed to zero, this is preserved as an observed UI state rather than normalized into a computed remaining quota."
+  }
 }
