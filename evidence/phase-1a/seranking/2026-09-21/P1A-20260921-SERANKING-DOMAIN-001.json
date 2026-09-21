@@ -1,0 +1,95 @@
+{
+  "ahrefs.com": {
+    "data": {
+      "adv": {
+        "base_domain": "ahrefs.com",
+        "keywords_count": 95,
+        "keywords_down_count": 0,
+        "keywords_equal_count": 80,
+        "keywords_lost_count": 4,
+        "keywords_new_count": 16,
+        "keywords_up_count": 0,
+        "month": 9,
+        "price_sum": 903.24,
+        "top1_2": 73,
+        "top3_5": 23,
+        "top6_8": 0,
+        "top9_11": 0,
+        "traffic_sum": 148,
+        "year": 2026
+      },
+      "organic": {
+        "base_domain": "ahrefs.com",
+        "keywords_count": 255311,
+        "keywords_down_count": 12044,
+        "keywords_equal_count": 333727,
+        "keywords_lost_count": 11846,
+        "keywords_new_count": 13950,
+        "keywords_up_count": 9124,
+        "month": 9,
+        "price_sum": 537942.65,
+        "top11_20": 42329,
+        "top1_5": 42838,
+        "top21_50": 109825,
+        "top51_100": 146965,
+        "top6_10": 26619,
+        "traffic_sum": 271766,
+        "year": 2026
+      }
+    },
+    "http_status": 200
+  },
+  "moz.com": {
+    "data": {
+      "message": "too many requests"
+    },
+    "http_status": 429
+  },
+  "selectverdict.com": {
+    "data": {
+      "adv": [],
+      "organic": []
+    },
+    "http_status": 200
+  },
+  "semrush.com": {
+    "data": {
+      "adv": {
+        "base_domain": "semrush.com",
+        "keywords_count": 7128,
+        "keywords_down_count": 1,
+        "keywords_equal_count": 5144,
+        "keywords_lost_count": 580,
+        "keywords_new_count": 2330,
+        "keywords_up_count": 2,
+        "month": 9,
+        "price_sum": 8617.36,
+        "top1_2": 6543,
+        "top3_5": 855,
+        "top6_8": 73,
+        "top9_11": 4,
+        "traffic_sum": 2907,
+        "year": 2026
+      },
+      "organic": {
+        "base_domain": "semrush.com",
+        "keywords_count": 502704,
+        "keywords_down_count": 18233,
+        "keywords_equal_count": 640060,
+        "keywords_lost_count": 25021,
+        "keywords_new_count": 33730,
+        "keywords_up_count": 23113,
+        "month": 9,
+        "price_sum": 2059771.45,
+        "top11_20": 103229,
+        "top1_5": 114539,
+        "top21_50": 213129,
+        "top51_100": 216520,
+        "top6_10": 67178,
+        "traffic_sum": 2428699,
+        "year": 2026
+      }
+    },
+    "http_status": 200
+  }
+}

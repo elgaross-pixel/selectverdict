@@ -1,0 +1,55 @@
+{
+  "engines": [
+    {
+      "engine_label": "engine_1",
+      "featured_snippet": null,
+      "keyword_count": 0,
+      "lang_code": "en",
+      "merge_map": 0,
+      "paid_results": 0,
+      "region_id": 0,
+      "region_name": "United States of America",
+      "search_engine_name": "Google USA"
+    }
+  ],
+  "engines_http_status": 200,
+  "frozen_keywords_missing": [
+    "systeme io",
+    "systeme io review",
+    "systeme io pricing",
+    "systeme io free plan",
+    "what is systeme io",
+    "systeme io alternatives",
+    "clickfunnels alternatives",
+    "systeme io vs kajabi",
+    "systeme io vs clickfunnels",
+    "kajabi alternatives",
+    "se ranking",
+    "se ranking review",
+    "se ranking pricing",
+    "se ranking alternatives",
+    "se ranking vs mangools",
+    "mangools",
+    "mangools review",
+    "mangools pricing",
+    "mangools alternatives",
+    "mangools vs se ranking",
+    "best seo tools for small businesses",
+    "best affordable seo tools",
+    "best rank tracking tools",
+    "best keyword research tools",
+    "seo tools for small business"
+  ],
+  "frozen_keywords_present": [],
+  "keywords": [],
+  "keywords_http_status": 200,
+  "project": {
+    "check_freq": "check_daily",
+    "depth": 100,
+    "is_active": 1,
+    "keyword_count": 0,
+    "name": "selectverdict.com",
+    "title": "selectverdict.com"
+  },
+  "project_found": true
+}

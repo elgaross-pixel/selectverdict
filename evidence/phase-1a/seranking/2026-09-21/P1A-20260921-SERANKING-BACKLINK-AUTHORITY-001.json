@@ -1,0 +1,27 @@
+{
+  "data": {
+    "pages": [
+      {
+        "domain_inlink_rank": 0,
+        "inlink_rank": 0,
+        "url": "selectverdict.com"
+      },
+      {
+        "domain_inlink_rank": 96,
+        "inlink_rank": 50,
+        "url": "semrush.com"
+      },
+      {
+        "domain_inlink_rank": 97,
+        "inlink_rank": 54,
+        "url": "ahrefs.com"
+      },
+      {
+        "domain_inlink_rank": 97,
+        "inlink_rank": 59,
+        "url": "moz.com"
+      }
+    ]
+  },
+  "http_status": 200
+}

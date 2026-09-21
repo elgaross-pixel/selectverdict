@@ -1,0 +1,25 @@
+{
+  "api_units_after": null,
+  "api_units_before": 100000,
+  "api_units_consumed": null,
+  "auto_competitors_http_status": 200,
+  "backlink_authority_http_status": 200,
+  "backlink_metrics_http_status": 429,
+  "database": "us",
+  "direct_monetary_cost_usd": 0,
+  "domain_http_statuses": {
+    "ahrefs.com": 200,
+    "moz.com": 429,
+    "selectverdict.com": 200,
+    "semrush.com": 200
+  },
+  "elapsed_seconds": 6.869,
+  "ended_utc": "2026-09-21T05:56:44.819519+00:00",
+  "evidence_id": "P1A-20260921-SERANKING-API-STAGE1-001",
+  "frozen_dataset_changed": false,
+  "frozen_keyword_count": 25,
+  "frozen_keywords_sha_basis": "exact list from PHASE-1A-TEST-PROTOCOL-v1.md",
+  "keyword_export_http_status": 201,
+  "project_found": true,
+  "started_utc": "2026-09-21T05:56:37.950166+00:00"
+}

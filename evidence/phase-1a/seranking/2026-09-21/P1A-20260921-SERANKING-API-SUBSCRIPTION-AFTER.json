@@ -1,0 +1,6 @@
+{
+  "data": {
+    "error_description": "You made 2 requests, which is over the allowed limit of 1 requests per second. Please try again later."
+  },
+  "http_status": 429
+}
