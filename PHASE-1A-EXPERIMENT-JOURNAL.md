@@ -393,3 +393,51 @@ Verification gate:
 
 Next-step boundary:
 The repository and current journal do not contain a numbered post-Step-5 execution plan or an explicit publication gate. No Step 6 is inferred in this journal entry. Publication remains unauthorized until the approved next step is recovered or explicitly supplied.
+
+
+---
+
+## Step 6 — Phase 1A evidence asset drafting
+
+**Status:** CLOSED  
+**Closed:** 2026-09-21  
+**Asset directory:** `evidence/phase-1a/assets/2026-09-21/`  
+**Publication state:** DRAFT / NOT PUBLISHED
+
+After Step 5, the next deliverable was recovered directly from the frozen Protocol v1 purpose: four Phase 1A evidence assets. This step covers evidence-backed drafting only. It does not authorize publication, route creation, scheduling, commercial-link insertion, or distribution.
+
+Created assets:
+
+1. `P1A-20260921-ASSET-SERANKING-REVIEW-001.md`
+2. `P1A-20260921-ASSET-MANGOOLS-REVIEW-001.md`
+3. `P1A-20260921-ASSET-SERANKING-VS-MANGOOLS-001.md`
+4. `P1A-20260921-ASSET-SEO-TOOLS-BENCHMARK-001.md`
+
+Drafting rules applied:
+- only saved Step 3–5 hands-on evidence was used;
+- frozen keywords, domains, market, device and SERP sample were not changed;
+- missing values remain missing;
+- `UNAVAILABLE / LIMIT`, `UNAVAILABLE / NOT RETURNED`, and `UNKNOWN` states remain explicit;
+- proprietary metrics were not declared equivalent;
+- data disagreement was not averaged;
+- no aggregate winner score was created;
+- affiliate economics were excluded from SEO-data-quality conclusions;
+- no subscription, domain, Site #2, or external publication was created;
+- direct test cost remains $0 for each product run;
+- asset-writing/editing minutes are **UNKNOWN / not reliably instrumented**.
+
+Verification gate:
+- all four saved Markdown files were re-read from GitHub;
+- each file contains `DRAFT / NOT PUBLISHED`;
+- each file references `PHASE-1A-TEST-PROTOCOL-v1.md`;
+- no credential name/value or API secret was found in the drafts;
+- `src/data`, `src/pages`, and `scheduled-content/manifest.json` were not changed;
+- public routes were not created;
+- frozen protocol and frozen dataset were not changed.
+
+## Step 6 verdict
+
+**PHASE 1A / STEP 6 — EVIDENCE ASSET DRAFTING: CLOSED**
+
+Next-step boundary:
+Publication and distribution remain unauthorized because no explicit publication gate is present in the frozen protocol or journal. The next longitudinal experiment checkpoints remain D10, D20, D30, D45, and D60; they must be executed on their scheduled dates with the frozen measurement layers and without rewriting D0.
