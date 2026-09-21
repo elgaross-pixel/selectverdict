@@ -1,0 +1,74 @@
+{
+  "ahrefs.com": {
+    "data": {
+      "metrics": [
+        {
+          "backlinks": 3755888,
+          "dofollow_backlinks": 2435590,
+          "edu_backlinks": 35386,
+          "gov_backlinks": 610,
+          "ips": 84187,
+          "nofollow_backlinks": 1320298,
+          "refdomains": 156915,
+          "subnets": 33232,
+          "target": "ahrefs.com"
+        }
+      ]
+    },
+    "http_status": 200
+  },
+  "moz.com": {
+    "data": {
+      "metrics": [
+        {
+          "backlinks": 5590437,
+          "dofollow_backlinks": 4167551,
+          "edu_backlinks": 5072,
+          "gov_backlinks": 533,
+          "ips": 90124,
+          "nofollow_backlinks": 1422886,
+          "refdomains": 260201,
+          "subnets": 36683,
+          "target": "moz.com"
+        }
+      ]
+    },
+    "http_status": 200
+  },
+  "selectverdict.com": {
+    "data": {
+      "metrics": [
+        {
+          "backlinks": 0,
+          "dofollow_backlinks": 0,
+          "edu_backlinks": 0,
+          "gov_backlinks": 0,
+          "ips": 0,
+          "nofollow_backlinks": 0,
+          "refdomains": 0,
+          "subnets": 0,
+          "target": "selectverdict.com"
+        }
+      ]
+    },
+    "http_status": 200
+  },
+  "semrush.com": {
+    "data": {
+      "metrics": [
+        {
+          "backlinks": 18974138,
+          "dofollow_backlinks": 17295450,
+          "edu_backlinks": 10721,
+          "gov_backlinks": 2284,
+          "ips": 120529,
+          "nofollow_backlinks": 1678688,
+          "refdomains": 220369,
+          "subnets": 49641,
+          "target": "semrush.com"
+        }
+      ]
+    },
+    "http_status": 200
+  }
+}

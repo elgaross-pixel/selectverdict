@@ -1,0 +1,32 @@
+[
+  {
+    "date": null,
+    "poll": 1,
+    "positions_ready": false
+  },
+  {
+    "date": null,
+    "poll": 2,
+    "positions_ready": false
+  },
+  {
+    "date": null,
+    "poll": 3,
+    "positions_ready": false
+  },
+  {
+    "date": null,
+    "poll": 4,
+    "positions_ready": false
+  },
+  {
+    "date": null,
+    "poll": 5,
+    "positions_ready": false
+  },
+  {
+    "date": "2026-09-21",
+    "poll": 6,
+    "positions_ready": true
+  }
+]

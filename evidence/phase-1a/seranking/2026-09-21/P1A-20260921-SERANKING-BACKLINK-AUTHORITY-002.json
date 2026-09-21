@@ -1,0 +1,50 @@
+{
+  "ahrefs.com": {
+    "data": {
+      "pages": [
+        {
+          "domain_inlink_rank": 97,
+          "inlink_rank": 54,
+          "url": "ahrefs.com"
+        }
+      ]
+    },
+    "http_status": 200
+  },
+  "moz.com": {
+    "data": {
+      "pages": [
+        {
+          "domain_inlink_rank": 97,
+          "inlink_rank": 59,
+          "url": "moz.com"
+        }
+      ]
+    },
+    "http_status": 200
+  },
+  "selectverdict.com": {
+    "data": {
+      "pages": [
+        {
+          "domain_inlink_rank": 0,
+          "inlink_rank": 0,
+          "url": "selectverdict.com"
+        }
+      ]
+    },
+    "http_status": 200
+  },
+  "semrush.com": {
+    "data": {
+      "pages": [
+        {
+          "domain_inlink_rank": 96,
+          "inlink_rank": 50,
+          "url": "semrush.com"
+        }
+      ]
+    },
+    "http_status": 200
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "data": [
+    {
+      "keywords": [
+        {
+          "competition": null,
+          "cpc": null,
+          "features": {
+            "people_also_ask": false,
+            "sge": false,
+            "sitelinks": false
+          },
+          "landing_pages": [],
+          "name": "systeme io free plan",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 98,
+          "suggested_bid": null,
+          "total_sum": 0,
+          "volume": null
+        },
+        {
+          "competition": 0.56,
+          "cpc": 10.65,
+          "features": {
+            "people_also_ask": false,
+            "reviews": false,
+            "sge": false
+          },
+          "landing_pages": [],
+          "name": "kajabi alternatives",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 113,
+          "suggested_bid": 10.65,
+          "total_sum": 0,
+          "volume": 320
+        },
+        {
+          "competition": null,
+          "cpc": null,
+          "features": {
+            "people_also_ask": false,
+            "reviews": false,
+            "sge": false,
+            "sitelinks": false,
+            "video": false
+          },
+          "landing_pages": [],
+          "name": "mangools",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 125,
+          "suggested_bid": null,
+          "total_sum": 0,
+          "volume": null
+        },
+        {
+          "competition": null,
+          "cpc": null,
+          "features": {
+            "people_also_ask": false,
+            "sge": false
+          },
+          "landing_pages": [],
+          "name": "best affordable seo tools",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 115,
+          "suggested_bid": null,
+          "total_sum": 0,
+          "volume": null
+        },
+        {
+          "competition": null,
+          "cpc": null,
+          "features": {
+            "people_also_ask": false,
+            "sge": false
+          },
+          "landing_pages": [],
+          "name": "seo tools for small business",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 113,
+          "suggested_bid": null,
+          "total_sum": 0,
+          "volume": null
+        }
+      ]
+    }
+  ],
+  "http_status": 200
+}

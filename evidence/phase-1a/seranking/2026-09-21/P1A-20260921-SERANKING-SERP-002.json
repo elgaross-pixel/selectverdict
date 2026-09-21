@@ -1,0 +1,93 @@
+{
+  "check_date": "2026-09-21",
+  "device": "Desktop",
+  "language": "en",
+  "location": "United States of America",
+  "queries": {
+    "best affordable seo tools": {
+      "data": [
+        {
+          "date": "2026-09-21",
+          "domain_trust": 34,
+          "position": 1,
+          "url": "https://www.yourcreativecontent.com/blog/cheapest-seo-tools"
+        },
+        {
+          "date": "2026-09-21",
+          "domain_trust": 98,
+          "position": 2,
+          "url": "https://www.reddit.com/r/SEO/comments/1gekocy/best_seo_tools_if_your_company_has_very_small/"
+        },
+        {
+          "date": "2026-09-21",
+          "domain_trust": 97,
+          "position": 3,
+          "url": "https://zapier.com/blog/best-seo-tools/"
+        },
+        {
+          "date": "2026-09-21",
+          "domain_trust": 46,
+          "position": 4,
+          "url": "https://mpgone.com/affordable-seo-tools/"
+        },
+        {
+          "date": "2026-09-21",
+          "domain_trust": 77,
+          "position": 5,
+          "url": "https://www.marketermilk.com/blog/best-seo-tools"
+        },
+        {
+          "date": "2026-09-21",
+          "domain_trust": 80,
+          "position": 6,
+          "url": "https://www.eesel.ai/blog/affordable-seo-tools"
+        },
+        {
+          "date": "2026-09-21",
+          "domain_trust": 57,
+          "position": 7,
+          "url": "https://rohringresults.com/cost-effective-seo-tools/"
+        },
+        {
+          "date": "2026-09-21",
+          "domain_trust": 88,
+          "position": 8,
+          "url": "https://www.lendio.com/guides/seo-tools"
+        },
+        {
+          "date": "2026-09-21",
+          "domain_trust": 88,
+          "position": 9,
+          "url": "https://www.seobythesea.com/about-bill-slawski/"
+        },
+        {
+          "date": "2026-09-21",
+          "domain_trust": 98,
+          "position": 10,
+          "url": "https://www.reddit.com/r/seogrowth/comments/1nj804u/what_is_seo_and_how_to_do_seo/"
+        }
+      ],
+      "http_status": 200
+    },
+    "best rank tracking tools": {
+      "data": [],
+      "http_status": 200
+    },
+    "clickfunnels alternatives": {
+      "data": [],
+      "http_status": 200
+    },
+    "se ranking vs mangools": {
+      "data": [],
+      "http_status": 200
+    },
+    "systeme io pricing": {
+      "data": [],
+      "http_status": 200
+    },
+    "systeme io review": {
+      "data": [],
+      "http_status": 200
+    }
+  }
+}
