@@ -1,0 +1,31 @@
+{
+  "api_units_after": 98980,
+  "api_units_before": 98980,
+  "api_units_consumed": 0,
+  "check_date": "2026-09-21",
+  "direct_monetary_cost_usd": 0,
+  "elapsed_seconds": 387.18,
+  "ended_utc": "2026-09-21T06:12:03.829314+00:00",
+  "evidence_id": "P1A-20260921-SERANKING-FINAL-001",
+  "frozen_dataset_changed": false,
+  "frozen_keywords_configured": 25,
+  "frozen_keywords_returned_in_positions": 24,
+  "positions_http_status": 200,
+  "serp_http_statuses": {
+    "best affordable seo tools": 200,
+    "best rank tracking tools": 200,
+    "clickfunnels alternatives": 200,
+    "se ranking vs mangools": 200,
+    "systeme io pricing": 200,
+    "systeme io review": 200
+  },
+  "serp_result_counts": {
+    "best affordable seo tools": 10,
+    "best rank tracking tools": 10,
+    "clickfunnels alternatives": 10,
+    "se ranking vs mangools": 10,
+    "systeme io pricing": 10,
+    "systeme io review": 10
+  },
+  "started_utc": "2026-09-21T06:05:36.649656+00:00"
+}

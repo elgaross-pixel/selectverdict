@@ -1,0 +1,664 @@
+{
+  "data": [
+    {
+      "keywords": [
+        {
+          "competition": 0.54,
+          "cpc": 3.33,
+          "features": {
+            "bads": false,
+            "people_also_ask": false,
+            "reviews": false,
+            "sge": false,
+            "sitelinks": false,
+            "video": false
+          },
+          "landing_pages": [],
+          "name": "systeme io",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 99,
+          "suggested_bid": 3.33,
+          "total_sum": 0,
+          "volume": 4400
+        },
+        {
+          "competition": 0.42,
+          "cpc": 1.71,
+          "features": {
+            "people_also_ask": false,
+            "reviews": false,
+            "sge": false,
+            "video": false
+          },
+          "landing_pages": [],
+          "name": "systeme io review",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 88,
+          "suggested_bid": 1.71,
+          "total_sum": 0,
+          "volume": 480
+        },
+        {
+          "competition": 0.55,
+          "cpc": 4.57,
+          "features": {
+            "people_also_ask": false,
+            "reviews": false,
+            "sge": false,
+            "sitelinks": false,
+            "video": false
+          },
+          "landing_pages": [],
+          "name": "systeme io pricing",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 95,
+          "suggested_bid": 4.57,
+          "total_sum": 0,
+          "volume": 590
+        },
+        {
+          "competition": 0.13,
+          "cpc": 0.74,
+          "features": {
+            "people_also_ask": false,
+            "sge": false,
+            "sitelinks": false
+          },
+          "landing_pages": [],
+          "name": "systeme io free plan",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 98,
+          "suggested_bid": 0.74,
+          "total_sum": 0,
+          "volume": 110
+        },
+        {
+          "competition": 0.21,
+          "cpc": 1.73,
+          "features": {
+            "people_also_ask": false,
+            "sge": false
+          },
+          "landing_pages": [],
+          "name": "what is systeme io",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 85,
+          "suggested_bid": 1.73,
+          "total_sum": 0,
+          "volume": 110
+        },
+        {
+          "competition": 0.63,
+          "cpc": 3.93,
+          "features": {
+            "people_also_ask": false,
+            "reviews": false,
+            "sge": false
+          },
+          "landing_pages": [],
+          "name": "systeme io alternatives",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 107,
+          "suggested_bid": 3.93,
+          "total_sum": 0,
+          "volume": 20
+        },
+        {
+          "competition": 0.15,
+          "cpc": 5.76,
+          "features": {
+            "images": false,
+            "people_also_ask": false,
+            "sge": false,
+            "video": false
+          },
+          "landing_pages": [],
+          "name": "clickfunnels alternatives",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 110,
+          "suggested_bid": 5.76,
+          "total_sum": 0,
+          "volume": 260
+        },
+        {
+          "competition": 0.29,
+          "cpc": 1.99,
+          "features": {
+            "people_also_ask": false,
+            "sge": false
+          },
+          "landing_pages": [],
+          "name": "systeme io vs kajabi",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 84,
+          "suggested_bid": 1.99,
+          "total_sum": 0,
+          "volume": 40
+        },
+        {
+          "competition": 0.31,
+          "cpc": 4.36,
+          "features": {
+            "people_also_ask": false,
+            "sge": false,
+            "video": false
+          },
+          "landing_pages": [],
+          "name": "systeme io vs clickfunnels",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 86,
+          "suggested_bid": 4.36,
+          "total_sum": 0,
+          "volume": 40
+        },
+        {
+          "competition": 0.56,
+          "cpc": 10.65,
+          "features": {
+            "people_also_ask": false,
+            "reviews": false,
+            "sge": false
+          },
+          "landing_pages": [],
+          "name": "kajabi alternatives",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 113,
+          "suggested_bid": 10.65,
+          "total_sum": 0,
+          "volume": 320
+        },
+        {
+          "competition": 0.47,
+          "cpc": 0.42,
+          "features": {
+            "people_also_ask": false,
+            "reviews": false,
+            "sge": false,
+            "sitelinks": false,
+            "video": false
+          },
+          "landing_pages": [],
+          "name": "se ranking",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 132,
+          "suggested_bid": 0.42,
+          "total_sum": 0,
+          "volume": 6600
+        },
+        {
+          "competition": 0.18,
+          "cpc": 4,
+          "features": {
+            "people_also_ask": false,
+            "reviews": false,
+            "sge": false
+          },
+          "landing_pages": [],
+          "name": "se ranking pricing",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 90,
+          "suggested_bid": 4,
+          "total_sum": 0,
+          "volume": 590
+        },
+        {
+          "competition": 0.02,
+          "cpc": 8.79,
+          "features": {
+            "people_also_ask": false,
+            "sge": false
+          },
+          "landing_pages": [],
+          "name": "se ranking alternatives",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 118,
+          "suggested_bid": 8.79,
+          "total_sum": 0,
+          "volume": 70
+        },
+        {
+          "competition": 0,
+          "cpc": 0,
+          "features": {
+            "people_also_ask": false,
+            "reviews": false,
+            "sge": false,
+            "video": false
+          },
+          "landing_pages": [],
+          "name": "se ranking vs mangools",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 95,
+          "suggested_bid": 0,
+          "total_sum": 0,
+          "volume": 10
+        },
+        {
+          "competition": 0.61,
+          "cpc": 6.46,
+          "features": {
+            "people_also_ask": false,
+            "reviews": false,
+            "sge": false,
+            "sitelinks": false,
+            "video": false
+          },
+          "landing_pages": [],
+          "name": "mangools",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 125,
+          "suggested_bid": 6.46,
+          "total_sum": 0,
+          "volume": 440
+        },
+        {
+          "competition": 0.06,
+          "cpc": 3.05,
+          "features": {
+            "people_also_ask": false,
+            "reviews": false,
+            "sge": false
+          },
+          "landing_pages": [],
+          "name": "mangools review",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 99,
+          "suggested_bid": 3.05,
+          "total_sum": 0,
+          "volume": 140
+        },
+        {
+          "competition": 0.5,
+          "cpc": 5.94,
+          "features": {
+            "people_also_ask": false,
+            "sge": false
+          },
+          "landing_pages": [],
+          "name": "mangools pricing",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 80,
+          "suggested_bid": 5.94,
+          "total_sum": 0,
+          "volume": 30
+        },
+        {
+          "competition": 0,
+          "cpc": 0,
+          "features": {
+            "people_also_ask": false,
+            "reviews": false,
+            "sge": false
+          },
+          "landing_pages": [],
+          "name": "mangools alternatives",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 113,
+          "suggested_bid": 0,
+          "total_sum": 0,
+          "volume": 110
+        },
+        {
+          "competition": 0,
+          "cpc": 0,
+          "features": {
+            "people_also_ask": false,
+            "reviews": false,
+            "sge": false,
+            "video": false
+          },
+          "landing_pages": [],
+          "name": "mangools vs se ranking",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 95,
+          "suggested_bid": 0,
+          "total_sum": 0,
+          "volume": 10
+        },
+        {
+          "competition": 0.11,
+          "cpc": 4.87,
+          "features": {
+            "people_also_ask": false,
+            "sge": false,
+            "video": false
+          },
+          "landing_pages": [],
+          "name": "best seo tools for small businesses",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 113,
+          "suggested_bid": 4.87,
+          "total_sum": 0,
+          "volume": 390
+        },
+        {
+          "competition": 0.21,
+          "cpc": 0,
+          "features": {
+            "people_also_ask": false,
+            "sge": false
+          },
+          "landing_pages": [],
+          "name": "best affordable seo tools",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 115,
+          "suggested_bid": 0,
+          "total_sum": 0,
+          "volume": 20
+        },
+        {
+          "competition": 0.02,
+          "cpc": 8.62,
+          "features": {
+            "people_also_ask": false,
+            "sge": false
+          },
+          "landing_pages": [],
+          "name": "best rank tracking tools",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 122,
+          "suggested_bid": 8.62,
+          "total_sum": 0,
+          "volume": 10
+        },
+        {
+          "competition": 0.16,
+          "cpc": 5.85,
+          "features": {
+            "people_also_ask": false,
+            "reviews": false,
+            "sge": false,
+            "video": false
+          },
+          "landing_pages": [],
+          "name": "best keyword research tools",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 98,
+          "suggested_bid": 5.85,
+          "total_sum": 0,
+          "volume": 30
+        },
+        {
+          "competition": 0.05,
+          "cpc": 10.77,
+          "features": {
+            "people_also_ask": false,
+            "sge": false
+          },
+          "landing_pages": [],
+          "name": "seo tools for small business",
+          "positions": [
+            {
+              "change": 0,
+              "date": "2026-09-21",
+              "depth": 100,
+              "is_map": 0,
+              "map_position": 0,
+              "paid_position": 0,
+              "pos": 0,
+              "price": 0
+            }
+          ],
+          "results": 113,
+          "suggested_bid": 10.77,
+          "total_sum": 0,
+          "volume": 590
+        }
+      ]
+    }
+  ],
+  "http_status": 200
+}
