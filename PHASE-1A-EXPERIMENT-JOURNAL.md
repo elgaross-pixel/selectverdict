@@ -311,3 +311,46 @@ The missing Rank Tracker row and unknown main product plan name remain explicit 
 **PHASE 1A / STEP 3 — SE RANKING HANDS-ON RUN: CLOSED**
 
 The experiment may proceed to the Mangools hands-on run under the same frozen Test Protocol v1.
+
+
+---
+
+## Step 4 — Mangools hands-on run
+
+**Status:** CLOSED  
+**Execution date:** 2026-09-21  
+**Consolidated results:** `evidence/phase-1a/mangools/2026-09-21/P1A-20260921-MANGOOLS-RESULTS-001.md`  
+**Raw evidence directory:** `evidence/phase-1a/mangools/2026-09-21/`
+
+The frozen Test Protocol v1 inputs were re-read before execution and were not changed.
+
+Verified completion state:
+- existing authenticated Mangools account accessed;
+- plan observed as Mangools Free+, active through 2026-09-30, direct cost $0;
+- visible limits captured, including 25 keywords per import, 5 SERP lookups per 24 hours, 50 tracked keywords, 1 tracked domain, 2000 backlink rows per 30 days and 5 site lookups per 24 hours;
+- KWFinder: 25/25 frozen keywords imported in original order for United States and exported to CSV;
+- SERPChecker: first three frozen queries produced raw exports with 17, 7 and 9 organic rows respectively; only the first 10 rows of the 17-row export enter the fixed benchmark;
+- SERPChecker: the remaining three frozen queries were not run after the daily allowance was exhausted by initial analyses and result-loading actions; recorded as **UNAVAILABLE / LIMIT**;
+- SERPWatcher: tracking created for `selectverdict.com`, United States, Desktop, 25/25 frozen keywords; after the stated processing window, no rank values were returned and no zero ranks were inferred;
+- SiteProfiler: 4/4 frozen domains tested;
+- LinkMiner: 4/4 frozen domains tested;
+- workflow friction, quota behavior, missing outputs and direct cost recorded;
+- frozen inputs changed: no.
+
+Verification gate:
+- committed KWFinder CSV re-read and exact frozen order confirmed 25/25;
+- committed SERP exports re-read and organic row counts confirmed 17/7/9;
+- remaining SERP queries retained as unavailable due to the observed account limit;
+- saved JSON evidence validated as parseable;
+- SERPWatcher missing rank output retained as unavailable rather than converted to zero;
+- SiteProfiler and LinkMiner frozen-domain coverage confirmed 4/4 each.
+
+## Step 4 verdict
+
+**PHASE 1A / STEP 4 — MANGOOLS HANDS-ON RUN: CLOSED**
+
+The experiment may proceed to:
+
+## Step 5 — Comparison / benchmark consolidation
+
+Comparison must use only genuinely comparable observed fields, preserve proprietary metric labels, distinguish feature absence from data disagreement, and avoid a single aggregate winner score.
