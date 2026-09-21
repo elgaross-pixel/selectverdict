@@ -60,7 +60,7 @@ The Free+ account exposed five SERP lookups per 24 hours. In observed use, the i
 
 | Frozen order | Query | Organic rows exported | Result |
 |---:|---|---:|---|
-| 1 | `systeme io review` | 10 | VERIFIED HANDS-ON |
+| 1 | `systeme io review` | 17 (top 10 used) | VERIFIED HANDS-ON |
 | 2 | `systeme io pricing` | 7 | VERIFIED HANDS-ON / PARTIAL OUTPUT |
 | 3 | `clickfunnels alternatives` | 9 | VERIFIED HANDS-ON / PARTIAL OUTPUT |
 | 4 | `se ranking vs mangools` | 0 | UNAVAILABLE / LIMIT |
@@ -124,11 +124,23 @@ The abbreviated values above reproduce the UI display and are not expanded into 
 Before closure, the committed CSV/JSON evidence must be re-read and checked for:
 
 - KWFinder frozen coverage: 25/25 in original order;
-- SERP export organic row counts: 10, 7 and 9 for the first three queries;
+- SERP export organic row counts: 17, 7 and 9 for the first three queries; only the first 10 rows of the 17-row export enter the fixed benchmark;
 - explicit `UNAVAILABLE / LIMIT` for the remaining three frozen SERP queries;
 - SERPWatcher configuration: 25/25, United States, Desktop, with missing rank output not converted to zero;
 - SiteProfiler domains: 4/4;
 - LinkMiner domains: 4/4;
 - frozen dataset changed: false.
 
-**Step 4 remains open until this verification gate and journal update are completed.**
+Saved CSV and JSON evidence was re-read after the final SERPWatcher poll. Verification confirmed:
+
+- KWFinder frozen coverage: 25/25 in original order;
+- SERP export organic row counts: 17, 7 and 9 for the first three queries; only the first 10 rows of the 17-row export enter the fixed benchmark;
+- explicit `UNAVAILABLE / LIMIT` for the remaining three frozen SERP queries;
+- SERPWatcher configuration: 25/25, United States, Desktop; after the stated processing window, rank values remained unavailable and were not converted to zero;
+- SiteProfiler domains: 4/4;
+- LinkMiner domains: 4/4;
+- frozen dataset changed: false.
+
+Under Protocol v1, partial and unavailable outputs are retained as evidence rather than replaced.
+
+**PHASE 1A / STEP 4 — MANGOOLS HANDS-ON RUN: CLOSED.**
