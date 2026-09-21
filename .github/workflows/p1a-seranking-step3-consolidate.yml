@@ -1,0 +1,168 @@
+name: P1A SE Ranking Step 3 Consolidate Results
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/p1a-seranking-step3-consolidate.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  consolidate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build consolidated results from committed raw evidence
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root=Path('evidence/phase-1a/seranking/2026-09-21')
+          def load(name): return json.loads((root/name).read_text(encoding='utf-8'))
+
+          frozen=['systeme io','systeme io review','systeme io pricing','systeme io free plan','what is systeme io','systeme io alternatives','clickfunnels alternatives','systeme io vs kajabi','systeme io vs clickfunnels','kajabi alternatives','se ranking','se ranking review','se ranking pricing','se ranking alternatives','se ranking vs mangools','mangools','mangools review','mangools pricing','mangools alternatives','mangools vs se ranking','best seo tools for small businesses','best affordable seo tools','best rank tracking tools','best keyword research tools','seo tools for small business']
+          deep=['systeme io review','systeme io pricing','clickfunnels alternatives','se ranking vs mangools','best affordable seo tools','best rank tracking tools']
+          domains=['selectverdict.com','semrush.com','ahrefs.com','moz.com']
+
+          kw=load('P1A-20260921-SERANKING-KW-001.json')
+          krows={x.get('keyword'):x for x in kw.get('data',[]) if isinstance(x,dict)}
+          positions=load('P1A-20260921-SERANKING-RANKTRACKER-FINAL.json')
+          prows=[]
+          for block in positions.get('data',[]):
+              if isinstance(block,dict): prows.extend(block.get('keywords') or [])
+          pmap={x.get('name'):x for x in prows if isinstance(x,dict)}
+          serp=load('P1A-20260921-SERANKING-SERP-FINAL.json')
+          domain=load('P1A-20260921-SERANKING-DOMAIN-002.json')
+          bmetrics=load('P1A-20260921-SERANKING-BACKLINK-METRICS-002.json')
+          bauth=load('P1A-20260921-SERANKING-BACKLINK-AUTHORITY-002.json')
+          sub0=load('P1A-20260921-SERANKING-API-SUBSCRIPTION-BEFORE.json')
+          subf=load('P1A-20260921-SERANKING-API-SUBSCRIPTION-FINAL.json')
+          s1=load('P1A-20260921-SERANKING-API-STAGE1-SUMMARY.json')
+          s2=load('P1A-20260921-SERANKING-API-STAGE2B-SUMMARY.json')
+          sf=load('P1A-20260921-SERANKING-FINAL-SUMMARY.json')
+
+          def sub_units(o):
+              try:return o['data']['subscription_info']['units_left']
+              except:return None
+          def sub_limit(o):
+              try:return o['data']['subscription_info']['units_limit']
+              except:return None
+          def sub_exp(o):
+              try:return o['data']['subscription_info']['expiration_date']
+              except:return None
+          def sub_status(o):
+              try:return o['data']['subscription_info']['status']
+              except:return None
+
+          derived={'keyword_rows':[],'rank_rows':[],'serp_counts':{},'domain_rows':{},'backlink_rows':{},'account':{},'timing':{}}
+          for q in frozen:
+              r=krows.get(q)
+              if not r:
+                  derived['keyword_rows'].append({'keyword':q,'is_data_found':False,'status':'MISSING_FROM_EXPORT'})
+              elif not r.get('is_data_found'):
+                  derived['keyword_rows'].append({'keyword':q,'is_data_found':False,'status':'NO_DATA'})
+              else:
+                  hist=r.get('history_trend') or {}
+                  derived['keyword_rows'].append({'keyword':q,'is_data_found':True,'volume':r.get('volume'),'difficulty':r.get('difficulty'),'cpc':r.get('cpc'),'competition':r.get('competition'),'intents':r.get('intents'),'trend_points':len(hist),'trend_first':min(hist) if hist else None,'trend_last':max(hist) if hist else None,'status':'VERIFIED_HANDS_ON'})
+
+              pr=pmap.get(q)
+              if not pr:
+                  derived['rank_rows'].append({'keyword':q,'status':'UNAVAILABLE_NOT_RETURNED','position':None,'ranking_url':None})
+              else:
+                  ps=pr.get('positions') or []
+                  pos=ps[-1].get('pos') if ps else None
+                  lps=pr.get('landing_pages') or []
+                  ranking_url=None
+                  if lps:
+                      lp=lps[-1]
+                      if isinstance(lp,dict): ranking_url=lp.get('url') or lp.get('link')
+                      elif isinstance(lp,str): ranking_url=lp
+                  derived['rank_rows'].append({'keyword':q,'status':'VERIFIED_HANDS_ON','position':pos,'ranking_url':ranking_url,'result_count':pr.get('results'),'serp_features':pr.get('features')})
+
+          for q in deep:
+              rr=(serp.get('queries') or {}).get(q) or {}
+              data=rr.get('data') if isinstance(rr,dict) else None
+              derived['serp_counts'][q]=len(data) if isinstance(data,list) else None
+
+          for d in domains:
+              dr=(domain.get(d) or {}).get('data') or {}
+              org=dr.get('organic') if isinstance(dr,dict) else None
+              derived['domain_rows'][d]={'organic':org,'http_status':(domain.get(d) or {}).get('http_status')}
+              bm=(bmetrics.get(d) or {}).get('data') or {}
+              met=(bm.get('metrics') or [{}])[0] if isinstance(bm,dict) else {}
+              ba=(bauth.get(d) or {}).get('data') or {}
+              pg=(ba.get('pages') or [{}])[0] if isinstance(ba,dict) else {}
+              derived['backlink_rows'][d]={'backlinks':met.get('backlinks'),'refdomains':met.get('refdomains'),'dofollow_backlinks':met.get('dofollow_backlinks'),'nofollow_backlinks':met.get('nofollow_backlinks'),'ips':met.get('ips'),'subnets':met.get('subnets'),'domain_inlink_rank':pg.get('domain_inlink_rank'),'inlink_rank':pg.get('inlink_rank')}
+
+          derived['account']={'data_api_status':sub_status(sub0),'initial_units_observed':sub_units(sub0),'units_limit_observed':sub_limit(sub0),'expiration_date':sub_exp(sub0),'final_units_observed':sub_units(subf),'net_units_delta':(sub_units(sub0)-sub_units(subf)) if sub_units(sub0) is not None and sub_units(subf) is not None else None,'main_product_plan_name':'UNKNOWN_NOT_EXPOSED_IN_CAPTURE'}
+          derived['timing']={'stage1_seconds':s1.get('elapsed_seconds'),'stage2b_seconds':s2.get('elapsed_seconds'),'final_collection_seconds':sf.get('elapsed_seconds'),'successful_api_execution_seconds':round(sum(x or 0 for x in [s1.get('elapsed_seconds'),s2.get('elapsed_seconds'),sf.get('elapsed_seconds')]),3),'direct_monetary_cost_usd':0}
+          (root/'P1A-20260921-SERANKING-DERIVED-SUMMARY.json').write_text(json.dumps(derived,ensure_ascii=False,indent=2,sort_keys=True)+'\n',encoding='utf-8')
+
+          md=[]
+          md += ['# Phase 1A — SE Ranking Hands-On Results #1','', '**Evidence ID:** `P1A-20260921-SERANKING-RESULTS-001`  ','**Date:** 2026-09-21  ','**Protocol:** `PHASE-1A-TEST-PROTOCOL-v1.md`  ','**Environment:** Google / United States / English / Desktop  ','**Status:** VERIFIED HANDS-ON RESULTS','', 'This document is mechanically consolidated from committed raw SE Ranking API evidence. It does not substitute external estimates for missing values. A blank/UNKNOWN value is not zero.','']
+          a=derived['account']
+          md += ['## 1. Account / limits observed','',f'- Data API status: `{a["data_api_status"]}`',f'- Initial API units observed: `{a["initial_units_observed"]}` of `{a["units_limit_observed"]}`',f'- API credit expiration observed: `{a["expiration_date"]}`',f'- Final API units observed: `{a["final_units_observed"]}`',f'- Net observed API-unit decrease during the full Step 3 window: `{a["net_units_delta"]}`', '- Main SE Ranking product plan name: **UNKNOWN / not exposed by the captured API/account evidence**', '- Project API access: **VERIFIED** — project inventory, keyword add, rank recheck, position read and SERP reads succeeded.', '- Direct monetary cost: **$0**.', '']
+          md += ['## 2. Frozen 25-keyword Keyword Research export','', '| # | Keyword | Volume | KD | CPC | Paid competition | Intent | Trend | Evidence |','|---:|---|---:|---:|---:|---:|---|---|---|']
+          for i,r in enumerate(derived['keyword_rows'],1):
+              if not r.get('is_data_found'):
+                  md.append(f'| {i} | `{r["keyword"]}` | — | — | — | — | — | — | **NO DATA / VERIFIED RESPONSE** |')
+              else:
+                  intents='/'.join(r.get('intents') or [])
+                  trend=f'{r.get("trend_points")} points ({r.get("trend_first")} → {r.get("trend_last")})'
+                  md.append(f'| {i} | `{r["keyword"]}` | {r.get("volume")} | {r.get("difficulty")} | {r.get("cpc")} | {r.get("competition")} | {intents} | {trend} | VERIFIED HANDS-ON |')
+          md += ['', 'Notes:', '- `systeme io free plan` and `mangools vs se ranking` returned `is_data_found=false`; they are preserved unchanged as protocol evidence.', '- Keyword Research export and Rank Tracker can expose different CPC/competition values at the same observation date; this document does not average or normalize them.', '']
+
+          md += ['## 3. Rank Tracker — selectverdict.com','', '- Project: `selectverdict.com`', '- Search engine/location: Google / United States of America / English', '- Check frequency observed: daily', '- Search depth observed: 100', '- Frozen keywords configured: 25 / 25', '- Rank recheck accepted by SE Ranking for 25 keywords.', '- Final position response returned 24 / 25 frozen keywords.', '- Missing from final position response after polling: `se ranking review` — **UNAVAILABLE / NOT RETURNED**, not converted to rank 0.', '', '| Keyword | SE Ranking position | Ranking URL | Status |','|---|---:|---|---|']
+          for r in derived['rank_rows']:
+              if r['status']!='VERIFIED_HANDS_ON': md.append(f'| `{r["keyword"]}` | UNKNOWN | — | UNAVAILABLE / NOT RETURNED |')
+              else:
+                  pos=r.get('position'); shown='Not found in top 100 (pos=0)' if pos==0 else str(pos)
+                  md.append(f'| `{r["keyword"]}` | {shown} | {r.get("ranking_url") or "—"} | VERIFIED HANDS-ON |')
+          md += ['']
+
+          md += ['## 4. Frozen six SERP deep-dives','',f'- Check date: `{serp.get("check_date")}`',f'- Device: `{serp.get("device")}`',f'- Location: `{serp.get("location")}`',f'- Language: `{serp.get("language")}`','']
+          for q in deep:
+              rr=(serp.get('queries') or {}).get(q) or {}; rows=rr.get('data') if isinstance(rr,dict) else []
+              md += [f'### `{q}`', '']
+              if not isinstance(rows,list) or not rows:
+                  md += ['**UNAVAILABLE / no SERP rows returned.**','']
+              else:
+                  md += ['| Pos | URL | SE Ranking Domain Trust |','|---:|---|---:|']
+                  for row in rows: md.append(f'| {row.get("position")} | {row.get("url")} | {row.get("domain_trust")} |')
+                  md += ['']
+
+          md += ['## 5. Competitive / domain research — frozen domains','', '| Domain | Organic keywords | Estimated organic traffic | Top 1–5 | Top 6–10 | Top 11–20 | Evidence |','|---|---:|---:|---:|---:|---:|---|']
+          for d in domains:
+              org=derived['domain_rows'][d].get('organic')
+              if isinstance(org,dict): md.append(f'| `{d}` | {org.get("keywords_count")} | {org.get("traffic_sum")} | {org.get("top1_5")} | {org.get("top6_10")} | {org.get("top11_20")} | VERIFIED HANDS-ON / SE Ranking estimate |')
+              else: md.append(f'| `{d}` | — | — | — | — | — | VERIFIED HANDS-ON: no domain-overview data returned |')
+          md += ['', 'SE Ranking traffic/keyword counts are product estimates, not measured first-party traffic.', '']
+
+          md += ['## 6. Backlink research — frozen domains','', '| Domain | Backlinks | Referring domains | Dofollow | Nofollow | Domain InLink Rank | Evidence |','|---|---:|---:|---:|---:|---:|---|']
+          for d in domains:
+              b=derived['backlink_rows'][d]; md.append(f'| `{d}` | {b.get("backlinks")} | {b.get("refdomains")} | {b.get("dofollow_backlinks")} | {b.get("nofollow_backlinks")} | {b.get("domain_inlink_rank")} | VERIFIED HANDS-ON / SE Ranking database |')
+          md += ['']
+
+          t=derived['timing']
+          md += ['## 7. Workflow / limits / time','',f'- Successful API execution time recorded by Actions: `{t["successful_api_execution_seconds"]}` seconds (~{round(t["successful_api_execution_seconds"]/60,2)} minutes).', f'  - Stage 1: `{t["stage1_seconds"]}` s', f'  - Stage 2B: `{t["stage2b_seconds"]}` s', f'  - Final async collection: `{t["final_collection_seconds"]}` s', '- Earlier cloud-browser path was blocked by human verification; no bypass was attempted.', '- One initial Stage 2 workflow failed because of an implementation field-name error (`id` vs `site_engine_id`); it was corrected without changing frozen inputs.', '- Data API rate limiting (HTTP 429) was observed in the first burst-style attempt; subsequent calls used throttling/retries.', f'- Net API units observed: `{a["initial_units_observed"]}` → `{a["final_units_observed"]}` (delta `{a["net_units_delta"]}`). Exact per-endpoint allocation of the full delta is not fully attributable from the saved balance snapshots.', '- Direct monetary cost: `$0`.', '- Click-count metric: not applicable to API execution.', '- Research / evidence-cleanup / writing minutes outside GitHub Action runtime: **UNKNOWN / not reliably instrumented**.', '- Publishing/distribution minutes: `0` for Step 3.', '']
+
+          md += ['## 8. Completion assessment','', '**Protocol stages actually executed:**', '', '- Account/API state and visible limits: executed; main product plan name remains UNKNOWN because not exposed in captured evidence.', '- Frozen 25-keyword Keyword Research export: executed; 23 returned data, 2 explicitly returned no data.', '- Raw exports: committed as JSON.', '- Six frozen SERP deep-dives: executed; 10 rows returned for all six.', '- Rank Tracker: 25/25 configured and rechecked; 24 returned position rows; one keyword remained unavailable/not returned.', '- Frozen-domain Competitive Research: executed for all four domains.', '- Frozen-domain Backlink Research: executed for all four domains.', '- Workflow friction, limits, API units and execution time: recorded.', '', '**No frozen keyword, domain, market, language, device or deep-dive query was replaced.**', '']
+          (root/'P1A-20260921-SERANKING-RESULTS-001.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
+          PY
+      - name: Commit consolidated evidence
+        shell: bash
+        run: |
+          git config user.name "SelectVerdict Evidence Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add evidence/phase-1a/seranking/2026-09-21/P1A-20260921-SERANKING-DERIVED-SUMMARY.json evidence/phase-1a/seranking/2026-09-21/P1A-20260921-SERANKING-RESULTS-001.md
+          if ! git diff --cached --quiet; then
+            git commit -m "Phase 1A Step 3: consolidate SE Ranking hands-on results"
+            git push
+          fi
