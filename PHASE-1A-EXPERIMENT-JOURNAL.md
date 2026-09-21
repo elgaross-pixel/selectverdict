@@ -167,7 +167,10 @@ The experiment may proceed to:
 
 ## Step 2 — Test Protocol v1
 
-Status: NOT STARTED
+**Status: CLOSED**  
+**Closed:** 2026-09-21  
+**Protocol:** `PHASE-1A-TEST-PROTOCOL-v1.md`  
+**Protocol commit:** `3c14d029970297ef8b28647a41e6605657d390d1`
 
 Objective:
 Freeze one reproducible test dataset and methodology to run through both SE Ranking and Mangools before producing the first Phase 1A evidence assets.
@@ -184,3 +187,26 @@ Step 2 must define at minimum:
 - VERIFIED HANDS-ON vs DOCUMENTED classification
 - limitations protocol
 - labor/time tracking
+
+
+### Step 2 frozen specification
+
+- Test domain: `selectverdict.com`
+- Google / United States / English
+- Primary SERP/rank device: Desktop
+- Frozen keyword set: 25 terms (10 existing-site controls + 15 Phase 1A SEO-tool/commercial terms)
+- Frozen reference domains: `semrush.com`, `ahrefs.com`, `moz.com`
+- Frozen deep-dive SERP sample: 6 queries
+- Comparable modules: keyword research, SERP analysis, rank tracking, competitor/domain research, backlink analysis, domain overview
+- SE Ranking Website Audit retained as non-comparable SE Ranking-specific evidence
+- Evidence statuses fixed: VERIFIED HANDS-ON / OFFICIAL DOCUMENTED / THIRD-PARTY / NOT TESTED / UNAVAILABLE-LIMIT / UNKNOWN
+- No aggregate winner score
+- Labor and direct-cost tracking required
+
+The full immutable first-run methodology is stored in `PHASE-1A-TEST-PROTOCOL-v1.md`. Any later methodological change requires a new protocol version and an explicit journal note.
+
+## Step 2 verdict
+
+**PHASE 1A / STEP 2 — TEST PROTOCOL v1: CLOSED**
+
+Next: **Step 3 — SE Ranking hands-on run using the frozen protocol.**
