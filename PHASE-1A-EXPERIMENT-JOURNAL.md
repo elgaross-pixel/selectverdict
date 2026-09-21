@@ -210,3 +210,60 @@ The full immutable first-run methodology is stored in `PHASE-1A-TEST-PROTOCOL-v1
 **PHASE 1A / STEP 2 — TEST PROTOCOL v1: CLOSED**
 
 Next: **Step 3 — SE Ranking hands-on run using the frozen protocol.**
+
+---
+
+## Step 3 — SE Ranking hands-on run
+
+**Status:** BLOCKED / NOT CLOSED  
+**Execution attempt:** 2026-09-21  
+**Raw evidence document:** `P1A-20260921-SERANKING-RUN-001.md`  
+**Raw evidence commit:** `a766a7a008383608efcf33a8de669630c31101b3`
+
+### Attempt summary
+
+The Test Protocol v1 and the frozen dataset were re-read before execution. The 25-keyword set, six-query SERP deep-dive sample, reference domains, market/device settings and run order were left unchanged.
+
+Direct connected-account evidence confirms:
+- the existing SE Ranking account is real;
+- `selectverdict.com` had already been added to the account;
+- a prior Website Audit for `selectverdict.com` completed on 2026-09-20;
+- that prior non-comparable audit reported Health Score 95, 0 errors, 1 warning, 33 notices and 31 healthy pages.
+
+During the Step 3 attempt, `https://online.seranking.com/` returned HTTP `403 Forbidden` through the available web-access path. The current execution environment did not expose an interactive authenticated browser session for the existing SE Ranking account.
+
+### Protocol-stage result
+
+| Required stage | Result |
+|---|---|
+| Account/plan/trial state and visible limits | **UNAVAILABLE / LIMIT** — account exists, but authenticated plan/quota UI was not observable |
+| 25 frozen keywords | **NOT TESTED** |
+| Raw keyword exports | **NOT TESTED** |
+| 6 frozen SERP deep-dives | **NOT TESTED** |
+| Rank Tracker for `selectverdict.com` | **NOT TESTED** |
+| Competitive Research — `semrush.com`, `ahrefs.com`, `moz.com` | **NOT TESTED** |
+| Backlink analysis — frozen domains | **NOT TESTED** |
+| Workflow/limits/friction | **PARTIAL** — access blocker recorded; no product workflow run occurred |
+
+No public keyword estimates, external SERPs, third-party review data, or official marketing numbers were substituted for missing hands-on results.
+
+No frozen input was changed.
+
+### Step 3 completion gate
+
+**PHASE 1A / STEP 3 — NOT CLOSED.**
+
+Reason:
+Test Protocol v1 requires the comparable-core hands-on run and saved observable outputs. Those outputs were not produced because the authenticated SE Ranking product UI was unavailable in the current execution environment.
+
+Required to close Step 3:
+- open the existing authorized SE Ranking account in an execution environment with interactive authenticated access;
+- run the exact frozen 25-keyword set in list order;
+- save raw exports where available;
+- run all six frozen SERP deep-dives;
+- inspect/configure Rank Tracker for `selectverdict.com` within account limits;
+- run Competitive Research on the frozen reference domains;
+- run Backlink analysis on the frozen domains;
+- record visible quotas/limits, workflow friction and timing;
+- save results without changing the frozen dataset;
+- re-read the saved raw evidence and verify it against Test Protocol v1 before changing this status to CLOSED.
