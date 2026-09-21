@@ -1,7 +1,8 @@
 # SelectVerdict SEO Tools Benchmark #1
 
 **Evidence ID:** `P1A-20260921-ASSET-SEO-TOOLS-BENCHMARK-001`  
-**Asset state:** DRAFT / NOT PUBLISHED  
+**Asset state:** SOURCE DRAFT / PUBLICATION IMPLEMENTED  
+**Published URL:** https://selectverdict.com/guides/seo-tools-benchmark-1/  
 **Benchmark date:** 2026-09-21  
 **Products:** SE Ranking and Mangools  
 **Environment:** Google / United States / Desktop; English where exposed

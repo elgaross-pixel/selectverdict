@@ -1,7 +1,8 @@
 # SE Ranking vs Mangools: A Frozen 25-Keyword Hands-On Comparison
 
 **Evidence ID:** `P1A-20260921-ASSET-SERANKING-VS-MANGOOLS-001`  
-**Asset state:** DRAFT / NOT PUBLISHED  
+**Asset state:** SOURCE DRAFT / PUBLICATION IMPLEMENTED  
+**Published URL:** https://selectverdict.com/compare/se-ranking-vs-mangools/  
 **Evidence date:** 2026-09-21  
 **Environment:** Google / United States / Desktop; English where exposed  
 **Direct test cost:** $0 for each observed run

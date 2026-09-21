@@ -441,3 +441,54 @@ Verification gate:
 
 Next-step boundary:
 Publication and distribution remain unauthorized because no explicit publication gate is present in the frozen protocol or journal. The next longitudinal experiment checkpoints remain D10, D20, D30, D45, and D60; they must be executed on their scheduled dates with the frozen measurement layers and without rewriting D0.
+
+
+---
+
+## Step 7 — Evidence asset integration, QA, and publication
+
+**Status:** CLOSED  
+**Publication commit:** `9339064ee26677bdcb14f267c463163f6941f873`  
+**Published:** 2026-09-21  
+**Direct monetary cost:** $0
+
+Published routes:
+
+1. `https://selectverdict.com/reviews/se-ranking/`
+2. `https://selectverdict.com/reviews/mangools/`
+3. `https://selectverdict.com/compare/se-ranking-vs-mangools/`
+4. `https://selectverdict.com/guides/seo-tools-benchmark-1/`
+
+Integration state:
+- SE Ranking and Mangools product records were added as published, verified content records;
+- both hands-on reviews were added through the existing typed review collection;
+- the comparison and benchmark were added as first-class Astro editorial pages;
+- both product records explicitly declare no identified affiliate relationship and contain no affiliate URL;
+- no paid subscription or other paid action was performed;
+- frozen Protocol v1 and the frozen dataset were not changed.
+
+Editorial QA:
+- factual statements were limited to saved Step 3–5 evidence;
+- missing and unavailable values remain explicit;
+- proprietary metrics remain separately labeled;
+- data disagreement was not averaged;
+- no aggregate winner score was introduced;
+- affiliate economics did not affect the technical conclusions;
+- no credential or API secret was published.
+
+Technical QA:
+- GitHub Editorial QA run `35616396831` completed successfully for the publication commit;
+- all four production routes returned HTTP 200;
+- each route returned its expected canonical URL;
+- no `noindex` directive was detected;
+- all four routes were linked from `/software/`;
+- all four routes were present in `sitemap-0.xml`;
+- `sitemap-index.xml` returned HTTP 200.
+
+Production verification completed after deployment on 2026-09-21. Full asset-cycle writing/editing and publishing labor remains **UNKNOWN / not reliably instrumented**.
+
+## Step 7 verdict
+
+**PHASE 1A / STEP 7 — INTEGRATION, QA, AND PUBLICATION: CLOSED**
+
+The publication date is the operational origin for post-publication measurement. Planned observation targets are D10 (2026-10-01), D20 (2026-10-11), D30 (2026-10-21), D45 (2026-11-05), and D60 (2026-11-20). Each checkpoint must preserve the D0 record and keep Search, Distribution, Commercial, AI-V, AI-O, and production-cost observations separate.

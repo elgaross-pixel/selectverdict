@@ -1,7 +1,8 @@
 # SE Ranking Hands-On Review: What the Frozen Test Actually Returned
 
 **Evidence ID:** `P1A-20260921-ASSET-SERANKING-REVIEW-001`  
-**Asset state:** DRAFT / NOT PUBLISHED  
+**Asset state:** SOURCE DRAFT / PUBLICATION IMPLEMENTED  
+**Published URL:** https://selectverdict.com/reviews/se-ranking/  
 **Evidence date:** 2026-09-21  
 **Test environment:** Google / United States / English / Desktop  
 **Direct test cost:** $0

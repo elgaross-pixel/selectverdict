@@ -1,7 +1,8 @@
 # Mangools Hands-On Review: What Free+ Allowed in the Frozen Test
 
 **Evidence ID:** `P1A-20260921-ASSET-MANGOOLS-REVIEW-001`  
-**Asset state:** DRAFT / NOT PUBLISHED  
+**Asset state:** SOURCE DRAFT / PUBLICATION IMPLEMENTED  
+**Published URL:** https://selectverdict.com/reviews/mangools/  
 **Evidence date:** 2026-09-21  
 **Test environment:** Google / United States / Desktop; English where exposed  
 **Observed plan:** Mangools Free+, active through 2026-09-30  
