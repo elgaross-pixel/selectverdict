@@ -215,7 +215,7 @@ Next: **Step 3 — SE Ranking hands-on run using the frozen protocol.**
 
 ## Step 3 — SE Ranking hands-on run
 
-**Status:** BLOCKED / NOT CLOSED  
+**Status:** CLOSED  
 **Execution attempt:** 2026-09-21  
 **Raw evidence document:** `P1A-20260921-SERANKING-RUN-001.md`  
 **Raw evidence commit:** `a766a7a008383608efcf33a8de669630c31101b3`
@@ -281,3 +281,33 @@ Result:
 - raw evidence was appended in `P1A-20260921-SERANKING-RUN-001.md`.
 
 **Status remains: BLOCKED / NOT CLOSED.**
+
+
+### Step 3 final API continuation and verification
+
+**Closed:** 2026-09-21  
+**Consolidated results:** `evidence/phase-1a/seranking/2026-09-21/P1A-20260921-SERANKING-RESULTS-001.md`  
+**Raw evidence directory:** `evidence/phase-1a/seranking/2026-09-21/`
+
+The existing SE Ranking account was continued through the official API using an API key stored only as a GitHub Actions repository secret. No secret value was committed or printed into the evidence dataset.
+
+Verified completion state:
+- account/Data API state captured: active; 100000 initial units; expiry `2026-10-04 07:19:24`;
+- frozen Keyword Research dataset: 25/25 submitted, 23 data rows + 2 explicit no-data responses;
+- raw JSON outputs saved;
+- Rank Tracker: 25/25 configured and rechecked for `selectverdict.com`, Google / United States / English, depth 100;
+- final Rank Tracker output: 24/25 returned; `se ranking review` remained **UNAVAILABLE / NOT RETURNED** after polling;
+- six frozen SERP deep-dives: 6/6 completed with 10 results each;
+- frozen-domain Competitive Research: 4/4 completed;
+- frozen-domain backlinks/authority: 4/4 completed;
+- workflow friction, rate limits, implementation error correction, API-unit delta and successful runtime recorded;
+- frozen inputs changed: **no**;
+- direct monetary cost: **$0**.
+
+The missing Rank Tracker row and unknown main product plan name remain explicit limitations. They were not inferred or replaced. Protocol v1 explicitly requires missing/unavailable evidence to be recorded rather than silently substituted.
+
+## Step 3 verdict
+
+**PHASE 1A / STEP 3 — SE RANKING HANDS-ON RUN: CLOSED**
+
+The experiment may proceed to the Mangools hands-on run under the same frozen Test Protocol v1.

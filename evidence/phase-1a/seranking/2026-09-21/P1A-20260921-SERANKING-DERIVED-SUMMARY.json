@@ -1,7 +1,7 @@
 {
   "account": {
     "data_api_status": "active",
-    "expiration_date": null,
+    "expiration_date": "2026-10-04 07:19:24",
     "final_units_observed": 98980,
     "initial_units_observed": 100000,
     "main_product_plan_name": "UNKNOWN_NOT_EXPOSED_IN_CAPTURE",

@@ -5,7 +5,7 @@
 **Protocol SHA observed before run:** `6b6b419398711b6d8629679a9cafada66ae34a7d`  
 **Run date:** 2026-09-21  
 **Observation timezone:** Asia/Tashkent  
-**Status:** BLOCKED / NOT CLOSED  
+**Status:** CLOSED AFTER API CONTINUATION  
 
 ## Purpose
 
@@ -197,3 +197,23 @@ Observed result:
 Evidence status: **UNAVAILABLE / LIMIT — CAPTCHA / cloud-browser access blocker**.
 
 No bypass was attempted and no substitute dataset was used. Step 3 remains **BLOCKED / NOT CLOSED**.
+
+
+## Final API continuation and closure
+
+After the earlier UI/cloud-browser blockers, the existing account was accessed through an API key stored only as the GitHub Actions secret `SERANKING_API_KEY`. The key value was never committed to the repository or written to evidence files.
+
+Final directly observed results:
+- Data API active; initial units 100000/100000; expiry `2026-10-04 07:19:24`; final units 98980; net observed decrease 1020; direct monetary cost $0.
+- Frozen 25-keyword Keyword Research export completed: 23 data rows + 2 explicit no-data results.
+- Rank Tracker configured and rechecked for 25/25 frozen keywords on Google / United States / English / depth 100.
+- Position output returned 24/25 keywords; `se ranking review` remained unavailable/not returned and was not converted to zero.
+- All six frozen SERP deep-dives completed with top-10 rows.
+- Competitive/domain research completed for `selectverdict.com`, `semrush.com`, `ahrefs.com`, `moz.com`.
+- Backlink metrics and authority reads completed for all four frozen domains.
+- Successful Actions API execution time recorded across Stage 1 + Stage 2B + final collection: 524.734 seconds (~8.75 minutes).
+- Frozen dataset changed: no.
+
+Consolidated verified results: `evidence/phase-1a/seranking/2026-09-21/P1A-20260921-SERANKING-RESULTS-001.md`.
+
+**PHASE 1A / STEP 3 — SE RANKING HANDS-ON RUN: CLOSED.**

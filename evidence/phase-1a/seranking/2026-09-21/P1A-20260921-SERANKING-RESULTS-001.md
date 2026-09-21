@@ -12,7 +12,7 @@ This document is mechanically consolidated from committed raw SE Ranking API evi
 
 - Data API status: `active`
 - Initial API units observed: `100000` of `100000`
-- API credit expiration observed: `None`
+- API credit expiration observed: `2026-10-04 07:19:24`
 - Final API units observed: `98980`
 - Net observed API-unit decrease during the full Step 3 window: `1020`
 - Main SE Ranking product plan name: **UNKNOWN / not exposed by the captured API/account evidence**
@@ -239,3 +239,21 @@ SE Ranking traffic/keyword counts are product estimates, not measured first-part
 
 **No frozen keyword, domain, market, language, device or deep-dive query was replaced.**
 
+
+## 9. Verification gate
+
+Saved evidence was re-read programmatically before closure on 2026-09-21. Verification confirmed:
+- exact frozen keyword coverage in Keyword Research: 25/25;
+- Keyword Research result state: 23 with data, 2 explicit no-data responses;
+- Rank Tracker configuration: 25/25 frozen keywords;
+- Rank Tracker returned position rows: 24/25; `se ranking review` remained **UNAVAILABLE / NOT RETURNED** after the final polling window and is preserved as missing evidence;
+- frozen SERP deep-dives: 6/6, each with 10 returned rows;
+- frozen-domain Competitive Research: 4/4 HTTP 200;
+- frozen-domain backlink metrics: 4/4 HTTP 200;
+- frozen-domain backlink authority: 4/4 HTTP 200;
+- Data API: active, initial 100000/100000 units, expiry `2026-10-04 07:19:24`, final 98980 units;
+- frozen dataset changed: **false**.
+
+The single missing Rank Tracker position and unknown main product plan name are explicitly recorded as unavailable/unknown and were not imputed. Under Protocol v1 evidence rules, missing/unavailable output is retained rather than replaced.
+
+**PHASE 1A / STEP 3 — SE RANKING HANDS-ON RUN: CLOSED.**
