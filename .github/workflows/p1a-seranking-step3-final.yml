@@ -1,0 +1,136 @@
+name: P1A SE Ranking Step 3 Final Collection
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/p1a-seranking-step3-final.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      SERANKING_API_KEY: ${{ secrets.SERANKING_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --quiet requests
+      - name: Collect completed Rank Tracker and six frozen SERPs
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os, time
+          from datetime import datetime, timezone
+          from pathlib import Path
+          from urllib.parse import urlparse
+          import requests
+
+          KEY=os.environ['SERANKING_API_KEY']
+          BASE='https://api.seranking.com'
+          OUT=Path('evidence/phase-1a/seranking/2026-09-21'); OUT.mkdir(parents=True,exist_ok=True)
+          started=datetime.now(timezone.utc); today=started.date().isoformat()
+          frozen=['systeme io','systeme io review','systeme io pricing','systeme io free plan','what is systeme io','systeme io alternatives','clickfunnels alternatives','systeme io vs kajabi','systeme io vs clickfunnels','kajabi alternatives','se ranking','se ranking review','se ranking pricing','se ranking alternatives','se ranking vs mangools','mangools','mangools review','mangools pricing','mangools alternatives','mangools vs se ranking','best seo tools for small businesses','best affordable seo tools','best rank tracking tools','best keyword research tools','seo tools for small business']
+          deep=['systeme io review','systeme io pricing','clickfunnels alternatives','se ranking vs mangools','best affordable seo tools','best rank tracking tools']
+
+          s=requests.Session(); s.headers.update({'Authorization':f'Token {KEY}','Accept':'application/json','User-Agent':'SelectVerdict-Phase1A/1.0'})
+          def clean(o):
+              if isinstance(o,dict): return {k:clean(v) for k,v in o.items() if k.lower() not in {'apikey','api_key','token','authorization','guest_link','email','first_name','last_name','picture','id','site_engine_id','search_engine_id','group_id','keyword_id'}}
+              if isinstance(o,list): return [clean(x) for x in o]
+              if isinstance(o,str): return o.replace(KEY,'[REDACTED_API_KEY]')
+              return o
+          def call(method,path,params=None,payload=None,timeout=120,retries=4):
+              last=None
+              for a in range(retries):
+                  try:
+                      r=s.request(method,BASE+path,params=params,json=payload,timeout=timeout)
+                      try: body=r.json()
+                      except Exception: body={'text':r.text[:10000].replace(KEY,'[REDACTED_API_KEY]')}
+                      last={'http_status':r.status_code,'data':body}
+                      if r.status_code!=429:return last
+                  except Exception as e:last={'http_status':None,'error_type':type(e).__name__,'data':None}
+                  time.sleep(2*(a+1))
+              return last
+          def save(n,o):(OUT/n).write_text(json.dumps(clean(o),ensure_ascii=False,indent=2,sort_keys=True)+'\n',encoding='utf-8')
+          def norm(v):
+              v=str(v or '').strip(); v=('https://'+v) if v and '://' not in v else v
+              h=(urlparse(v).hostname or '').lower() if v else ''
+              return h[4:] if h.startswith('www.') else h
+          def units(r):
+              try:return int(r['data']['subscription_info']['units_left'])
+              except:return None
+
+          sub_before=call('GET','/v1/account/subscription',params={'output':'json'})
+          projects=call('GET','/v1/project-management/sites'); plist=projects.get('data') if projects.get('http_status')==200 else []
+          project=next((p for p in plist if norm(p.get('name'))=='selectverdict.com'),None)
+          if not project: raise SystemExit('project missing')
+          site_id=project['id']
+          engines=call('GET','/v1/project-management/sites/search-engines',params={'site_id':site_id}); edata=engines.get('data') if engines.get('http_status')==200 else []
+          engine=next((e for e in edata if (e.get('region_name') or '').lower() in {'united states of america','united states'} and (e.get('lang_code') or '').lower()=='en'),None)
+          if not engine: raise SystemExit('US English engine missing')
+          sei=engine.get('site_engine_id') or engine.get('id')
+
+          kws=call('GET','/v1/project-management/keywords',params={'site_id':site_id,'site_engine_id':sei}); kd=kws.get('data') if kws.get('http_status')==200 else []
+          by={str(k.get('name','')):k for k in kd if isinstance(k,dict)}
+          missing=[q for q in frozen if q not in by]
+          if missing: raise SystemExit('frozen keywords missing: '+', '.join(missing))
+
+          # Poll until all 25 frozen keywords are represented in the current date positions output.
+          final_positions=None; check_date=None; poll=[]; observed_names=[]
+          for i in range(24):
+              dates=call('GET','/v1/project-management/sites/check-dates',params={'site_id':site_id,'site_engine_id':sei,'date_from':today,'date_to':today})
+              dd=dates.get('data'); cds=(dd.get('data') if isinstance(dd,dict) else dd) if dd is not None else []
+              cds=cds if isinstance(cds,list) else []
+              if cds:
+                  check_date=cds[-1]
+                  pos=call('GET','/v1/project-management/sites/positions',params={'site_id':site_id,'site_engine_id':sei,'date_from':check_date,'date_to':check_date,'with_landing_pages':1,'with_serp_features':1},timeout=120)
+                  if pos.get('http_status')==200:
+                      d=pos.get('data'); rows=[]
+                      if isinstance(d,list):
+                          for block in d:
+                              if isinstance(block,dict) and isinstance(block.get('keywords'),list):rows.extend(block['keywords'])
+                      observed_names=[str(x.get('name','')) for x in rows if isinstance(x,dict)]
+                      count=sum(1 for q in frozen if q in set(observed_names))
+                      poll.append({'poll':i+1,'check_date':check_date,'frozen_keywords_returned':count,'complete':count==25})
+                      final_positions=pos
+                      if count==25:break
+              else:poll.append({'poll':i+1,'check_date':None,'frozen_keywords_returned':0,'complete':False})
+              time.sleep(15)
+
+          save('P1A-20260921-SERANKING-RANKTRACKER-FINAL-POLL.json',poll)
+          save('P1A-20260921-SERANKING-RANKTRACKER-FINAL.json',final_positions or {'http_status':None,'data':None})
+
+          # Read all six deep-dive SERPs after rank computation. Retry empty 200 responses because processing may lag per keyword.
+          serp={}
+          for q in deep:
+              best=None
+              if check_date:
+                  for a in range(8):
+                      r=call('GET','/v1/project-management/competitors/serp100',params={'site_id':site_id,'date':check_date,'site_engine_id':sei,'keyword_id':by[q]['id'],'top':10},timeout=120)
+                      best=r
+                      if r.get('http_status')==200 and isinstance(r.get('data'),list) and len(r['data'])>0:break
+                      time.sleep(10)
+              serp[q]=best or {'http_status':None,'data':None,'note':'no check date'}
+          save('P1A-20260921-SERANKING-SERP-FINAL.json',{'check_date':check_date,'device':'Desktop','location':engine.get('region_name'),'language':engine.get('lang_code'),'queries':serp})
+
+          sub_after=call('GET','/v1/account/subscription',params={'output':'json'},retries=5); save('P1A-20260921-SERANKING-API-SUBSCRIPTION-FINAL.json',sub_after)
+          ub,ua=units(sub_before),units(sub_after); ended=datetime.now(timezone.utc)
+          serp_counts={q:(len(r.get('data')) if isinstance(r.get('data'),list) else None) for q,r in serp.items()}
+          summary={'evidence_id':'P1A-20260921-SERANKING-FINAL-001','started_utc':started.isoformat(),'ended_utc':ended.isoformat(),'elapsed_seconds':round((ended-started).total_seconds(),3),'frozen_dataset_changed':False,'frozen_keywords_configured':25,'frozen_keywords_returned_in_positions':sum(1 for q in frozen if q in set(observed_names)),'check_date':check_date,'positions_http_status':final_positions.get('http_status') if final_positions else None,'serp_result_counts':serp_counts,'serp_http_statuses':{q:r.get('http_status') for q,r in serp.items()},'api_units_before':ub,'api_units_after':ua,'api_units_consumed':(ub-ua) if ub is not None and ua is not None else None,'direct_monetary_cost_usd':0}
+          save('P1A-20260921-SERANKING-FINAL-SUMMARY.json',summary)
+          PY
+      - name: Commit final evidence
+        shell: bash
+        run: |
+          git config user.name "SelectVerdict Evidence Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add evidence/phase-1a/seranking/2026-09-21/
+          if ! git diff --cached --quiet; then
+            git commit -m "Phase 1A Step 3: save final SE Ranking positions and SERP evidence"
+            git push
+          fi
