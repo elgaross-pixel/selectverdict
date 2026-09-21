@@ -354,3 +354,42 @@ The experiment may proceed to:
 ## Step 5 — Comparison / benchmark consolidation
 
 Comparison must use only genuinely comparable observed fields, preserve proprietary metric labels, distinguish feature absence from data disagreement, and avoid a single aggregate winner score.
+
+
+---
+
+## Step 5 — Comparison / benchmark consolidation
+
+**Status:** CLOSED  
+**Closed:** 2026-09-21  
+**Comparison:** `evidence/phase-1a/comparison/2026-09-21/P1A-20260921-SERANKING-VS-MANGOOLS-COMPARISON-001.md`
+
+The comparison was built only after both product runs were closed and verified.
+
+Verified scope:
+- frozen 25-keyword volume, KD, CPC and paid-competition/PPC fields compared without averaging disagreements;
+- proprietary KD and authority metrics kept under their product labels and not declared equivalent;
+- trend and intent availability compared as observed field availability;
+- SERP outputs compared only where Mangools returned data; partial and unavailable runs retained;
+- rank-tracking configuration and returned-data availability compared without converting missing output into zero;
+- domain research, backlinks and domain metrics compared only across observable fields;
+- workflow, quotas, limits, runtime/labor availability and direct cost recorded;
+- feature/field absence separated from data disagreement;
+- live-SERP timing difference retained as a limitation;
+- affiliate economics excluded from SEO data-quality assessment;
+- no aggregate winner score created;
+- frozen inputs changed: no.
+
+Verification gate:
+- saved comparison re-read from GitHub;
+- 25 frozen keyword rows present in the keyword section;
+- all six frozen SERP queries represented, including explicit Mangools limits;
+- all four frozen domains represented in domain and backlink sections;
+- Step 5 verdict present in the saved document.
+
+## Step 5 verdict
+
+**PHASE 1A / STEP 5 — COMPARISON / BENCHMARK CONSOLIDATION: CLOSED**
+
+Next-step boundary:
+The repository and current journal do not contain a numbered post-Step-5 execution plan or an explicit publication gate. No Step 6 is inferred in this journal entry. Publication remains unauthorized until the approved next step is recovered or explicitly supplied.
