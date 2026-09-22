@@ -4,12 +4,16 @@ interface Props {
   hasRelationship: boolean;
   label: string;
   class?: string;
+  merchant?: string;
+  product?: string;
+  sourcePage?: string;
 }
 
-const { href, hasRelationship, label, class: className } = Astro.props;
+import MerchantLink from './MerchantLink.astro';
+const { href, hasRelationship, label, class: className, merchant = 'unknown', product = 'unknown', sourcePage = '/' } = Astro.props;
 if (!hasRelationship) {
   throw new Error('Affiliate links may only render for an explicitly declared affiliate relationship.');
 }
 ---
 
-<a href={href} rel="sponsored noopener" class={className}>{label}</a>
+<MerchantLink href={href} merchant={merchant} product={product} sourcePage={sourcePage} affiliate={true} label={label} class={className} />

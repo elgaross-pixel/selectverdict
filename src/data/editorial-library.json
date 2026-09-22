@@ -61,6 +61,12 @@
   },
   {
     "type": "Comparisons",
+    "href": "/compare/se-ranking-vs-mangools/",
+    "title": "SE Ranking vs Mangools (2026): Frozen 25-Keyword Test",
+    "description": "SE Ranking and Mangools compared on the same 25 keywords, six SERPs, rank tracking, domain research, backlinks, limits, and workflow."
+  },
+  {
+    "type": "Comparisons",
     "href": "/compare/systeme-io-vs-clickfunnels/",
     "title": "Systeme.io vs ClickFunnels (2026): Compare the Equivalent Stack",
     "description": "Compare Systeme.io and ClickFunnels by funnels, contacts, email, courses, communities and the plan your business actually needs."
@@ -75,13 +81,19 @@
     "type": "Comparisons",
     "href": "/compare/systeme-io-vs-kajabi/",
     "title": "Systeme.io vs Kajabi (2026): Price, Courses & Marketing Compared",
-    "description": "A practical Systeme.io vs Kajabi comparison for creators choosing between a low-cost all-in-one and a knowledge-business platform."
+    "description": "Systeme.io vs Kajabi compared on pricing, course delivery, email, funnels, automation, selling and the business models each platform fits best."
   },
   {
     "type": "Guides",
     "href": "/guides/is-systeme-io-legit/",
     "title": "Is Systeme.io Legit? Evidence, Risks & What We Verified",
     "description": "We checked Systeme.io's operator, terms, support, product functionality and account rules to assess whether it is a legitimate SaaS platform."
+  },
+  {
+    "type": "Guides",
+    "href": "/guides/seo-tools-benchmark-1/",
+    "title": "SelectVerdict SEO Tools Benchmark #1",
+    "description": "A reproducible SE Ranking and Mangools benchmark using 25 frozen keywords, six SERPs, rank tracking, domain research, and backlink evidence."
   },
   {
     "type": "Guides",

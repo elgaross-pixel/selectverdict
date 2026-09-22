@@ -1,0 +1,27 @@
+---
+interface Props {
+  href: string;
+  merchant: string;
+  product: string;
+  sourcePage: string;
+  affiliate: boolean;
+  label: string;
+  class?: string;
+}
+
+const { href, merchant, product, sourcePage, affiliate, label, class: className } = Astro.props;
+const destination = new URL(href);
+if (destination.protocol !== 'https:') throw new Error('Merchant links must use HTTPS.');
+if (!sourcePage.startsWith('/') || !sourcePage.endsWith('/')) throw new Error('Merchant-link sourcePage must be a canonical route.');
+---
+
+<a
+  href={href}
+  rel={affiliate ? 'sponsored nofollow noopener' : 'nofollow noopener'}
+  class={className}
+  data-sv-event="merchant_click"
+  data-sv-merchant={merchant}
+  data-sv-product={product}
+  data-sv-source-page={sourcePage}
+  data-sv-affiliate={String(affiliate)}
+>{label}</a>

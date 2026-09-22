@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import AffiliateDisclosure from '../../../components/AffiliateDisclosure.astro';
+import MerchantLink from '../../../components/MerchantLink.astro';
 import SourceBlock from '../../../components/SourceBlock.astro';
 const title = 'SE Ranking vs Mangools (2026): Frozen 25-Keyword Test';
 const description = 'SE Ranking and Mangools compared on the same 25 keywords, six SERPs, rank tracking, domain research, backlinks, limits, and workflow.';
@@ -28,7 +29,8 @@ const serps = [
 <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Compare',href:'/compare/'},{label:'SE Ranking vs Mangools'}]}/>
 <article><header class="section"><div class="container"><p class="eyebrow">Hands-on comparison</p><h1>{title}</h1><p class="lede">One frozen dataset, two non-interchangeable outputs, and no aggregate winner score.</p><p class="meta">Published September 21, 2026 · Evidence verified September 21, 2026</p></div></header>
 <div class="narrow prose article-body">
-<AffiliateDisclosure hasRelationship={false}/>
+<AffiliateDisclosure hasRelationship={true}/>
+<aside class="merchant-links" aria-label="Product destinations"><strong>Product destinations:</strong> <MerchantLink href="https://seranking.com/" merchant="se-ranking" product="se-ranking" sourcePage={canonical} affiliate={false} label="Visit SE Ranking (non-affiliate)" /> · <MerchantLink href="https://mangools.com#a6aaf5d686aee08e4110a3d0e" merchant="mangools" product="mangools" sourcePage={canonical} affiliate={true} label="Visit Mangools (affiliate)" /></aside>
 <h2>Short answer</h2>
 <p>SE Ranking completed all six fixed SERP deep-dives and returned 24 of 25 rank rows. Mangools Free+ produced one full and two partial SERP exports before the observed allowance was exhausted, and no ranks returned during the verification window. Mangools still completed the full keyword import plus SiteProfiler and LinkMiner checks for every frozen domain.</p>
 <p>This is a dated run result, not a universal product ranking. Plan limits, access path, database coverage, and result timing all affected the outcome.</p>
@@ -52,4 +54,4 @@ const serps = [
 <p>Read the <a href="/reviews/se-ranking/">SE Ranking review</a>, the <a href="/reviews/mangools/">Mangools review</a>, or the <a href="/guides/seo-tools-benchmark-1/">complete Benchmark #1 methodology</a>.</p>
 <SourceBlock sources={sources}/>
 </div></article></BaseLayout>
-<style>.article-body{padding-block:3rem 5rem}.article-body>:global(*)+:global(*){margin-top:1rem}.article-body>:global(.disclosure){margin-bottom:2rem}table{width:100%;border-collapse:collapse;display:block;overflow-x:auto}th,td{padding:.7rem;border:1px solid var(--line);text-align:left;white-space:nowrap}</style>
+<style>.article-body{padding-block:3rem 5rem}.article-body>:global(*)+:global(*){margin-top:1rem}.article-body>:global(.disclosure){margin-bottom:2rem}.merchant-links{padding:1rem 1.25rem;border:1px solid var(--line);border-radius:.75rem;background:var(--surface-muted)}table{width:100%;border-collapse:collapse;display:block;overflow-x:auto}th,td{padding:.7rem;border:1px solid var(--line);text-align:left;white-space:nowrap}</style>

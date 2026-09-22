@@ -3,7 +3,8 @@
   "slug": "mangools",
   "status": "published",
   "officialWebsite": "https://mangools.com/",
-  "hasAffiliateRelationship": false,
+  "affiliateUrl": "https://mangools.com#a6aaf5d686aee08e4110a3d0e",
+  "hasAffiliateRelationship": true,
   "categories": [
     "seo-tools"
   ],

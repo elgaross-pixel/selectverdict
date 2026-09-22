@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import AffiliateDisclosure from '../../../components/AffiliateDisclosure.astro';
+import MerchantLink from '../../../components/MerchantLink.astro';
 import SourceBlock from '../../../components/SourceBlock.astro';
 const title = 'SelectVerdict SEO Tools Benchmark #1';
 const description = 'A reproducible SE Ranking and Mangools benchmark using 25 frozen keywords, six SERPs, rank tracking, domain research, and backlink evidence.';
@@ -26,7 +27,8 @@ const coverage = [
 <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Software',href:'/software/'},{label:'SEO Tools Benchmark #1'}]}/>
 <article><header class="section"><div class="container"><p class="eyebrow">Reproducible benchmark</p><h1>{title}</h1><p class="lede">We froze the inputs before testing and preserved missing data instead of manufacturing a winner.</p><p class="meta">Published September 21, 2026 · Evidence verified September 21, 2026</p></div></header>
 <div class="narrow prose article-body">
-<AffiliateDisclosure hasRelationship={false}/>
+<AffiliateDisclosure hasRelationship={true}/>
+<aside class="merchant-links" aria-label="Product destinations"><strong>Product destinations:</strong> <MerchantLink href="https://seranking.com/" merchant="se-ranking" product="se-ranking" sourcePage={canonical} affiliate={false} label="Visit SE Ranking (non-affiliate)" /> · <MerchantLink href="https://mangools.com#a6aaf5d686aee08e4110a3d0e" merchant="mangools" product="mangools" sourcePage={canonical} affiliate={true} label="Visit Mangools (affiliate)" /></aside>
 <h2>Why this benchmark exists</h2>
 <p>SEO tools draw from different databases and expose different proprietary scores. Benchmark #1 documents what SE Ranking and Mangools returned on the same fixed inputs. It is not a permanent league table and it has no independent ground truth for volume, difficulty, estimated traffic, or backlink totals.</p>
 <h2>Frozen design</h2>
@@ -61,4 +63,4 @@ const coverage = [
 <p>Continue with the <a href="/compare/se-ranking-vs-mangools/">full comparison</a>, <a href="/reviews/se-ranking/">SE Ranking review</a>, or <a href="/reviews/mangools/">Mangools review</a>.</p>
 <SourceBlock sources={sources}/>
 </div></article></BaseLayout>
-<style>.article-body{padding-block:3rem 5rem}.article-body>:global(*)+:global(*){margin-top:1rem}.article-body>:global(.disclosure){margin-bottom:2rem}table{width:100%;border-collapse:collapse;display:block;overflow-x:auto}th,td{padding:.7rem;border:1px solid var(--line);text-align:left;white-space:nowrap}</style>
+<style>.article-body{padding-block:3rem 5rem}.article-body>:global(*)+:global(*){margin-top:1rem}.article-body>:global(.disclosure){margin-bottom:2rem}.merchant-links{padding:1rem 1.25rem;border:1px solid var(--line);border-radius:.75rem;background:var(--surface-muted)}table{width:100%;border-collapse:collapse;display:block;overflow-x:auto}th,td{padding:.7rem;border:1px solid var(--line);text-align:left;white-space:nowrap}</style>

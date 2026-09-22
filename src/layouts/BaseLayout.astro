@@ -28,5 +28,29 @@ const props = Astro.props;
     <Header />
     <main id="main-content"><slot /></main>
     <Footer />
+    <script is:inline>
+      (() => {
+        if (window.__selectVerdictMerchantTracking) return;
+        window.__selectVerdictMerchantTracking = true;
+        window.addEventListener('click', (event) => {
+          const link = event.target instanceof Element ? event.target.closest('a[data-sv-event="merchant_click"]') : null;
+          if (!(link instanceof HTMLAnchorElement)) return;
+          const detail = {
+            event: 'merchant_click',
+            merchant: link.dataset.svMerchant || 'unknown',
+            product: link.dataset.svProduct || 'unknown',
+            sourcePage: link.dataset.svSourcePage || location.pathname,
+            affiliate: link.dataset.svAffiliate === 'true',
+            destinationOrigin: new URL(link.href, location.href).origin,
+            occurredAt: new Date().toISOString()
+          };
+          window.dispatchEvent(new CustomEvent('selectverdict:merchant-click', { detail }));
+          const handlers = Array.isArray(window.selectVerdictEventHandlers) ? window.selectVerdictEventHandlers : [];
+          for (const handler of handlers) {
+            try { if (typeof handler === 'function') handler(detail); } catch { /* outbound navigation must not be blocked */ }
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
