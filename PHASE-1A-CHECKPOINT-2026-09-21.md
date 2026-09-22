@@ -113,3 +113,17 @@ When resuming Phase 1A, read in this order:
 4. SE Ranking and Mangools raw results files under `evidence/phase-1a/`
 
 Then continue from D10 without changing historical D0 or frozen Protocol v1.
+
+
+---
+
+## Post-checkpoint addendum — Commercial Instrumentation
+
+**Added:** 2026-09-22 08:50:35 +05 (2026-09-22 03:50:35 UTC)  
+**Implementation commit:** `a85fb97f18e2f686e304afecc2e665b164b8f84d`
+
+After this checkpoint was created, the four published Phase 1A assets received centralized commercial-link instrumentation. The confirmed Mangools affiliate destination was installed and its product relationship changed to `true`; SE Ranking remains non-affiliate because its exact account-generated referral URL is **UNKNOWN** and the authenticated route was blocked by human verification.
+
+Visible affiliate disclosure is active wherever the Mangools affiliate destination appears. All four Phase 1A routes emit provider-neutral browser events that distinguish merchant, product, source page and affiliate/non-affiliate state. No third-party analytics, cookies, local storage or persistent collector was added, so durable click counts remain **UNKNOWN / NOT COLLECTED**.
+
+Local repository QA and GitHub Editorial QA run `35684435938` passed. Production verification confirmed HTTP 200, expected canonicals, no `noindex`, sitemap and `/software/` coverage, disclosure, link attributes, destination response and merchant-event markers. No paid action occurred; Protocol v1, frozen inputs and historical test conclusions were not changed.

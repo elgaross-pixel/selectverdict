@@ -492,3 +492,48 @@ Production verification completed after deployment on 2026-09-21. Full asset-cyc
 **PHASE 1A / STEP 7 — INTEGRATION, QA, AND PUBLICATION: CLOSED**
 
 The publication date is the operational origin for post-publication measurement. Planned observation targets are D10 (2026-10-01), D20 (2026-10-11), D30 (2026-10-21), D45 (2026-11-05), and D60 (2026-11-20). Each checkpoint must preserve the D0 record and keep Search, Distribution, Commercial, AI-V, AI-O, and production-cost observations separate.
+
+
+---
+
+## Commercial Instrumentation — Phase 1A published assets
+
+**Status:** CLOSED  
+**Activation commit:** `a85fb97f18e2f686e304afecc2e665b164b8f84d`  
+**Production activation verified:** 2026-09-22 08:50:35 +05 (2026-09-22 03:50:35 UTC)  
+**Direct monetary cost:** $0
+
+Confirmed relationship state:
+- Mangools: confirmed affiliate destination `https://mangools.com#a6aaf5d686aee08e4110a3d0e`; centralized product relationship changed to `true`.
+- SE Ranking: affiliate URL remains **UNKNOWN**. The authenticated affiliate route was blocked by human verification and no exact referral URL was found in the repository or reliably saved account data. Relationship remains `false`; published links remain non-affiliate.
+
+Program-rule verification:
+- Mangools official affiliate materials and terms were checked before activation. The current account dashboard exposed a Silver 25% tier and warned against email-spam referrals; official terms also prohibit misleading promotion, unauthorized coupons, brand bidding and related restricted traffic practices.
+- SE Ranking official affiliate terms/help were checked, including use of the account-generated unique link, disclosure-compatible promotion, and restrictions on spam, self-referral, trademark misuse and unauthorized paid traffic. No URL was inferred from these rules.
+
+Implementation:
+- commercial destinations are rendered through centralized product data and `MerchantLink`, not scattered untyped anchors;
+- visible affiliate disclosure is active on the Mangools review, comparison and benchmark pages;
+- the SE Ranking review remains explicitly non-affiliate;
+- all four Phase 1A pages emit provider-neutral `selectverdict:merchant-click` browser events with `merchant`, `product`, canonical `sourcePage`, `affiliate`, destination origin and timestamp;
+- the event payload excludes the full destination URL/referral identifier;
+- no analytics provider, network transmission, cookie, local storage or persistent click collector was added. Persisted click counts therefore remain **UNKNOWN / NOT COLLECTED**.
+
+Verification gate:
+- local `npm run qa`: PASS (36 HTML routes; 36 sitemap routes);
+- GitHub Editorial QA run `35684435938`: PASS;
+- all four production routes: HTTP 200, expected canonical, no `noindex`, present in sitemap and `/software/`;
+- affiliate disclosure and `sponsored nofollow noopener` attributes: PASS where applicable;
+- merchant/product/source-page/affiliate attributes and event dispatcher: PASS;
+- SE Ranking and Mangools destinations responded during verification;
+- no API key, credential, private account data or session token was added to repository/build;
+- frozen Protocol v1, dataset, hands-on results, benchmark tables, titles, factual conclusions and main editorial text were not changed;
+- paid actions: none.
+
+Remaining UNKNOWN / blockers:
+- exact SE Ranking affiliate URL: **UNKNOWN / human-verification blocker**;
+- durable merchant-click counts: **UNKNOWN / NOT COLLECTED** because no third-party or persistent analytics provider was introduced.
+
+## Commercial Instrumentation verdict
+
+**PHASE 1A / COMMERCIAL INSTRUMENTATION: CLOSED**
