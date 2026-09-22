@@ -70,3 +70,37 @@
 - [x] Repository and production QA passed.
 - [x] Journal and checkpoint updated.
 - [x] Commercial Instrumentation Step closed.
+
+
+---
+
+## SE Ranking Affiliate URL Verification — 2026-09-22
+
+**Result:** UNKNOWN / NOT INSTALLED  
+**Verification time:** 2026-09-22 09:09:16 +05 / 2026-09-22 04:09:16 UTC
+
+- [x] Current repository searched for SE Ranking affiliate/referral URL patterns.
+- [x] Available git history searched for SE Ranking affiliate/referral URL patterns.
+- [x] Experiment Journal, checkpoint, checklist and Phase 1A evidence searched.
+- [x] Connected mailbox searched for SE Ranking affiliate/referral/partner messages.
+- [x] Existing SE Ranking affiliate-account route checked directly.
+- [x] Official SE Ranking affiliate page, legal terms and help documentation rechecked.
+- [ ] Exact account-generated referral URL recovered — **UNKNOWN**.
+- [ ] Ownership of a candidate URL proven against the SelectVerdict account — **NOT TESTED / no candidate URL**.
+- [ ] Destination/redirect chain tested — **NOT TESTED / no verified candidate URL**.
+- [x] No guessed or pattern-derived URL installed.
+- [x] SE Ranking `hasAffiliateRelationship` remains `false`.
+- [x] Existing SE Ranking destinations remain non-affiliate and merchant-click tracking remains active.
+- [x] Mangools configuration unchanged.
+- [x] Frozen Protocol, dataset, test results and editorial content unchanged.
+- [x] Paid actions and new registrations: none.
+
+Observed blocker:
+- `online.seranking.com` presented a persistent Cloudflare human-verification challenge in the available cloud browser, including after one permitted reload. The affiliate dashboard and its account-generated URL were not observable.
+
+Specific evidence still required for VERIFIED:
+- the exact referral URL copied from the authenticated SelectVerdict SE Ranking Affiliate Program area; and
+- an account-bound identifier or dashboard/statistics observation showing that this exact URL belongs to that account.
+
+Official-rule result:
+- SE Ranking requires use of the unique referral link available through the affiliate account; free accounts may participate; referral links may be placed on website/blog content; paid ads and other prohibited traffic methods remain disallowed under the current official program materials.

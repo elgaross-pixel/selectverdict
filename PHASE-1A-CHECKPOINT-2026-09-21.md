@@ -127,3 +127,19 @@ After this checkpoint was created, the four published Phase 1A assets received c
 Visible affiliate disclosure is active wherever the Mangools affiliate destination appears. All four Phase 1A routes emit provider-neutral browser events that distinguish merchant, product, source page and affiliate/non-affiliate state. No third-party analytics, cookies, local storage or persistent collector was added, so durable click counts remain **UNKNOWN / NOT COLLECTED**.
 
 Local repository QA and GitHub Editorial QA run `35684435938` passed. Production verification confirmed HTTP 200, expected canonicals, no `noindex`, sitemap and `/software/` coverage, disclosure, link attributes, destination response and merchant-event markers. No paid action occurred; Protocol v1, frozen inputs and historical test conclusions were not changed.
+
+
+---
+
+## Post-checkpoint addendum — SE Ranking Affiliate URL Verification
+
+**Added:** 2026-09-22 09:09:16 +05 (2026-09-22 04:09:16 UTC)  
+**Result:** UNKNOWN / NOT INSTALLED
+
+A dedicated verification pass searched the current repository, available git history, Phase 1A documentation/evidence and the connected mailbox for an exact SE Ranking affiliate/referral URL. No exact URL was recovered.
+
+The existing SE Ranking account route was checked directly, but the available cloud browser remained on a persistent Cloudflare human-verification challenge after one permitted reload. The Affiliate Program dashboard, account affiliate identifier and account-generated link were therefore not observable. With no verified candidate URL, account ownership and destination/redirect chain could not be tested.
+
+SE Ranking remains `hasAffiliateRelationship: false`; its published destinations remain non-affiliate and retain merchant-click tracking. Mangools, frozen inputs, test results and editorial content were not changed. No paid action or new registration occurred.
+
+To change the status to VERIFIED, the project still requires the exact referral URL copied from the authenticated SelectVerdict SE Ranking Affiliate Program area plus an account-bound dashboard identifier or statistics observation tying that URL to the account.

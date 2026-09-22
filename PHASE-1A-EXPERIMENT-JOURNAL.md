@@ -537,3 +537,41 @@ Remaining UNKNOWN / blockers:
 ## Commercial Instrumentation verdict
 
 **PHASE 1A / COMMERCIAL INSTRUMENTATION: CLOSED**
+
+
+---
+
+## SE Ranking Affiliate URL Verification
+
+**Status:** CLOSED WITH UNKNOWN  
+**Executed:** 2026-09-22 09:09:16 +05 (2026-09-22 04:09:16 UTC)  
+**Direct monetary cost:** $0
+
+Purpose:
+Resolve the remaining SE Ranking affiliate-URL UNKNOWN without inferring a URL from common patterns.
+
+Sources checked:
+- current repository and available git history;
+- Phase 1A Journal, checkpoint, Commercial Instrumentation checklist and evidence;
+- connected mailbox searches for SE Ranking affiliate/referral/partner records;
+- existing SE Ranking account route in the authenticated cloud-browser context;
+- current official SE Ranking affiliate landing page, Affiliate Program terms and help documentation.
+
+Result:
+- no exact SE Ranking referral URL was found in the repository, history, evidence or matching mailbox records;
+- the SE Ranking account route remained behind a persistent Cloudflare human-verification challenge after one permitted reload;
+- the affiliate dashboard, account affiliate identifier and account-generated URL could not be observed;
+- no candidate URL existed for an ownership match or redirect-chain test;
+- SE Ranking affiliate URL therefore remains **UNKNOWN** and was not installed;
+- `hasAffiliateRelationship` remains `false`;
+- existing SE Ranking merchant links remain non-affiliate and retain provider-neutral merchant-click instrumentation;
+- Mangools and all frozen/editorial material were unchanged.
+
+Official-rule verification:
+Current SE Ranking materials state that the referral link is generated/available through the user's account, that free accounts can participate, and that website/blog placement is allowed subject to the program restrictions, including the prohibition on paid-ad promotion. These rules do not prove ownership of any candidate URL.
+
+Missing proof:
+1. exact referral URL copied from the authenticated SelectVerdict Affiliate Program area;
+2. account-bound identifier or dashboard/statistics observation tying that URL to the SelectVerdict account.
+
+**Verdict: SE RANKING AFFILIATE URL VERIFICATION — UNKNOWN / NO INSTALLATION.**
