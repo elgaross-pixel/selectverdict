@@ -3,7 +3,7 @@
   "slug": "se-ranking",
   "status": "published",
   "officialWebsite": "https://seranking.com/",
-  "hasAffiliateRelationship": false,
+  "hasAffiliateRelationship": true,
   "categories": [
     "seo-tools"
   ],
@@ -80,5 +80,6 @@
   "verdict": {
     "summary": "The observed API run produced complete fixed-SERP coverage and near-complete immediate rank output.",
     "basis": "A frozen 25-keyword, six-SERP, four-domain hands-on run completed on 2026-09-21."
-  }
+  },
+  "affiliateUrl": "https://seranking.com/?ga=5265149&source=link"
 }
