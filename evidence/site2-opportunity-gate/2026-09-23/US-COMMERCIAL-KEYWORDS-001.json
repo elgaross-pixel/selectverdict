@@ -1,0 +1,492 @@
+{
+  "timestamp_utc": "2026-09-23T03:16:19.600442+00:00",
+  "source": "SE Ranking Keyword Research API",
+  "database": "us",
+  "keywords": [
+    {
+      "keyword": "serp api",
+      "is_data_found": true,
+      "volume": 3100,
+      "cpc": 2.92,
+      "competition": 0.61,
+      "difficulty": 66,
+      "intents": [
+        "I",
+        "N"
+      ]
+    },
+    {
+      "keyword": "best serp api",
+      "is_data_found": true,
+      "volume": 140,
+      "cpc": 7.83,
+      "competition": 0.04,
+      "difficulty": 35,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "serp api pricing",
+      "is_data_found": true,
+      "volume": 10,
+      "cpc": 1.34,
+      "competition": 0.52,
+      "difficulty": 33,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "serp api comparison",
+      "is_data_found": true,
+      "volume": 0,
+      "cpc": 0,
+      "competition": 0,
+      "difficulty": 20,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "google serp api",
+      "is_data_found": true,
+      "volume": 590,
+      "cpc": 3,
+      "competition": 0.43,
+      "difficulty": 47,
+      "intents": [
+        "I",
+        "N"
+      ]
+    },
+    {
+      "keyword": "seo api",
+      "is_data_found": true,
+      "volume": 480,
+      "cpc": 8.36,
+      "competition": 0.22,
+      "difficulty": 42,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "best seo api",
+      "is_data_found": true,
+      "volume": 90,
+      "cpc": 12.79,
+      "competition": 0.28,
+      "difficulty": 19,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "seo data api",
+      "is_data_found": true,
+      "volume": 140,
+      "cpc": 11.27,
+      "competition": 0.12,
+      "difficulty": 0,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "seo api pricing",
+      "is_data_found": false,
+      "volume": null,
+      "cpc": null,
+      "competition": null,
+      "difficulty": null,
+      "intents": null
+    },
+    {
+      "keyword": "keyword api",
+      "is_data_found": true,
+      "volume": 90,
+      "cpc": 2.8,
+      "competition": 0.07,
+      "difficulty": 34,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "keyword research api",
+      "is_data_found": true,
+      "volume": 90,
+      "cpc": 4.96,
+      "competition": 0.11,
+      "difficulty": 34,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "keyword data api",
+      "is_data_found": true,
+      "volume": 40,
+      "cpc": 0,
+      "competition": 0.01,
+      "difficulty": 27,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "best keyword api",
+      "is_data_found": false,
+      "volume": null,
+      "cpc": null,
+      "competition": null,
+      "difficulty": null,
+      "intents": null
+    },
+    {
+      "keyword": "keyword search volume api",
+      "is_data_found": true,
+      "volume": 40,
+      "cpc": 0,
+      "competition": 0,
+      "difficulty": 27,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "rank tracking api",
+      "is_data_found": true,
+      "volume": 10,
+      "cpc": 8.4,
+      "competition": 0.02,
+      "difficulty": 14,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "rank tracker api",
+      "is_data_found": true,
+      "volume": 20,
+      "cpc": 8.4,
+      "competition": 0.02,
+      "difficulty": 14,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "keyword rank tracking api",
+      "is_data_found": true,
+      "volume": 20,
+      "cpc": 0,
+      "competition": 0,
+      "difficulty": 26,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "google rank tracking api",
+      "is_data_found": true,
+      "volume": 260,
+      "cpc": 0,
+      "competition": 0,
+      "difficulty": 20,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "backlink api",
+      "is_data_found": true,
+      "volume": 140,
+      "cpc": 9.22,
+      "competition": 0.08,
+      "difficulty": 24,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "best backlink api",
+      "is_data_found": false,
+      "volume": null,
+      "cpc": null,
+      "competition": null,
+      "difficulty": null,
+      "intents": null
+    },
+    {
+      "keyword": "backlink data api",
+      "is_data_found": false,
+      "volume": null,
+      "cpc": null,
+      "competition": null,
+      "difficulty": null,
+      "intents": null
+    },
+    {
+      "keyword": "backlink checker api",
+      "is_data_found": true,
+      "volume": 70,
+      "cpc": 0,
+      "competition": 0.05,
+      "difficulty": 24,
+      "intents": [
+        "I",
+        "N"
+      ]
+    },
+    {
+      "keyword": "ai search api",
+      "is_data_found": false,
+      "volume": null,
+      "cpc": null,
+      "competition": null,
+      "difficulty": null,
+      "intents": null
+    },
+    {
+      "keyword": "best ai search api",
+      "is_data_found": false,
+      "volume": null,
+      "cpc": null,
+      "competition": null,
+      "difficulty": null,
+      "intents": null
+    },
+    {
+      "keyword": "ai search data api",
+      "is_data_found": false,
+      "volume": null,
+      "cpc": null,
+      "competition": null,
+      "difficulty": null,
+      "intents": null
+    },
+    {
+      "keyword": "ai search visibility",
+      "is_data_found": true,
+      "volume": 480,
+      "cpc": 16.5,
+      "competition": 0.26,
+      "difficulty": 36,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "ai visibility tools",
+      "is_data_found": true,
+      "volume": 1000,
+      "cpc": 15,
+      "competition": 0.28,
+      "difficulty": 60,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "ai visibility api",
+      "is_data_found": true,
+      "volume": 10,
+      "cpc": 0,
+      "competition": 0.79,
+      "difficulty": 12,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "llm visibility tools",
+      "is_data_found": true,
+      "volume": 10,
+      "cpc": 14.52,
+      "competition": 0.09,
+      "difficulty": 39,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "llm tracking tools",
+      "is_data_found": true,
+      "volume": 70,
+      "cpc": 9.72,
+      "competition": 0.1,
+      "difficulty": 34,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "chatgpt visibility tools",
+      "is_data_found": false,
+      "volume": null,
+      "cpc": null,
+      "competition": null,
+      "difficulty": null,
+      "intents": null
+    },
+    {
+      "keyword": "chatgpt rank tracker",
+      "is_data_found": true,
+      "volume": 70,
+      "cpc": 0,
+      "competition": 0.03,
+      "difficulty": 15,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "dataforseo",
+      "is_data_found": true,
+      "volume": 1800,
+      "cpc": 0.45,
+      "competition": 0.52,
+      "difficulty": 75,
+      "intents": [
+        "I",
+        "N"
+      ]
+    },
+    {
+      "keyword": "dataforseo review",
+      "is_data_found": false,
+      "volume": null,
+      "cpc": null,
+      "competition": null,
+      "difficulty": null,
+      "intents": null
+    },
+    {
+      "keyword": "dataforseo pricing",
+      "is_data_found": true,
+      "volume": 50,
+      "cpc": 0.41,
+      "competition": 0.39,
+      "difficulty": 25,
+      "intents": [
+        "I",
+        "N"
+      ]
+    },
+    {
+      "keyword": "dataforseo alternatives",
+      "is_data_found": true,
+      "volume": 30,
+      "cpc": 5.71,
+      "competition": 0.39,
+      "difficulty": 13,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "dataforseo api",
+      "is_data_found": true,
+      "volume": 260,
+      "cpc": 0.57,
+      "competition": 0.62,
+      "difficulty": 32,
+      "intents": [
+        "I",
+        "N"
+      ]
+    },
+    {
+      "keyword": "se ranking api",
+      "is_data_found": true,
+      "volume": 320,
+      "cpc": 4,
+      "competition": 0.16,
+      "difficulty": 20,
+      "intents": [
+        "I",
+        "N"
+      ]
+    },
+    {
+      "keyword": "se ranking review",
+      "is_data_found": true,
+      "volume": 10,
+      "cpc": 4,
+      "competition": 0.05,
+      "difficulty": 31,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "se ranking pricing",
+      "is_data_found": true,
+      "volume": 590,
+      "cpc": 4,
+      "competition": 0.26,
+      "difficulty": 20,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "se ranking alternatives",
+      "is_data_found": true,
+      "volume": 70,
+      "cpc": 11.09,
+      "competition": 0.08,
+      "difficulty": 16,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "mangools api",
+      "is_data_found": true,
+      "volume": 10,
+      "cpc": 13.06,
+      "competition": 0.51,
+      "difficulty": 37,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "mangools review",
+      "is_data_found": true,
+      "volume": 140,
+      "cpc": 2.99,
+      "competition": 0.05,
+      "difficulty": 21,
+      "intents": [
+        "I"
+      ]
+    },
+    {
+      "keyword": "mangools pricing",
+      "is_data_found": true,
+      "volume": 30,
+      "cpc": 5.08,
+      "competition": 0.52,
+      "difficulty": 23,
+      "intents": [
+        "I",
+        "N"
+      ]
+    },
+    {
+      "keyword": "mangools alternatives",
+      "is_data_found": true,
+      "volume": 110,
+      "cpc": 7.72,
+      "competition": 0.04,
+      "difficulty": 14,
+      "intents": [
+        "I"
+      ]
+    }
+  ]
+}
