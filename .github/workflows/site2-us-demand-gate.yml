@@ -1,0 +1,73 @@
+name: Site2 US Demand Gate
+
+on:
+  push:
+    paths:
+      - '.github/workflows/site2-us-demand-gate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    env:
+      SERANKING_API_KEY: ${{ secrets.SERANKING_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --quiet requests
+      - name: Collect US commercial keyword metrics
+        run: |
+          python - <<'PY'
+          import os,json,csv,io
+          from pathlib import Path
+          from datetime import datetime,timezone
+          import requests
+          key=os.environ['SERANKING_API_KEY']
+          kws=[
+          "serp api","best serp api","serp api pricing","serp api comparison","google serp api",
+          "seo api","best seo api","seo data api","seo api pricing",
+          "keyword api","keyword research api","keyword data api","best keyword api","keyword search volume api",
+          "rank tracking api","rank tracker api","keyword rank tracking api","google rank tracking api",
+          "backlink api","best backlink api","backlink data api","backlink checker api",
+          "ai search api","best ai search api","ai search data api","ai search visibility","ai visibility tools",
+          "ai visibility api","llm visibility tools","llm tracking tools","chatgpt visibility tools","chatgpt rank tracker",
+          "dataforseo","dataforseo review","dataforseo pricing","dataforseo alternatives","dataforseo api",
+          "se ranking api","se ranking review","se ranking pricing","se ranking alternatives",
+          "mangools api","mangools review","mangools pricing","mangools alternatives"
+          ]
+          s=requests.Session(); s.headers.update({"Authorization":f"Token {key}","Accept":"application/json","User-Agent":"SearchDataBench-Gate/1.0"})
+          before=s.get("https://api.seranking.com/v1/account/subscription",params={"output":"json"},timeout=60).json()
+          r=s.post("https://api.seranking.com/v1/keywords/export",params={"source":"us"},json={"keywords":kws,"sort":"volume","sort_order":"desc"},timeout=120)
+          data=r.json()
+          after=s.get("https://api.seranking.com/v1/account/subscription",params={"output":"json"},timeout=60).json()
+          out=Path("evidence/site2-opportunity-gate/2026-09-23"); out.mkdir(parents=True,exist_ok=True)
+          rows=[]
+          by={x.get("keyword"):x for x in data} if isinstance(data,list) else {}
+          for kw in kws:
+              x=by.get(kw,{"keyword":kw,"is_data_found":False})
+              rows.append({k:x.get(k) for k in ["keyword","is_data_found","volume","cpc","competition","difficulty","intents"]})
+          (out/"US-COMMERCIAL-KEYWORDS-001.json").write_text(json.dumps({"timestamp_utc":datetime.now(timezone.utc).isoformat(),"source":"SE Ranking Keyword Research API","database":"us","keywords":rows},indent=2,ensure_ascii=False)+"\n")
+          with (out/"US-COMMERCIAL-KEYWORDS-001.csv").open("w",newline="",encoding="utf-8") as f:
+              w=csv.DictWriter(f,fieldnames=["keyword","is_data_found","volume","cpc","competition","difficulty","intents"]); w.writeheader()
+              for x in rows:
+                  y=x.copy(); y["intents"]=",".join(y["intents"] or []); w.writerow(y)
+          found=[x for x in rows if x["is_data_found"]]
+          total=sum(int(x["volume"] or 0) for x in found)
+          md=["# Site #2 — US quantitative demand gate","",f"- Timestamp UTC: {datetime.now(timezone.utc).isoformat()}","- Database: US","- Provider: SE Ranking Keyword Research API",f"- Submitted keywords: {len(kws)}",f"- Data found: {len(found)}",f"- Naive sum of submitted keyword volumes (NOT deduplicated demand): {total:,}","","> Competition is paid-search competition (0–1); difficulty is organic KD (0–100). Naive volume sum must not be treated as unique market size because query overlap exists.","","| Keyword | Volume | CPC | Ads comp. | KD | Intent |","|---|---:|---:|---:|---:|---|"]
+          for x in rows:
+              md.append(f"| {x['keyword']} | {x['volume'] if x['volume'] is not None else 'N/A'} | {x['cpc'] if x['cpc'] is not None else 'N/A'} | {x['competition'] if x['competition'] is not None else 'N/A'} | {x['difficulty'] if x['difficulty'] is not None else 'N/A'} | {','.join(x['intents'] or [])} |")
+          (out/"US-COMMERCIAL-KEYWORDS-001.md").write_text("\n".join(md)+"\n",encoding="utf-8")
+          print("HTTP",r.status_code,"found",len(found),"naive volume",total)
+          PY
+      - name: Commit gate evidence
+        run: |
+          git config user.name "SelectVerdict Evidence Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add evidence/site2-opportunity-gate/2026-09-23/
+          git commit -m "Measure Site 2 US commercial search demand" || exit 0
+          git push
