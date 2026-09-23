@@ -143,3 +143,26 @@ The existing SE Ranking account route was checked directly, but the available cl
 SE Ranking remains `hasAffiliateRelationship: false`; its published destinations remain non-affiliate and retain merchant-click tracking. Mangools, frozen inputs, test results and editorial content were not changed. No paid action or new registration occurred.
 
 To change the status to VERIFIED, the project still requires the exact referral URL copied from the authenticated SelectVerdict SE Ranking Affiliate Program area plus an account-bound dashboard identifier or statistics observation tying that URL to the account.
+
+
+---
+
+## Post-checkpoint correction — SE Ranking affiliate URL verified
+
+**Correction added:** 2026-09-23 16:45:50 +05 (2026-09-23 11:45:50 UTC)  
+**Current result:** VERIFIED / INSTALLED
+
+The preceding UNKNOWN addendum records an earlier attempt and was superseded later on 2026-09-22. The authenticated affiliate-account workflow produced the verified SelectVerdict referral URL:
+
+`https://seranking.com/?ga=5265149&source=link`
+
+Current repository and production state:
+- `hasAffiliateRelationship: true` for SE Ranking;
+- installation commit: `97a79eb25afa8681f1f79ec26e2881374cff9557`;
+- affiliate-state QA commit: `d98e0d2d0222a16f72c38cac5eef73f29aea46fe`;
+- SE Ranking Review renders the verified affiliate link with disclosure, compliant link attributes and merchant-click tracking;
+- GitHub Editorial QA and subsequent Production Editorial QA passed;
+- Mangools, frozen Protocol v1, dataset, hands-on results, factual conclusions and main editorial text were not changed;
+- paid actions and fictitious conversions: none.
+
+The exact SE Ranking affiliate URL is no longer UNKNOWN. Only durable merchant-click totals remain `UNKNOWN / NOT COLLECTED` by design.

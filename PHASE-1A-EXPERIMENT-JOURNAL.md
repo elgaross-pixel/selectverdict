@@ -575,3 +575,26 @@ Missing proof:
 2. account-bound identifier or dashboard/statistics observation tying that URL to the SelectVerdict account.
 
 **Verdict: SE RANKING AFFILIATE URL VERIFICATION — UNKNOWN / NO INSTALLATION.**
+
+
+---
+
+## Correction — SE Ranking Affiliate URL verified later on 2026-09-22
+
+**Correction recorded:** 2026-09-23 16:45:50 +05 (2026-09-23 11:45:50 UTC)  
+**Current status:** VERIFIED / INSTALLED
+
+The earlier 2026-09-22 09:09 +05 verification attempt correctly described the evidence available at that moment, but it was superseded later the same day after the authenticated SE Ranking affiliate-account workflow produced the account-generated URL.
+
+Verified current state:
+- affiliate URL: `https://seranking.com/?ga=5265149&source=link`;
+- SelectVerdict account identifier carried by the URL: `ga=5265149`;
+- centralized product state: `hasAffiliateRelationship: true`;
+- installation commit: `97a79eb25afa8681f1f79ec26e2881374cff9557` (`Verify and enable SE Ranking affiliate link`);
+- QA commit: `d98e0d2d0222a16f72c38cac5eef73f29aea46fe` (`Update QA for verified SE Ranking affiliate state`);
+- SE Ranking review renders the affiliate destination through the centralized merchant-link architecture with visible disclosure and provider-neutral merchant-click tracking;
+- no purchase, fictitious conversion, paid action, frozen-input change or editorial-result change occurred.
+
+The previous `UNKNOWN / NO INSTALLATION` verdict is historical and **SUPERSEDED**. Durable merchant-click counts remain `UNKNOWN / NOT COLLECTED` by design.
+
+**Corrected verdict: SE RANKING AFFILIATE URL — VERIFIED / INSTALLED.**
