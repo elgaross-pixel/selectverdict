@@ -26,7 +26,7 @@ const systemeResearch = [
 
 const categoryEditorial: Record<string, CategoryEditorial> = {
   'marketing-automation': {
-    seoTitle: 'Marketing Automation: Selection Guide',
+    seoTitle: 'Marketing Automation Software: What to Compare & How to Choose',
     metaDescription: 'Compare marketing automation software by workflows, email, segmentation, funnel integration, CRM fit and operating complexity.',
     eyebrow: 'Marketing automation research',
     h1: 'Marketing Automation Software',
@@ -58,7 +58,7 @@ const categoryEditorial: Record<string, CategoryEditorial> = {
     ],
   },
   'sales-funnels': {
-    seoTitle: 'Sales Funnel Software: Selection Guide',
+    seoTitle: 'Sales Funnel Software: What to Compare Before You Choose',
     metaDescription: 'Compare sales funnel software by page building, lead capture, checkout, automation, testing, integrations and total operating complexity.',
     eyebrow: 'Sales funnel research',
     h1: 'Sales Funnel Software',
@@ -88,7 +88,7 @@ const categoryEditorial: Record<string, CategoryEditorial> = {
     ],
   },
   'online-course-platforms': {
-    seoTitle: 'Online Course Platforms: Selection Guide',
+    seoTitle: 'Online Course Platforms: What to Compare Before You Choose',
     metaDescription: 'Compare online course platforms by course delivery, student limits, memberships, payments, community, automation and creator-business fit.',
     eyebrow: 'Online course platform research',
     h1: 'Online Course Platforms',
