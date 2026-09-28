@@ -21,11 +21,12 @@ const systemeResearch = [
   { href: '/guides/systeme-io-free-plan/', label: 'Systeme.io Free plan: capabilities and constraints' },
   { href: '/guides/what-is-systeme-io/', label: 'What is Systeme.io? Platform and workflow overview' },
   { href: '/guides/is-systeme-io-legit/', label: 'Is Systeme.io legit? Evidence and buyer considerations' },
+  { href: '/guides/systeme-io-tutorial/', label: 'Systeme.io tutorial: build and verify a lead funnel' },
 ];
 
 const categoryEditorial: Record<string, CategoryEditorial> = {
   'marketing-automation': {
-    seoTitle: 'Marketing Automation Software: What to Compare & How to Choose',
+    seoTitle: 'Marketing Automation: Selection Guide',
     metaDescription: 'Compare marketing automation software by workflows, email, segmentation, funnel integration, CRM fit and operating complexity.',
     eyebrow: 'Marketing automation research',
     h1: 'Marketing Automation Software',
@@ -49,7 +50,7 @@ const categoryEditorial: Record<string, CategoryEditorial> = {
       paragraphs: ["SelectVerdict’s hands-on Systeme.io test verified the live funnel → form submission → contact in Contacts path. We then inspected the automation layer and created a paused workflow."],
       boundary: 'We did not complete a full outbound email-delivery test. Workflow construction is separate from evidence of executed follow-up or deliverability.',
     },
-    relatedResearch: systemeResearch,
+    relatedResearch: [...systemeResearch, { href: '/alternatives/systeme-io/', label: 'Systeme.io alternatives by workflow' }],
     closing: [
       'Start with the automation problem you need to solve. If you need basic lead capture and follow-up, an integrated all-in-one platform may be sufficient.',
       'If you need sophisticated segmentation, email logic, agency workflows, or CRM-heavy automation, a specialist or broader operating platform may be more appropriate.',
@@ -57,7 +58,7 @@ const categoryEditorial: Record<string, CategoryEditorial> = {
     ],
   },
   'sales-funnels': {
-    seoTitle: 'Sales Funnel Software: What to Compare Before You Choose',
+    seoTitle: 'Sales Funnel Software: Selection Guide',
     metaDescription: 'Compare sales funnel software by page building, lead capture, checkout, automation, testing, integrations and total operating complexity.',
     eyebrow: 'Sales funnel research',
     h1: 'Sales Funnel Software',
@@ -79,7 +80,7 @@ const categoryEditorial: Record<string, CategoryEditorial> = {
       steps: ['created a funnel;', 'published a live page;', 'submitted a test lead;', 'verified the contact inside Systeme.io;', 'inspected automation;', 'created a paused workflow.'],
       boundary: 'We did not test checkout or payment execution, and we did not complete an outbound email-delivery test. The verified lead-capture path does not establish that a purchase or automated follow-up was executed.',
     },
-    relatedResearch: systemeResearch,
+    relatedResearch: [...systemeResearch, { href: '/alternatives/clickfunnels/', label: 'ClickFunnels alternatives for different funnel stacks' }],
     closing: [
       'Choose funnel software based on the role funnels play in the business. If funnels are one part of a broader small-business stack, an integrated platform may be attractive.',
       'If funnel optimization itself is a core capability, a more specialized funnel-first platform may justify higher cost and complexity.',
@@ -87,7 +88,7 @@ const categoryEditorial: Record<string, CategoryEditorial> = {
     ],
   },
   'online-course-platforms': {
-    seoTitle: 'Online Course Platforms: What to Compare Before You Choose',
+    seoTitle: 'Online Course Platforms: Selection Guide',
     metaDescription: 'Compare online course platforms by course delivery, student limits, memberships, payments, community, automation and creator-business fit.',
     eyebrow: 'Online course platform research',
     h1: 'Online Course Platforms',
@@ -109,7 +110,7 @@ const categoryEditorial: Record<string, CategoryEditorial> = {
       paragraphs: ['Systeme.io includes online-course and community functionality as part of its broader platform.', 'SelectVerdict has researched current course-related plan information and limits, including direct Systeme.io Support clarification.'],
       boundary: 'SelectVerdict has not yet completed a full hands-on course-delivery test. Feature availability must not be treated as verified course experience.',
     },
-    relatedResearch: systemeResearch,
+    relatedResearch: [...systemeResearch, { href: '/alternatives/kajabi/', label: 'Kajabi alternatives for course businesses' }],
     closing: [
       'If the course itself is the core customer experience, compare platforms on learning delivery, student experience, memberships, community, and creator workflows.',
       'If the course is one part of a broader acquisition and sales system, an all-in-one platform may be more efficient.',
