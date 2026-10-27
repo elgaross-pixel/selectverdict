@@ -12,6 +12,8 @@ interface Props {
   schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 const props = Astro.props;
+// Disabled unless explicitly configured at build time after privacy review and collector deployment.
+const analyticsEndpoint = import.meta.env.PUBLIC_SV_ANALYTICS_ENDPOINT || '';
 ---
 <!doctype html>
 <html lang="en">
@@ -28,8 +30,21 @@ const props = Astro.props;
     <Header />
     <main id="main-content"><slot /></main>
     <Footer />
-    <script is:inline>
+    <script define:vars={{ analyticsEndpoint }} is:inline>
       (() => {
+        if (analyticsEndpoint) {
+          const params = new URLSearchParams(location.search);
+          const allowedSources = new Set(["reddit", "linkedin", "substack", "flipboard", "pinterest"]);
+          const source = params.get("utm_source") || "direct";
+          const campaign = params.get("utm_campaign") || "";
+          const attribution = { source: allowedSources.has(source) ? source : "other", medium: params.get("utm_medium") || "", campaign, content: params.get("utm_content") || "" };
+          const send = (event_type, merchant = "") => {
+            const payload = JSON.stringify({ ...attribution, event_type, source_page: location.pathname, merchant });
+            try { if (!navigator.sendBeacon || !navigator.sendBeacon(analyticsEndpoint, new Blob([payload], { type: "application/json" }))) fetch(analyticsEndpoint, { method: "POST", body: payload, headers: { "Content-Type": "application/json" }, keepalive: true }).catch(() => {}); } catch { /* analytics must not block navigation */ }
+          };
+          send("page_view");
+          window.addEventListener("selectverdict:merchant-click", (event) => send("merchant_click", event.detail?.merchant || ""));
+        }
         if (window.__selectVerdictMerchantTracking) return;
         window.__selectVerdictMerchantTracking = true;
         window.addEventListener('click', (event) => {
